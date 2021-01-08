@@ -18,7 +18,6 @@ app.listen(3000);
 
 // eslint-disable-next-line no-unused-vars
 app.get('/travelInfo', (req, res, next) => {
-    // res.send('aaa');
     request({
         uri: 'https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated',
         followAllRedirects: true,
