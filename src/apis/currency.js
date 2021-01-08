@@ -11,11 +11,25 @@ export const CurrencyClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                // country = this.data;
                 console.log(this.data);
             } else {
                 throw Error(this.data.Message);
             }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async gettravel() {
+        try {
+            this.res = await fetch('https://cors-anywhere.herokuapp.com/https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated?isMobile=false&locale=en-GB&market=TH&originId=29475320', {
+                method: 'GET',
+                headers: {
+                    origin: '127.0.0.1',
+                },
+            });
+            this.data = await this.res.json();
+            console.log(this.data);
         } catch (error) {
             console.log(error);
         }

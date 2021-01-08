@@ -13,6 +13,7 @@
     "rules": {
         "linebreak-style":"off",
         "indent": ["error", 4],
-        "class-methods-use-this":"off"
+        "class-methods-use-this":"off",
+        "no-multi-str":"off"
     }
 }
