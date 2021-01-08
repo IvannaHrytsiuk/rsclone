@@ -33,12 +33,142 @@ body{
     border-radius: .25rem;
     height: 175px;
 }
+
+.flight-radio-boxes {
+  label > input {
+    margin: 0;
+  }
+
+  label > span {
+    margin-right: 5px;
+    font-size: 16px;
+  }
+}
+
 .inputsFlex{
   display: flex;
   flex-wrap: wrap;
-  
+  margin-top: 15px;
+
   label{
     width: 100%;
     display: block;
+  }
+
+  div > label {
+    font-size: 12px;
+  }
+
+  div > input {
+    padding: 0;
+  }
+
+  div > input,
+  div > select {
+    border: none;
+    outline: none;
+    box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;
+    height: 40px;
+  }
+  
+  div:last-child {
+    width: calc(100% - 676px);
+  }
+
+  div > select {
+    width: 100%;
+  }
+
+  div:first-child {
+    position: relative;
+  }
+
+  div:first-child > input {
+    padding-right: 25px;
+    width: 144px;
+  }
+
+  .switch-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    width: 25px;
+    background-color: red;
+    outline: none;
+    border: none;
+  }
+}
+
+.up-checkboxes {
+  position: relative;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+
+  div:nth-child(1),
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    width: 169px;
+    font-size: 12px;
+
+    input {
+      margin: 0;
+    }
+
+    label {
+      margin-left: 5px;
+    }
+  }
+
+  div:nth-child(3) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 338px);
+    display: flex;
+    justify-content: flex-end;
+    min-width: 100px;
+  }
+
+  div:nth-child(3) > button {
+    font-size: 24px;
+    line-height: 30px;
+    background-color: #00a698;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 6px 24px;
+    outline: none;
+    border: none;
+  }
+
+  div:nth-child(3) > button:hover {
+    background-color: #00887d;
+    cursor: pointer;
+  }
+}
+
+.down-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin-top: 15px;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    input {
+      margin: 0;
+    }
+
+    label {
+      margin-left: 5px;
+    }
+  }
+  
+  div:nth-child(1) {
+    margin-right: 15px;
   }
 }

@@ -6,17 +6,17 @@ export class SearchFlightView {
                 <h1>Let the journey begin</h1>\
                 <div class="wrapperSearchInputs">\
                     <form>\
-                        <div>\
+                        <div class="flight-radio-boxes">\
                             <label>\
-                                <input type="radio">\
-                                <span>Return</span>\
+                                <input type="radio" name="flight-type" checked>\
+                                <span>Roundtrip</span>\
                             </label>\
                             <label>\
-                                <input type="radio">\
+                                <input type="radio" name="flight-type">\
                                 <span>One way</span>\
                             </label>\
                             <label>\
-                                <input type="radio">\
+                                <input type="radio" name="flight-type">\
                                 <span>Multi-city</span>\
                             </label>\
                         </div>\
@@ -24,6 +24,7 @@ export class SearchFlightView {
                             <div>\
                                 <label>From</label>\
                                 <input type="text">\
+                                <button class="switch-button">&harr;</button>\
                             </div>\
                             <div>\
                                 <label>To</label>\
@@ -42,6 +43,29 @@ export class SearchFlightView {
                                 <select>\
                                 <option>1</option>\
                                 </select>\
+                            </div>\
+                        </div>\
+                        <div class="up-checkboxes">\
+                            <div>\
+                                <input type="checkbox">\
+                                <label>Add nearby airports</label>\
+                            </div>\
+                            <div>\
+                                <input type="checkbox">\
+                                <label>Add nearby airports</label>\
+                            </div>\
+                            <div>\
+                                <button type="submit">Search flights &#10144;</button>\
+                            </div>\
+                        </div>\
+                        <div class="down-checkboxes">\
+                            <div>\
+                                <input type="checkbox">\
+                                <label>Non-stop flights only</label>\
+                            </div>\
+                            <div>\
+                                <input type="checkbox">\
+                                <label>Flexible tickets only</label>\
                             </div>\
                         </div>\
                     </form>\
