@@ -12,7 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/IvannaHrytsiuk/skyscanner.git"
   },
-  "keywords": [],
+  "keywords": [
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
