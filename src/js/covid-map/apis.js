@@ -24,4 +24,17 @@ async function getGeoJSONLayer() {
   return resultData;
 }
 
-export { getCountriesData, getGeoJSONLayer };
+async function getCountriesIso() {
+  const promiseOfCountriesLocations = fetch('https://corona.lmao.ninja/v2/countries')
+    .then((response) => (response.ok ? response.json() : Promise.reject(response)))
+    .catch(() => {
+      console.log('Error with getting Countries Locations Data for Map!');
+      return null;
+    });
+
+  const resultData = await promiseOfCountriesLocations;
+
+  return resultData;
+}
+
+export { getCountriesData, getGeoJSONLayer, getCountriesIso };
