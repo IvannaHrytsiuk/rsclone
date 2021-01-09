@@ -20,9 +20,9 @@ export const CurrencyClass = class {
         }
     }
 
-    async gettravel() {
+    async gettravel(id) {
         try {
-            this.res = await fetch('http://localhost:3000/travelInfo');
+            this.res = await fetch(`http://localhost:3000/travelInfo/${id}`);
             this.data = await this.res.json();
             console.log(this.data);
         } catch (error) {

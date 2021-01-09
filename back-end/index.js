@@ -17,7 +17,8 @@ app.use((req, res, next) => {
 app.listen(3000);
 
 // eslint-disable-next-line no-unused-vars
-app.get('/travelInfo', (req, res, next) => {
+app.get('/travelInfo/:id', (req, res, next) => {
+    const { id } = req.params;
     request({
         uri: 'https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated',
         followAllRedirects: true,
@@ -26,7 +27,7 @@ app.get('/travelInfo', (req, res, next) => {
             isMobile: 'false',
             locale: 'en-GB',
             market: 'TH',
-            originId: '29475320',
+            originId: id,
         },
         headers: {
             'User-Agent': 'PostmanRuntime/7.26.8',
