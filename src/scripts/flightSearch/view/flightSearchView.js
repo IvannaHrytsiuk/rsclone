@@ -41,4 +41,20 @@ export const FlightSearchView = class {
             setTimeout(() => this.paintSearchList(elem), 500);
         }
     }
+
+    dateView(elem, num) {
+        const someDate = new Date();
+        let mm = someDate.getMonth() + 1;
+        if (mm < 10) {
+            mm = `0${mm}`;
+        }
+        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`);
+        someDate.setDate(someDate.getDate() + num);
+        let mm2 = someDate.getMonth() + 1;
+        if (mm2 < 10) {
+            mm2 = `0${mm2}`;
+        }
+        // eslint-disable-next-line no-param-reassign
+        elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
+    }
 };

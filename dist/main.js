@@ -9,16 +9,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_nullStyle_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _scripts_flightSearch_controller_flightSearchControll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _apis_userLocation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
 ;
+
 
 
 
 
 const User = new _apis_userLocation__WEBPACK_IMPORTED_MODULE_3__.UserlocationClass();
 
-// window.addEventListener('load', () => {
-//     console.log('yes');
-// });
+window.addEventListener('load', () => {
+    const flightSearchView = new _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_4__.FlightSearchView();
+    flightSearchView.dateView(document.getElementById('departDate'), 8);
+    flightSearchView.dateView(document.getElementById('returnDate'), 15);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     User.getUserLocation();
@@ -630,6 +634,22 @@ const FlightSearchView = class {
         } else {
             setTimeout(() => this.paintSearchList(elem), 500);
         }
+    }
+
+    dateView(elem, num) {
+        const someDate = new Date();
+        let mm = someDate.getMonth() + 1;
+        if (mm < 10) {
+            mm = `0${mm}`;
+        }
+        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`);
+        someDate.setDate(someDate.getDate() + num);
+        let mm2 = someDate.getMonth() + 1;
+        if (mm2 < 10) {
+            mm2 = `0${mm2}`;
+        }
+        // eslint-disable-next-line no-param-reassign
+        elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
     }
 };
 
