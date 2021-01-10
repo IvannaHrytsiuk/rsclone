@@ -47,7 +47,6 @@ body{
 
 .inputsFlex{
   display: flex;
-  flex-wrap: wrap;
   margin-top: 15px;
 
   label{
@@ -61,6 +60,8 @@ body{
 
   div > input {
     padding: 0;
+    color: black;
+    padding: 10px;
   }
 
   div > input,
@@ -70,27 +71,23 @@ body{
     box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;
     height: 40px;
   }
-  
-  div:last-child {
-    width: calc(100% - 676px);
-  }
 
   div > select {
     width: 100%;
   }
 
-  div:first-child {
+  .from-to{
     position: relative;
+    width:30%;
   }
 
-  div:first-child > input {
+  .from-to > input {
     padding-right: 25px;
-    width: 144px;
+    width: 100%;
   }
 
   .switch-button {
     position: absolute;
-    bottom: 0;
     right: 0;
     height: 40px;
     width: 25px;
@@ -171,4 +168,55 @@ body{
   div:nth-child(1) {
     margin-right: 15px;
   }
+}
+.airportSearchFrom, .airportSearchTo{
+  width: 100%;
+  position: absolute;
+  color: #111236;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 1;
+  font-family: sans-serif;
+
+  li{
+    cursor: pointer;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    height: 65px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding: 5px 0;
+
+    &:hover{
+      background-color: rgb(241, 241, 241);
+    }
+  }
+}
+.listBlock{
+  display: flex;
+
+  div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+  }
+  img{
+    width: 20px;
+    height: 20px;
+  }
+}
+.listPlaceName{
+  font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+.listCountryName{
+  font-size: .75rem;
+    line-height: 1rem;
+    font-weight: 400;
 }

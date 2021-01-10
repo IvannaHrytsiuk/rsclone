@@ -11,7 +11,7 @@ export const CurrencyClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                console.log(this.data);
+                // console.log(this.data);
             } else {
                 throw Error(this.data.Message);
             }

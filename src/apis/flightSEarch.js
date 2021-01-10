@@ -1,4 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
+// eslint-disable-next-line import/no-mutable-exports
+export let searchAirportList;
+
 export const FlightSearchClass = class {
     async getListPlaces() {
         try {
@@ -12,10 +14,19 @@ export const FlightSearchClass = class {
             this.data = await this.res.json();
             if (this.data) {
                 // country = this.data;
-                console.log(this.data);
             } else {
                 throw Error(this.data.Message);
             }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getAirports(id) {
+        try {
+            this.res = await fetch(`http://localhost:3000/airportName/${id}`);
+            this.data = await this.res.json();
+            searchAirportList = this.data;
         } catch (error) {
             console.log(error);
         }

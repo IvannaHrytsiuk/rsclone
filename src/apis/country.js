@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-mutable-exports
+export let country;
 // eslint-disable-next-line import/prefer-default-export
 export const CountryClass = class {
     async getCountries() {
@@ -11,8 +13,8 @@ export const CountryClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                // country = this.data;
-                console.log(this.data);
+                country = this.data;
+                // console.log(country);
             } else {
                 throw Error(this.data.Message);
             }

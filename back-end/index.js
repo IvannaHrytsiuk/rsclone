@@ -34,3 +34,18 @@ app.get('/travelInfo/:id', (req, res, next) => {
         },
     }).pipe(res);
 });
+app.get('/airportName/:id', (req, res, next) => {
+    const { id } = req.params;
+    request({
+        uri: `https://www.skyscanner.co.th/g/autosuggest-flights/TH/en-GB/${id}`,
+        followAllRedirects: true,
+        method: 'GET',
+        qs: {
+            isDestination: 'false',
+            enable_general_search_v2: 'true',
+        },
+        headers: {
+            'User-Agent': 'PostmanRuntime/7.26.8',
+        },
+    }).pipe(res);
+});

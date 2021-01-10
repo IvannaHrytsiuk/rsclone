@@ -8,7 +8,79 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></head>
 <body>
-    
+    <div class="wrapperSearch">
+        <div class="searchBlock">
+            <h1>Let the journey begin</h1>
+            <div class="wrapperSearchInputs">
+                <form>
+                    <div class="flight-radio-boxes">
+                        <label>
+                            <input type="radio" name="flight-type" checked>
+                            <span>Roundtrip</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="flight-type">
+                            <span>One way</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="flight-type">
+                            <span>Multi-city</span>
+                        </label>
+                    </div>
+                    <div class="inputsFlex">
+                        <div class="from-to">
+                            <label>From</label>
+                            <input type="text" id="searchFrom" placeholder="Country, city or airport">
+                            <ul class="airportSearchFrom"></ul>
+                            <button class="switch-button">&harr;</button>
+                        </div>
+                        <div class="from-to">
+                            <label>To</label>
+                            <input type="text" id="searchTo" placeholder="Country, city or airport">
+                            <ul class="airportSearchTo"></ul>
+                        </div>
+                        <div>
+                            <label>Depart</label>
+                            <input id="datepicker" type="text">
+                        </div>
+                        <div>
+                            <label>Return</label>
+                            <input type="text" class="dateselect">
+                        </div>
+                        <div>
+                            <label>Cabin Class & Travellers</label>
+                            <select>
+                                <option>1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="up-checkboxes">
+                        <div>
+                            <input type="checkbox">
+                            <label>Add nearby airports</label>
+                        </div>
+                        <div>
+                            <input type="checkbox">
+                            <label>Add nearby airports</label>
+                        </div>
+                        <div>
+                            <button type="submit">Search flights &#10144;</button>
+                        </div>
+                    </div>
+                    <div class="down-checkboxes">
+                        <div>
+                            <input type="checkbox">
+                            <label>Non-stop flights only</label>
+                        </div>
+                        <div>
+                            <input type="checkbox">
+                            <label>Flexible tickets only</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>';
     <script src="main.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-mutable-exports
-export let country;
+export let userCountry;
 
 export const UserlocationClass = class {
     async getUserLocation() {
@@ -8,8 +8,7 @@ export const UserlocationClass = class {
             this.res = await fetch(this.url);
             this.data = await this.res.json();
             if (this.data) {
-                country = this.data;
-                console.log(country);
+                userCountry = this.data;
             } else {
                 throw Error(this.data.Message);
             }
