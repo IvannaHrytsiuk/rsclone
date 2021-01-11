@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
     const flightSearchView = new FlightSearchView();
     flightSearchView.dateView(document.getElementById('departDate'), 8);
     flightSearchView.dateView(document.getElementById('returnDate'), 15);
+    flightSearchView.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

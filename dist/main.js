@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
     const flightSearchView = new _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_4__.FlightSearchView();
     flightSearchView.dateView(document.getElementById('departDate'), 8);
     flightSearchView.dateView(document.getElementById('returnDate'), 15);
+    flightSearchView.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -342,7 +343,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  color: white;\n  font-family: sans-serif; }\n\n.wrapperSearch {\n  background-image: url(\"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/shutterstock_539058235.jpg?alt=media&token=9ee36da4-40a4-4fa1-92a3-c594f69eead8\");\n  background-position: center;\n  width: 100%;\n  height: 500px;\n  background-size: cover;\n  position: relative; }\n\n.searchBlock {\n  width: 90%;\n  height: 400px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n  .searchBlock h1 {\n    font-size: 4.75rem;\n    padding: 0 0 1.875rem 1.5rem;\n    line-height: 1.3;\n    font-weight: 700;\n    letter-spacing: normal; }\n\n.wrapperSearchInputs {\n  margin: 0 auto;\n  padding: 1.5rem;\n  background-color: #02122c;\n  border-radius: .25rem;\n  height: 175px; }\n\n.flight-radio-boxes label > input {\n  margin: 0; }\n\n.flight-radio-boxes label > span {\n  margin-right: 5px;\n  font-size: 16px; }\n\n.inputsFlex {\n  display: flex;\n  margin-top: 15px; }\n  .inputsFlex label {\n    width: 100%;\n    display: block; }\n  .inputsFlex div > label {\n    font-size: 12px; }\n  .inputsFlex div > input {\n    padding: 0;\n    color: black;\n    padding: 10px; }\n  .inputsFlex div > input,\n  .inputsFlex div > select {\n    border: none;\n    outline: none;\n    box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;\n    height: 40px; }\n  .inputsFlex div > select {\n    width: 100%; }\n  .inputsFlex .from-to {\n    position: relative;\n    width: 30%; }\n  .inputsFlex .from-to > input {\n    padding-right: 25px;\n    width: 100%; }\n  .inputsFlex .switch-button {\n    position: absolute;\n    right: 0;\n    height: 40px;\n    width: 25px;\n    background-color: red;\n    outline: none;\n    border: none; }\n\n.up-checkboxes {\n  position: relative;\n  margin-top: 15px;\n  display: flex;\n  flex-wrap: wrap; }\n  .up-checkboxes div:nth-child(1),\n  .up-checkboxes div:nth-child(2) {\n    display: flex;\n    align-items: center;\n    width: 169px;\n    font-size: 12px; }\n    .up-checkboxes div:nth-child(1) input,\n    .up-checkboxes div:nth-child(2) input {\n      margin: 0; }\n    .up-checkboxes div:nth-child(1) label,\n    .up-checkboxes div:nth-child(2) label {\n      margin-left: 5px; }\n  .up-checkboxes div:nth-child(3) {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: calc(100% - 338px);\n    display: flex;\n    justify-content: flex-end;\n    min-width: 100px; }\n  .up-checkboxes div:nth-child(3) > button {\n    font-size: 24px;\n    line-height: 30px;\n    background-color: #00a698;\n    color: #ffffff;\n    border-radius: 4px;\n    padding: 6px 24px;\n    outline: none;\n    border: none; }\n  .up-checkboxes div:nth-child(3) > button:hover {\n    background-color: #00887d;\n    cursor: pointer; }\n\n.down-checkboxes {\n  display: flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n  margin-top: 15px; }\n  .down-checkboxes div {\n    display: flex;\n    align-items: center; }\n    .down-checkboxes div input {\n      margin: 0; }\n    .down-checkboxes div label {\n      margin-left: 5px; }\n  .down-checkboxes div:nth-child(1) {\n    margin-right: 15px; }\n\n.airportSearchFrom, .airportSearchTo {\n  width: 100%;\n  position: absolute;\n  color: #111236;\n  font-size: 1rem;\n  line-height: 1.3rem;\n  background-color: white;\n  border-radius: 10px;\n  z-index: 1;\n  font-family: sans-serif; }\n  .airportSearchFrom li, .airportSearchTo li {\n    cursor: pointer;\n    margin: 0;\n    font-size: 1rem;\n    line-height: 1.25rem;\n    font-weight: 400;\n    height: 65px;\n    border-bottom: 1px solid lightgray;\n    border-top: 1px solid lightgray;\n    padding: 5px 0; }\n    .airportSearchFrom li:hover, .airportSearchTo li:hover {\n      background-color: #f1f1f1; }\n\n.listBlock {\n  display: flex; }\n  .listBlock div:first-child {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 20%; }\n  .listBlock img {\n    width: 20px;\n    height: 20px; }\n\n.listPlaceName {\n  font-size: 1rem;\n  line-height: 1.25rem;\n  font-weight: 400; }\n\n.listCountryName {\n  font-size: .75rem;\n  line-height: 1rem;\n  font-weight: 400; }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  color: white;\n  font-family: sans-serif; }\n\n.wrapperSearch {\n  background-image: url(\"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/shutterstock_539058235.jpg?alt=media&token=9ee36da4-40a4-4fa1-92a3-c594f69eead8\");\n  background-position: center;\n  width: 100%;\n  height: 500px;\n  background-size: cover;\n  position: relative; }\n\n.searchBlock {\n  width: 90%;\n  height: 400px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n  .searchBlock h1 {\n    font-size: 4.75rem;\n    padding: 0 0 1.875rem 1.5rem;\n    line-height: 1.3;\n    font-weight: 700;\n    letter-spacing: normal; }\n\n.wrapperSearchInputs {\n  margin: 0 auto;\n  padding: 1.5rem;\n  background-color: #02122c;\n  border-radius: .25rem;\n  height: 175px; }\n\n.flight-radio-boxes label > input {\n  margin: 0; }\n\n.flight-radio-boxes label > span {\n  margin-right: 5px;\n  font-size: 16px; }\n\n.inputsFlex {\n  display: flex;\n  margin-top: 15px; }\n  .inputsFlex input {\n    font-family: sans-serif; }\n  .inputsFlex label {\n    width: 100%;\n    display: block; }\n  .inputsFlex div > label {\n    font-size: 12px; }\n  .inputsFlex div > input {\n    padding: 0;\n    color: black;\n    padding: 10px; }\n  .inputsFlex div > input,\n  .inputsFlex div > select {\n    border: none;\n    outline: none;\n    box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;\n    height: 40px; }\n  .inputsFlex div > select {\n    width: 100%; }\n  .inputsFlex .from-to {\n    position: relative;\n    width: 23%; }\n  .inputsFlex .from-to > input {\n    padding-right: 25px;\n    width: 100%; }\n  .inputsFlex .switch-button {\n    position: absolute;\n    right: 0;\n    height: 40px;\n    width: 25px;\n    background-color: red;\n    outline: none;\n    border: none; }\n\n.up-checkboxes {\n  position: relative;\n  margin-top: 15px;\n  display: flex;\n  flex-wrap: wrap; }\n  .up-checkboxes div:nth-child(1),\n  .up-checkboxes div:nth-child(2) {\n    display: flex;\n    align-items: center;\n    width: 169px;\n    font-size: 12px; }\n    .up-checkboxes div:nth-child(1) input,\n    .up-checkboxes div:nth-child(2) input {\n      margin: 0; }\n    .up-checkboxes div:nth-child(1) label,\n    .up-checkboxes div:nth-child(2) label {\n      margin-left: 5px; }\n  .up-checkboxes div:nth-child(3) {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: calc(100% - 338px);\n    display: flex;\n    justify-content: flex-end;\n    min-width: 100px; }\n  .up-checkboxes div:nth-child(3) > button {\n    font-size: 24px;\n    line-height: 30px;\n    background-color: #00a698;\n    color: #ffffff;\n    border-radius: 4px;\n    padding: 6px 24px;\n    outline: none;\n    border: none; }\n  .up-checkboxes div:nth-child(3) > button:hover {\n    background-color: #00887d;\n    cursor: pointer; }\n\n.down-checkboxes {\n  display: flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n  margin-top: 15px; }\n  .down-checkboxes div {\n    display: flex;\n    align-items: center; }\n    .down-checkboxes div input {\n      margin: 0; }\n    .down-checkboxes div label {\n      margin-left: 5px; }\n  .down-checkboxes div:nth-child(1) {\n    margin-right: 15px; }\n\n.classAdults {\n  width: 30%;\n  color: #111236; }\n  .classAdults #classAdultsInp {\n    width: 100%; }\n\n.airportSearchFrom, .airportSearchTo {\n  width: 500px;\n  position: absolute;\n  color: #111236;\n  font-size: 1rem;\n  line-height: 1.3rem;\n  background-color: white;\n  border-radius: 10px;\n  z-index: 1;\n  font-family: sans-serif;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1; }\n  .airportSearchFrom li, .airportSearchTo li {\n    cursor: pointer;\n    margin: 0;\n    font-size: 1rem;\n    line-height: 1.25rem;\n    font-weight: 400;\n    height: 50px;\n    border-bottom: 1px solid lightgray;\n    border-top: 1px solid lightgray;\n    padding: 5px 0; }\n    .airportSearchFrom li:hover, .airportSearchTo li:hover {\n      background-color: #f1f1f1; }\n\n.listBlock {\n  display: flex; }\n  .listBlock div:first-child {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 20%; }\n  .listBlock img {\n    width: 20px;\n    height: 20px; }\n\n.listPlaceName {\n  font-size: 1rem;\n  line-height: 1.25rem;\n  font-weight: 400; }\n\n.listCountryName {\n  font-size: .75rem;\n  line-height: 1rem;\n  font-weight: 400; }\n\n.classAdultsModal {\n  width: 350px;\n  background-color: white;\n  border-radius: 10px;\n  position: absolute;\n  z-index: 1;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1;\n  padding: 15px;\n  display: none; }\n  .classAdultsModal hr {\n    margin: 0px 0 10px 0;\n    border-top: 1px solid lightgray; }\n  .classAdultsModal .hearders {\n    padding: .75rem 0 .375rem;\n    font-size: 1rem;\n    font-weight: 700;\n    color: #111236;\n    line-height: 1rem; }\n  .classAdultsModal div {\n    padding: .75rem 10px .375rem;\n    font-size: .77rem;\n    color: #111236;\n    line-height: 1rem;\n    background-color: #f3f2f5;\n    border-radius: 5px;\n    text-align: justify; }\n    .classAdultsModal div strong {\n      display: block;\n      font-weight: 700; }\n  .classAdultsModal .closeBtn {\n    color: #084eb2;\n    text-align: right;\n    cursor: pointer;\n    font-weight: 700;\n    font-family: sans-serif; }\n    .classAdultsModal .closeBtn:hover {\n      text-decoration: underline; }\n\n.counterTicket {\n  width: 40px;\n  border: none;\n  outline: none;\n  font-size: 2rem;\n  box-shadow: none !important;\n  background-color: #fff;\n  font-family: sans-serif; }\n\n.counterButton {\n  color: #084eb2;\n  background-color: #fff;\n  border-radius: 50%;\n  outline: none;\n  font-weight: 700;\n  line-height: 1.5rem;\n  text-align: center;\n  cursor: pointer;\n  font-size: 2rem;\n  border: 2px solid lightgray;\n  padding: 5px;\n  width: 37px;\n  height: 37px; }\n  .counterButton:hover {\n    border: 2px solid #084eb2; }\n  .counterButton:disabled {\n    background-color: #dddde5;\n    color: #b2b2bf;\n    cursor: not-allowed; }\n    .counterButton:disabled:hover {\n      border: 2px solid lightgray; }\n\n.countSpan {\n  font-size: 1rem;\n  padding-left: 10px;\n  display: inline-block; }\n\n.classAdultsTxt {\n  padding: 0.5rem 0 1.1rem 0;\n  color: #817b8f;\n  font-size: .77rem;\n  line-height: 1.125rem;\n  font-family: sans-serif;\n  text-align: justify; }\n\n#classAdultsInp:read-only {\n  cursor: pointer; }\n\n.ifChild {\n  width: 100%;\n  height: 100%; }\n  .ifChild option {\n    height: 30px;\n    font-size: 18px; }\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -500,17 +501,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _apis_userLocation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
 ;
+
 
 
 
 const searchFrom = document.getElementById('searchFrom');
 const searchTo = document.getElementById('searchTo');
+const flightSearchModel = new _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_3__.FlightSearchModel();
+const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
 
 searchFrom.addEventListener('keyup', (e) => {
     const flightSearchClass = new _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.FlightSearchClass();
     flightSearchClass.getAirports(e.target.value);
-    const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
     view.paintSearchList(document.querySelector('.airportSearchFrom'));
 });
 searchFrom.addEventListener('focus', () => {
@@ -518,13 +522,11 @@ searchFrom.addEventListener('focus', () => {
     searchFrom.value = '';
     const flightSearchClass = new _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.FlightSearchClass();
     flightSearchClass.getAirports(_apis_userLocation__WEBPACK_IMPORTED_MODULE_1__.userCountry.country);
-    const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
     view.paintSearchList(document.querySelector('.airportSearchFrom'));
 });
 searchTo.addEventListener('keyup', (e) => {
     const flightSearchClass = new _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.FlightSearchClass();
     flightSearchClass.getAirports(e.target.value);
-    const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
     view.paintSearchList(document.querySelector('.airportSearchTo'));
 });
 searchTo.addEventListener('focus', () => {
@@ -532,8 +534,37 @@ searchTo.addEventListener('focus', () => {
     searchTo.value = '';
     const flightSearchClass = new _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.FlightSearchClass();
     flightSearchClass.getAirports(_apis_userLocation__WEBPACK_IMPORTED_MODULE_1__.userCountry.country);
-    const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
     view.paintSearchList(document.querySelector('.airportSearchTo'));
+});
+
+document.getElementById('classAdultsInp').addEventListener('click', () => {
+    document.querySelector('.classAdultsModal').style.display = 'block';
+});
+document.querySelector('.closeBtn').addEventListener('click', () => {
+    document.querySelector('.classAdultsModal').style.display = 'none';
+});
+
+document.getElementById('adultsPlus').addEventListener('click', () => {
+    flightSearchModel.counterPlus(document.getElementById('adultsCount'));
+    view.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
+    flightSearchModel.manageDisableAdults();
+});
+document.getElementById('adultsMinus').addEventListener('click', () => {
+    flightSearchModel.counterMinus(document.getElementById('adultsCount'));
+    view.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
+    flightSearchModel.manageDisableAdults();
+});
+document.getElementById('childPlus').addEventListener('click', () => {
+    flightSearchModel.counterPlus(document.getElementById('childCount'));
+    view.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
+    flightSearchModel.manageDisableChild();
+    view.childAge();
+});
+document.getElementById('childMinus').addEventListener('click', () => {
+    flightSearchModel.counterMinus(document.getElementById('childCount'));
+    view.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
+    flightSearchModel.manageDisableChild();
+    view.childAge();
 });
 
 
@@ -650,6 +681,123 @@ const FlightSearchView = class {
         }
         // eslint-disable-next-line no-param-reassign
         elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
+    }
+
+    counterView(value1, value2) {
+        let travelersname;
+        const sumValues = +value1 + +value2;
+        // eslint-disable-next-line radix
+        if (sumValues === 1) {
+            travelersname = 'adult';
+        } else {
+            travelersname = 'travellers';
+        }
+        // eslint-disable-next-line radix
+        document.getElementById('classAdultsInp').value = `${sumValues} ${travelersname}, Economy`;
+    }
+
+    childAge() {
+        document.querySelector('.ifChild').innerHTML = '';
+        // eslint-disable-next-line radix
+        for (let i = 0; i < parseInt(document.getElementById('childCount').value); i += 1) {
+            document.querySelector('.ifChild').innerHTML += `<p class="hearders">Age of child ${i + 1}</p>\
+            <select id="child${i + 1}">
+                <option selected disabled>Select age</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>`;
+        }
+    }
+};
+
+
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FlightSearchModel": () => /* binding */ FlightSearchModel
+/* harmony export */ });
+// eslint-disable-next-line import/prefer-default-export
+const FlightSearchModel = class {
+    counterMinus(elem) {
+        let value = +elem.value;
+        if (elem === document.getElementById('adultsCount')) {
+            if (value > 1) {
+                // eslint-disable-next-line no-param-reassign
+                value -= 1;
+            } else {
+                // eslint-disable-next-line no-param-reassign
+                value = 1;
+            }
+        } else {
+            // eslint-disable-next-line no-lonely-if
+            if (value > 0) {
+                // eslint-disable-next-line no-param-reassign
+                value -= 1;
+            } else {
+                // eslint-disable-next-line no-param-reassign
+                value = 0;
+            }
+        }
+        // eslint-disable-next-line no-param-reassign
+        elem.value = value;
+    }
+
+    counterPlus(elem) {
+        let value = +elem.value;
+        if (value <= 8) {
+            // eslint-disable-next-line no-param-reassign
+            value += 1;
+        } else {
+            // eslint-disable-next-line no-param-reassign
+            value = 9;
+        }
+        // eslint-disable-next-line no-param-reassign
+        elem.value = value;
+    }
+
+    manageDisableAdults() {
+        if (document.getElementById('adultsCount').value === '9') {
+            document.getElementById('adultsPlus').setAttribute('disabled', true);
+        } else {
+            document.getElementById('adultsPlus').removeAttribute('disabled');
+        }
+        // eslint-disable-next-line radix
+        if (parseInt(document.getElementById('adultsCount').value) > 1) {
+            document.getElementById('adultsMinus').removeAttribute('disabled');
+        } else {
+            document.getElementById('adultsMinus').setAttribute('disabled', true);
+        }
+    }
+
+    manageDisableChild() {
+        if (document.getElementById('childCount').value === '9') {
+            document.getElementById('childPlus').setAttribute('disabled', true);
+        } else {
+            document.getElementById('childPlus').removeAttribute('disabled');
+        }
+        // eslint-disable-next-line radix
+        if (parseInt(document.getElementById('childCount').value) > 0) {
+            document.getElementById('childMinus').removeAttribute('disabled');
+        } else {
+            document.getElementById('childMinus').setAttribute('disabled', true);
+        }
     }
 };
 

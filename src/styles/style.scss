@@ -48,7 +48,9 @@ body{
 .inputsFlex{
   display: flex;
   margin-top: 15px;
-
+  input{
+    font-family: sans-serif;
+  }
   label{
     width: 100%;
     display: block;
@@ -78,7 +80,7 @@ body{
 
   .from-to{
     position: relative;
-    width:30%;
+    width:23%;
   }
 
   .from-to > input {
@@ -169,8 +171,16 @@ body{
     margin-right: 15px;
   }
 }
+.classAdults{
+  width: 30%;
+  color: #111236;
+  #classAdultsInp{
+    width: 100%;
+  }
+}
+
 .airportSearchFrom, .airportSearchTo{
-  width: 100%;
+  width: 500px;
   position: absolute;
   color: #111236;
   font-size: 1rem;
@@ -179,14 +189,16 @@ body{
   border-radius: 10px;
   z-index: 1;
   font-family: sans-serif;
-
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
   li{
     cursor: pointer;
     margin: 0;
     font-size: 1rem;
     line-height: 1.25rem;
     font-weight: 400;
-    height: 65px;
+    height: 50px;
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
     padding: 5px 0;
@@ -219,4 +231,113 @@ body{
   font-size: .75rem;
     line-height: 1rem;
     font-weight: 400;
+}
+.classAdultsModal{
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
+  padding: 15px;
+  display: none;
+
+  hr{
+    margin: 0px 0 10px 0;
+    border-top: 1px solid lightgray;
+  }
+
+  .hearders{
+    padding: .75rem 0 .375rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111236;
+    line-height: 1rem;
+  }
+  div{
+    padding: .75rem 10px .375rem;
+    font-size: .77rem;
+    color: #111236;
+    line-height: 1rem;
+    background-color: #f3f2f5;
+    border-radius: 5px;
+    text-align: justify;
+    strong{
+      display: block;
+      font-weight: 700;
+    }
+  }
+  .closeBtn{
+    color:#084eb2;
+    text-align: right;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: sans-serif;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+.counterTicket{
+  width: 40px;
+  border:none;
+  outline: none;
+  font-size: 2rem;
+  box-shadow: none !important;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+.counterButton{
+  color: #084eb2;
+  background-color: #fff;
+  border-radius: 50%;
+  outline: none;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+  border:2px solid lightgray;
+  padding: 5px;
+  width: 37px;
+  height: 37px;
+  &:hover{
+    border: 2px solid #084eb2;
+  }
+  &:disabled{
+    background-color: #dddde5;
+    color:#b2b2bf;
+    cursor: not-allowed;
+    &:hover{
+      border:2px solid lightgray;
+    }
+  }
+}
+.countSpan{
+  font-size: 1rem;
+  padding-left: 10px;
+  display: inline-block;
+}
+.classAdultsTxt{
+  padding: 0.5rem 0 1.1rem 0;
+    color: #817b8f;
+    font-size: .77rem;
+    line-height: 1.125rem;
+    font-family: sans-serif;
+    text-align: justify;
+}
+#classAdultsInp{
+  &:read-only{
+    cursor: pointer;
+  }
+}
+.ifChild{
+  width:100%;
+  height: 100%;
+  option{
+    height: 30px;
+    font-size: 18px;
+  }
 }

@@ -47,11 +47,32 @@
                             <label>Return</label>
                             <input type="date" id="returnDate"  max="2023-01-01">
                         </div>
-                        <div>
+                        <div class="classAdults">
                             <label>Cabin Class & Travellers</label>
-                            <select>
-                                <option>1</option>
-                            </select>
+                            <input type="text" id="classAdultsInp" readonly>
+                            <div class="classAdultsModal">
+                                <p class="hearders">Cabin class</p>
+                                <div>
+                                    <strong>We can show only Economy prices for this search.</strong>
+                                    <span>To see Business and First Class options, please tell us your exact dates and/or destination city.</span>
+                                </div>
+                                <p class="hearders">Adults</p>
+                                <button class="counterButton" type="button" id="adultsMinus" disabled><span>-</span></button>
+                                <input type="text" class="counterTicket" id="adultsCount" disabled value="1">
+                                <button class="counterButton" type="button" id="adultsPlus"><span>+</span></button>
+                                <span class="countSpan">16+ years</span>
+                                <p class="hearders">Children</p>
+                                <button class="counterButton" type="button" id="childMinus" disabled><span>-</span></button>
+                                <input type="text" class="counterTicket" id="childCount" disabled value="0">
+                                <button class="counterButton" type="button" id="childPlus"><span>+</span></button>
+                                <span class="countSpan">0-15 years</span>
+                                <div class="ifChild">
+                                </div>
+                                <p class="classAdultsTxt">Your age at time of travel must be valid for the age category booked. Airlines have restrictions on under 18s travelling alone.</p>
+                                <p class="classAdultsTxt">Age limits and policies for travelling with children may vary so please check with the airline before booking.</p>
+                                <hr>
+                                <p class="closeBtn">Done</p>
+                            </div>
                         </div>
                     </div>
                     <div class="up-checkboxes">

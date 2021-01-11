@@ -57,4 +57,44 @@ export const FlightSearchView = class {
         // eslint-disable-next-line no-param-reassign
         elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
     }
+
+    counterView(value1, value2) {
+        let travelersname;
+        const sumValues = +value1 + +value2;
+        // eslint-disable-next-line radix
+        if (sumValues === 1) {
+            travelersname = 'adult';
+        } else {
+            travelersname = 'travellers';
+        }
+        // eslint-disable-next-line radix
+        document.getElementById('classAdultsInp').value = `${sumValues} ${travelersname}, Economy`;
+    }
+
+    childAge() {
+        document.querySelector('.ifChild').innerHTML = '';
+        // eslint-disable-next-line radix
+        for (let i = 0; i < parseInt(document.getElementById('childCount').value); i += 1) {
+            document.querySelector('.ifChild').innerHTML += `<p class="hearders">Age of child ${i + 1}</p>\
+            <select id="child${i + 1}">
+                <option selected disabled>Select age</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>`;
+        }
+    }
 };
