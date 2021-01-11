@@ -9,11 +9,11 @@ const mapOptions = {
   zoom: 1,
 };
 
-const myCustomStyle = {
-  stroke: true,
-  weight: 0.5,
-  fill: true,
-  fillColor: 'red',
+const statusColors = {
+  UNKNOWN: 'gray',
+  LOW: 'green',
+  MODERATE: 'yellow',
+  MAJOR: 'red',
 };
 
 const map = new L.map('covid-map', mapOptions);
@@ -44,35 +44,63 @@ map.addLayer(layer);
 
 map.createPane('paneForGeoJSON').style.zIndex = 1000;
 
+let geojson;
+let currentCountryId;
 let countriesData;
 let countriesIso;
 let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
 
+function getColor(status) {
+  return statusColors[status];
+}
+
+function style(feature) {
+  return {
+    fillColor: feature.properties.country_id === currentCountryId ? 'grey' : getColor(feature.properties.restrictions.master_travel_status),
+    color: 'white',
+    fill: true,
+    stroke: true,
+    weight: 0.1,
+  };
+}
+
+function setGeoJSON() {
+  geojson = L.geoJson(geoJsonLayer, {
+    pane: 'paneForGeoJSON',
+    clickable: false,
+    style,
+  }).addTo(map);
+}
+
 function collectCountriesData() {
   if (firstChange) {
     countriesIso2 = countriesData.features.map((obj) => obj.properties.country_code);
     geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso2
-      .indexOf(obj.properties.iso2) !== -1);
+      .indexOf(obj.properties.iso2) !== -1 && obj.properties.iso2 !== 'EH');
     firstChange = false;
   }
   geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
     const country = obj;
     country.properties.restrictions = countriesData.features[countriesIso2
       .indexOf(country.properties.iso2)].properties.restrictions;
+    country.properties.country_id = countriesData.features[countriesIso2
+      .indexOf(country.properties.iso2)].properties.country_id;
     return country;
   });
-  L.geoJson(geoJsonLayer, {
-    pane: 'paneForGeoJSON',
-    clickable: false,
-    style: myCustomStyle,
-  }).addTo(map);
+  if (!geojson) {
+    setGeoJSON();
+  } else {
+    map.removeLayer(geojson);
+    setGeoJSON();
+  }
   console.log(geoJsonLayer);
 }
 
 document.querySelector('#countries').addEventListener('change', async (e) => {
-  countriesData = await getCountriesData(e.target.value);
+  currentCountryId = e.target.value;
+  countriesData = await getCountriesData(currentCountryId);
   collectCountriesData();
 });
 
