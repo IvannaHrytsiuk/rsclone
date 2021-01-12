@@ -1,8 +1,8 @@
 import { searchAirportList } from '../../../apis/flightSEarch';
 
-// eslint-disable-next-line import/no-mutable-exports
 export let fromAirport;
-// eslint-disable-next-line import/prefer-default-export
+export let toAirport;
+
 export const FlightSearchView = class {
     paintSearchList(elem) {
         // eslint-disable-next-line no-param-reassign
@@ -14,7 +14,12 @@ export const FlightSearchView = class {
                     li.classList.add('placeList');
                     // eslint-disable-next-line no-loop-func
                     li.addEventListener('click', () => {
-                        fromAirport = searchAirportList[i];
+                        console.log(elem);
+                        if (elem === document.querySelector('.airportSearchFrom')) {
+                            fromAirport = searchAirportList[i];
+                        } else {
+                            toAirport = searchAirportList[i];
+                        }
                         // eslint-disable-next-line no-param-reassign
                         elem.innerHTML = '';
                         // eslint-disable-next-line no-param-reassign
@@ -27,7 +32,12 @@ export const FlightSearchView = class {
                     li.classList.add('placeList');
                     // eslint-disable-next-line no-loop-func
                     li.addEventListener('click', () => {
-                        fromAirport = searchAirportList[i];
+                        console.log(elem);
+                        if (elem === document.querySelector('.airportSearchFrom')) {
+                            fromAirport = searchAirportList[i];
+                        } else {
+                            toAirport = searchAirportList[i];
+                        }
                         // eslint-disable-next-line no-param-reassign
                         elem.innerHTML = '';
                         // eslint-disable-next-line no-param-reassign

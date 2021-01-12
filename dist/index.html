@@ -15,15 +15,15 @@
                 <form>
                     <div class="flight-radio-boxes">
                         <label>
-                            <input type="radio" name="flight-type" checked>
+                            <input type="radio" name="flight-type" checked value="2">
                             <span>Return</span>
                         </label>
                         <label>
-                            <input type="radio" name="flight-type">
+                            <input type="radio" name="flight-type" value="1">
                             <span>One way</span>
                         </label>
                         <label>
-                            <input type="radio" name="flight-type">
+                            <input type="radio" name="flight-type" value="3">
                             <span>Multi-city</span>
                         </label>
                     </div>
@@ -44,7 +44,7 @@
                             <input type="date" id="departDate" max="2023-01-01">
                         </div>
                         <div>
-                            <label>Return</label>
+                            <label id="returnDateLabel">Return</label>
                             <input type="date" id="returnDate"  max="2023-01-01">
                         </div>
                         <div class="classAdults">
@@ -85,7 +85,7 @@
                             <label>Add nearby airports</label>
                         </div>
                         <div>
-                            <button type="submit">Search flights &#10144;</button>
+                            <button type="button" class="searchFlightBtn">Search flights &#10144;</button>
                         </div>
                     </div>
                     <div class="down-checkboxes">

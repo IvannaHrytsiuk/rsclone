@@ -341,3 +341,9 @@ body{
     font-size: 18px;
   }
 }
+#returnDate{
+  &:disabled{
+    background-color: rgb(134, 134, 134);
+    cursor: not-allowed;
+  }
+}
