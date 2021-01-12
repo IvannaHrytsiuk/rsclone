@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const request = require('request');
+
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -9,7 +11,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/geojson/:id", (req, res, next) => {
+app.get('/geojson/:id', (req, res, next) => {
   const { id } = req.params;
   request({
     uri: 'https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated',
@@ -29,20 +31,20 @@ app.get("/geojson/:id", (req, res, next) => {
 });
 
 app.get('/airport/name/:id', (req, res, next) => {
-    const { id } = req.params;
-    request({
-        uri: `https://www.skyscanner.co.th/g/autosuggest-flights/BY/en-US/${id}`,
-        followAllRedirects: true,
-        method: 'GET',
-        qs: {
-            isDestination: 'false',
-            enable_general_search_v2: 'true',
-        },
-        headers: {
-            'User-Agent': 'PostmanRuntime/7.26.8',
-            'Content-Type': 'application/json; charset=utf-8',
-        },
-    }).pipe(res);
+  const { id } = req.params;
+  request({
+    uri: `https://www.skyscanner.co.th/g/autosuggest-flights/BY/en-US/${id}`,
+    followAllRedirects: true,
+    method: 'GET',
+    qs: {
+      isDestination: 'false',
+      enable_general_search_v2: 'true',
+    },
+    headers: {
+      'User-Agent': 'PostmanRuntime/7.26.8',
+      'Content-Type': 'application/json; charset=utf-8',
+    },
+  }).pipe(res);
 });
 
 app.listen(PORT, () => {

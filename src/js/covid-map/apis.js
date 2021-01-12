@@ -1,5 +1,5 @@
 async function getCountriesData(id) {
-  const promiseOfCountriesData = fetch(`http://localhost:3000/travelInfo/${id}`)
+  const promiseOfCountriesData = fetch(`https://skyscanner-server.herokuapp.com/geojson/${id}`)
     .then((response) => (response.ok ? response.json() : Promise.reject(response)))
     .catch(() => {
       console.log('Error with getting Countries Data!');
