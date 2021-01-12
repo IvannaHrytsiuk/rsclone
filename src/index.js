@@ -15,4 +15,5 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     User.getUserLocation();
+    document.getElementById('round').checked = true;
 });

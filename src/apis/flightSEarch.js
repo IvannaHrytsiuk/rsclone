@@ -32,9 +32,28 @@ export const FlightSearchClass = class {
         }
     }
 
-    async getAirplinesListOneWay(from, to, datefrom, adults, children) {
+    async getAirplinesListOneWay(from, to, datefrom, adults, children, currency) {
         try {
-            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&vehicle_type=aircraft`, {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
+                headers: {
+                    Accept: 'application/json',
+                    Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
+                },
+            });
+            this.data = await this.res.json();
+            if (this.data) {
+                console.log(this.data);
+            } else {
+                throw Error(this.data.Message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getAirplinesListReturn(from, to, datefrom, dateto, adults, children, currency) {
+        try {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&return_from=${dateto}&return_to=${dateto}&flight_type=round&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
                 headers: {
                     Accept: 'application/json',
                     Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',

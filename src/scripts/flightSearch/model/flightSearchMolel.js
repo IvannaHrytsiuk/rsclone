@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const FlightSearchModel = class {
     counterMinus(elem) {
         let value = +elem.value;
@@ -90,6 +89,16 @@ export const FlightSearchModel = class {
             }
             someDate.setDate(someDate.getDate() + 15);
             document.getElementById('returnDate').value = `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`;
+        }
+    }
+
+    // eslint-disable-next-line consistent-return
+    ifChecked() {
+        const radio = document.getElementsByName('flight-type');
+        for (let i = 0; i < radio.length; i += 1) {
+            if (radio[i].checked) {
+                return radio[i].value;
+            }
         }
     }
 };

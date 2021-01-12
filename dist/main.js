@@ -27,6 +27,7 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     User.getUserLocation();
+    document.getElementById('round').checked = true;
 });
 
 
@@ -535,18 +536,26 @@ document.getElementById('childMinus').addEventListener('click', () => {
 });
 
 for (let i = 0; i < document.getElementsByName('flight-type').length; i += 1) {
+    // eslint-disable-next-line no-loop-func
     document.getElementsByName('flight-type')[i].addEventListener('click', () => {
+        document.getElementsByName('flight-type')[i].checked = true;
         flightSearchModel.manageSearchViewDependsOnRoute(document.getElementsByName('flight-type')[i].value);
     });
 }
 
 document.querySelector('.searchFlightBtn').addEventListener('click', () => {
-    for (let i = 0; i < document.getElementsByName('flight-type').length; i += 1) {
-        if (document.getElementsByName('flight-type')[i].value === '1') {
-            let dateFrom = document.getElementById('departDate').value;
-            dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
-            flightSearchClass.getAirplinesListOneWay(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value);
-        }
+    if (flightSearchModel.ifChecked() === '1') {
+        console.log('1');
+        let dateFrom = document.getElementById('departDate').value;
+        dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
+        flightSearchClass.getAirplinesListOneWay(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD');
+    } else if (flightSearchModel.ifChecked() === '2') {
+        console.log(2);
+        let dateFrom = document.getElementById('departDate').value;
+        let dateTo = document.getElementById('returnDate').value;
+        dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
+        dateTo = `${dateTo.slice(8, 10)}%2F${dateTo.slice(5, 7)}%2F${dateTo.slice(0, 4)}`;
+        flightSearchClass.getAirplinesListReturn(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD');
     }
 });
 
@@ -594,9 +603,28 @@ const FlightSearchClass = class {
         }
     }
 
-    async getAirplinesListOneWay(from, to, datefrom, adults, children) {
+    async getAirplinesListOneWay(from, to, datefrom, adults, children, currency) {
         try {
-            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&vehicle_type=aircraft`, {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
+                headers: {
+                    Accept: 'application/json',
+                    Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
+                },
+            });
+            this.data = await this.res.json();
+            if (this.data) {
+                console.log(this.data);
+            } else {
+                throw Error(this.data.Message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getAirplinesListReturn(from, to, datefrom, dateto, adults, children, currency) {
+        try {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&return_from=${dateto}&return_to=${dateto}&flight_type=round&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
                 headers: {
                     Accept: 'application/json',
                     Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
@@ -776,7 +804,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FlightSearchModel": () => /* binding */ FlightSearchModel
 /* harmony export */ });
-// eslint-disable-next-line import/prefer-default-export
 const FlightSearchModel = class {
     counterMinus(elem) {
         let value = +elem.value;
@@ -868,6 +895,16 @@ const FlightSearchModel = class {
             }
             someDate.setDate(someDate.getDate() + 15);
             document.getElementById('returnDate').value = `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`;
+        }
+    }
+
+    // eslint-disable-next-line consistent-return
+    ifChecked() {
+        const radio = document.getElementsByName('flight-type');
+        for (let i = 0; i < radio.length; i += 1) {
+            if (radio[i].checked) {
+                return radio[i].value;
+            }
         }
     }
 };
