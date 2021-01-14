@@ -1,13 +1,74 @@
-h1 {
-  color: red;
-  
-  &:hover {
-    color: blue;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .covid-map {
   width: 512px;
   height: 512px;
-  margin-top: 20px;
+  margin: 20px auto 0;
+}
+
+.covid-map-container {
+  background-color: #111236;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Courier New', Courier, monospace;
+  .covid-info {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #ffffff;
+    .beta-info {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      padding: 5px;
+      font-size: 12px;
+      padding: 6px;
+      background-color: #f1f2f8;
+      color: #111236;
+      border-radius: 4px;
+    }
+    .info-for-country {
+      h1 {
+        font-size: 60px;
+        margin: 30px 0;
+      }
+    }
+    .info-for-country {
+      label,
+      select {
+        font-size: 16px;
+      }
+    }
+    .info-additional {
+      p {
+        font-size: 16px;
+      }
+    }
+    .info-for-country {
+      select {
+        color: #5a489b;
+        outline: none;
+        padding: 6px;
+        border-radius: 4px;
+        border: none;
+      }
+    }
+    .info-for-country,
+    .info-additional {
+      flex-basis: 512px;
+    }
+    .info-additional {
+      .info-date {
+        font-size: 12px;
+      }
+    }
+  }
 }

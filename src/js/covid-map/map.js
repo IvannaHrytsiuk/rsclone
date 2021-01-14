@@ -1,27 +1,27 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
-import { getCountriesData, getGeoJSONLayer, getCountriesIso } from './apis';
+import { getData, PATHS } from './apis';
+import { setDataDate } from './date';
+import { style } from './style';
 import 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
+import '../../assets/fullscreen/Control.FullScreen';
+import '../../assets/fullscreen/Control.FullScreen.css';
 
 const mapOptions = {
   center: [0, 0],
   zoom: 1,
-};
-
-const statusColors = {
-  UNKNOWN: 'gray',
-  LOW: 'green',
-  MODERATE: 'yellow',
-  MAJOR: 'red',
+  zoomControl: false,
+  attributionControl: false,
+  fullscreenControl: true,
+  fullscreenControlOptions: {
+    position: 'topleft',
+  },
 };
 
 const map = new L.map('covid-map', mapOptions);
-
 const bounds = map.getBounds();
-
 map.setMaxBounds(bounds);
-
 map.on('drag', () => {
   map.panInsideBounds(bounds, { animate: false });
 });
@@ -41,8 +41,10 @@ const layer = new L.TileLayer(
 );
 
 map.addLayer(layer);
-
-map.createPane('paneForGeoJSON').style.zIndex = 1000;
+L.control.zoom({
+  position: 'bottomright',
+}).addTo(map);
+map.createPane('paneForGeoJSON').style.zIndex = 666;
 
 let geojson;
 let currentCountryId;
@@ -52,26 +54,32 @@ let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
 
-function getColor(status) {
-  return statusColors[status];
-}
-
-function style(feature) {
-  return {
-    fillColor: feature.properties.country_id === currentCountryId ? 'grey' : getColor(feature.properties.restrictions.master_travel_status),
-    color: 'white',
-    fill: true,
-    stroke: true,
-    weight: 0.1,
-  };
-}
-
 function setGeoJSON() {
   geojson = L.geoJson(geoJsonLayer, {
     pane: 'paneForGeoJSON',
     clickable: false,
     style,
   }).addTo(map);
+}
+
+function checkGeoJSON() {
+  if (!geojson) {
+    setGeoJSON();
+  } else {
+    map.removeLayer(geojson);
+    setGeoJSON();
+  }
+}
+
+function setCountriesData() {
+  geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
+    const country = obj;
+    country.properties.restrictions = countriesData.features[countriesIso2
+      .indexOf(country.properties.iso2)].properties.restrictions;
+    country.properties.country_id = countriesData.features[countriesIso2
+      .indexOf(country.properties.iso2)].properties.country_id;
+    return country;
+  });
 }
 
 function collectCountriesData() {
@@ -81,32 +89,11 @@ function collectCountriesData() {
       .indexOf(obj.properties.iso2) !== -1 && obj.properties.iso2 !== 'EH');
     firstChange = false;
   }
-  geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
-    const country = obj;
-    country.properties.restrictions = countriesData.features[countriesIso2
-      .indexOf(country.properties.iso2)].properties.restrictions;
-    country.properties.country_id = countriesData.features[countriesIso2
-      .indexOf(country.properties.iso2)].properties.country_id;
-    return country;
-  });
-  if (!geojson) {
-    setGeoJSON();
-  } else {
-    map.removeLayer(geojson);
-    setGeoJSON();
-  }
-  console.log(geoJsonLayer);
+  setCountriesData();
+  checkGeoJSON();
 }
 
-document.querySelector('#countries').addEventListener('change', async (e) => {
-  currentCountryId = e.target.value;
-  countriesData = await getCountriesData(currentCountryId);
-  collectCountriesData();
-});
-
-document.addEventListener('DOMContentLoaded', async () => {
-  geoJsonLayer = await getGeoJSONLayer();
-  countriesIso = await getCountriesIso();
+function createIsoList() {
   countriesIso = countriesIso.map((obj) => {
     if (obj.countryInfo.iso3 === 'GBR') {
       return {
@@ -120,6 +107,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
   });
   countriesIso.push({ iso2: 'KP', iso3: 'PRK' }, { iso2: 'TM', iso3: 'TKM' }, { iso2: 'KO', iso3: 'XXK' });
+}
+
+function filterCountriesByIso() {
   const countriesIso3 = countriesIso.map((obj) => obj.iso3);
   geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso3
     .indexOf(obj.properties.ISO_A3) !== -1);
@@ -128,4 +118,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     country.properties.iso2 = countriesIso[countriesIso3.indexOf(obj.properties.ISO_A3)].iso2;
     return country;
   });
+}
+
+async function getGeoJsonData() {
+  geoJsonLayer = await getData(PATHS.json);
+  countriesIso = await getData(PATHS.locations);
+  createIsoList();
+  filterCountriesByIso();
+}
+
+function setSelectListener() {
+  document.querySelector('#countries').addEventListener('change', async (e) => {
+    currentCountryId = e.target.value;
+    countriesData = await getData(PATHS.geo, currentCountryId);
+    setDataDate(countriesData.dataset_last_updated);
+    collectCountriesData();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  getGeoJsonData();
+  setSelectListener();
 });

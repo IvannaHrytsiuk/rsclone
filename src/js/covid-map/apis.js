@@ -1,40 +1,32 @@
-async function getCountriesData(id) {
-  const promiseOfCountriesData = fetch(`https://skyscanner-server.herokuapp.com/geojson/${id}`)
+const PATHS = {
+  geo: 'geo',
+  json: 'json',
+  locations: 'locations',
+};
+
+const APIS_PATHS = {
+  geo: 'https://skyscanner-server.herokuapp.com/geojson/',
+  json: './assets/geojson/countries.json',
+  locations: 'https://corona.lmao.ninja/v2/countries',
+};
+
+const LOG_MESSAGES = {
+  geo: 'Error with getting Countries Data!',
+  json: 'Error with getting GeoJSON Layer Data!',
+  locations: 'Error with getting Countries Locations Data for Map!',
+};
+
+async function getData(path, id = '') {
+  const promiseOfSomeData = fetch(`${APIS_PATHS[path]}${id}`)
     .then((response) => (response.ok ? response.json() : Promise.reject(response)))
     .catch(() => {
-      console.log('Error with getting Countries Data!');
+      console.log(LOG_MESSAGES[path]);
       return null;
     });
 
-  const resultData = await promiseOfCountriesData;
+  const resultData = await promiseOfSomeData;
 
   return resultData;
 }
 
-async function getGeoJSONLayer() {
-  const promiseOfGeoJSONLayerData = fetch('assets/geojson/countries.json')
-    .then((response) => (response.ok ? response.json() : Promise.reject(response)))
-    .catch(() => {
-      console.log('Error with getting GeoJSON Layer Data!');
-      return null;
-    });
-
-  const resultData = await promiseOfGeoJSONLayerData;
-
-  return resultData;
-}
-
-async function getCountriesIso() {
-  const promiseOfCountriesLocations = fetch('https://corona.lmao.ninja/v2/countries')
-    .then((response) => (response.ok ? response.json() : Promise.reject(response)))
-    .catch(() => {
-      console.log('Error with getting Countries Locations Data for Map!');
-      return null;
-    });
-
-  const resultData = await promiseOfCountriesLocations;
-
-  return resultData;
-}
-
-export { getCountriesData, getGeoJSONLayer, getCountriesIso };
+export { getData, PATHS };
