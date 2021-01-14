@@ -1,12 +1,12 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
+import '../../assets/map/leaflet';
+import '../../assets/map/leaflet.css';
+import '../../assets/fullscreen/Control.FullScreen';
+import '../../assets/fullscreen/Control.FullScreen.css';
 import { getData, PATHS } from './apis';
 import { setDataDate } from './date';
 import { style } from './style';
-import 'leaflet/dist/leaflet';
-import 'leaflet/dist/leaflet.css';
-import '../../assets/fullscreen/Control.FullScreen';
-import '../../assets/fullscreen/Control.FullScreen.css';
 
 const mapOptions = {
   center: [0, 0],
