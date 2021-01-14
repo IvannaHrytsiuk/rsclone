@@ -101,4 +101,12 @@ export const FlightSearchModel = class {
             }
         }
     }
+
+    calculateDays(dateFrom, dateTo) {
+        const date1 = new Date(dateFrom);
+        const date2 = new Date(dateTo);
+        let difference = date2.getTime() - date1.getTime();
+        difference /= (1000 * 3600 * 24);
+        return Math.round(difference);
+    }
 };

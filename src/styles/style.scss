@@ -347,3 +347,273 @@ body{
     cursor: not-allowed;
   }
 }
+.bookingWrapper{
+  display: none;
+  width: 100%;
+  height: 500px;
+  color: #02122c;
+  background-color: #f5f5f5;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 5px solid #0770e3;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+.bookingMood{
+  background-image: none;
+  height: 300px;
+  border-bottom: 2px solid lightgray;
+  .searchBlock{
+    height: 100%;
+    h1{
+      font-size: 30px;
+      color: #0770e3;
+    }
+  }
+}
+.bookingFlex{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .bookingFlexContent{
+    width: 25%;
+    padding: 2rem 1.5rem;
+  }
+  #contentResult{
+    width: 50%;
+    padding: 2rem 0.5rem;
+  }
+}
+.dataBlockOne{
+  height: 270px;
+}
+.dataBlockReturn{
+  height: 500px;
+}
+.dataBlock {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  margin: 1.5rem 0;
+  padding: 1rem;
+  display: flex;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(161,161,161,1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(161,161,161,1);
+  box-shadow: 0px 0px 5px 0px rgba(161,161,161,1);
+  color:rgb(46, 53, 59);
+}
+.firstBlock{
+  width: 65%;
+}
+.priceBlock{
+  width: 35%;
+  justify-content: center;
+  text-align: center;
+  border-left:1px solid lightgray;
+  font-family: sans-serif;
+  
+  div{
+    width: 100%;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    p{
+      font-weight: 700;
+      font-size: 1.7rem;
+    }
+    img{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+  .bookbtn{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 3px 12px 15px;
+    span{
+      background-color: #00a698;
+      color: white;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      padding: 9px 0;
+      cursor: pointer;
+      &:hover{
+        background-color: #0a998d;
+      }
+    }
+  }
+
+}
+.yearTime{
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+.flightDetails{
+  display: flex;
+  width: 100%;
+  height: 150px;
+  padding: 1rem 0;
+  font-family: sans-serif;
+  .information{
+    width: 95%;
+
+    strong {
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 3px 0;
+    }
+    span{
+      color: rgb(95, 115, 140);
+      font-size: 0.85rem;
+    }
+  }
+  .routeIco{
+    width: 5%;
+    img{
+      width: 20px;
+      margin: 5px 0;
+    }
+  }
+}
+.middleDetails{
+  display: flex;
+  padding: 1.5rem 0.5rem;
+
+  .detailDuration{
+    background-color: rgb(232, 244, 253);
+    color:#0770e3;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 8px;
+    border: 1px solid rgb(208, 233, 251);
+    width: 70px;
+    height: 30px;
+    text-align: center;
+  }
+  .aerineIco{
+    background-color: rgb(245, 247, 249);
+    border: 1px solid rgb(232, 237, 241);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    img{
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+  }
+  img{
+    margin: 0 13px;
+    width: 30px;
+  }
+}
+.fightDetailsBtns{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding: 1rem 0 0 0;
+  font-family: sans-serif;
+  .detailBag{
+    width: 65%;
+    align-items: center;
+    justify-content: space-around;
+    vertical-align: middle;
+    display: flex;
+    div{
+      background-color: rgb(245, 247, 249);
+      border: 1px solid rgb(232, 237, 241);
+      height: 30px;
+      width: max-content;
+      padding: 5px 10px;
+      font-size: 13px;
+      border-radius: 12px;
+      align-items: center;
+      justify-content: space-around;
+      vertical-align: middle;
+      display: flex;
+
+      img{
+        width: 15px;
+      }
+      span{
+        margin-left: 5px;
+        font-weight: 700;
+      }
+    }
+  }
+  .detailInform{
+    width: 35%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+      div{
+        height: 30px;
+        width: max-content;
+        padding: 5px 10px;
+        font-size: 13px;
+        align-items: center;
+        justify-content: right;
+        vertical-align: middle;
+        display: flex;
+        font-weight: 700;
+        border-radius: 5px;
+        &:hover{
+          background-color: rgb(245, 247, 249);
+          border: 1px solid rgb(232, 237, 241);
+          cursor: pointer;
+        }
+    }
+  }
+}
+.nightIn{
+  text-align: center;
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin: 10px 0;
+}

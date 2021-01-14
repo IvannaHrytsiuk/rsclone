@@ -1,6 +1,9 @@
-// eslint-disable-next-line import/no-mutable-exports
-export let searchAirportList;
+import { FlightResultView } from '../scripts/flightResult/view/flightResultView';
 
+export let searchAirportList;
+export let flightResult;
+
+const flightResultView = new FlightResultView();
 export const FlightSearchClass = class {
     async getListPlaces() {
         try {
@@ -42,7 +45,9 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                console.log(this.data);
+                flightResult = this.data;
+                document.querySelector('.lds-ripple').style.display = 'none';
+                flightResultView.paintSearchDataBlocks('oneway');
             } else {
                 throw Error(this.data.Message);
             }
@@ -51,9 +56,9 @@ export const FlightSearchClass = class {
         }
     }
 
-    async getAirplinesListReturn(from, to, datefrom, dateto, adults, children, currency) {
+    async getAirplinesListReturn(from, to, datefrom, dateto, adults, children, currency, daysCount) {
         try {
-            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&return_from=${dateto}&return_to=${dateto}&flight_type=round&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&return_from=${dateto}&return_to=${dateto}&nights_in_dst_from=${daysCount}&nights_in_dst_to=${daysCount}&flight_type=round&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`, {
                 headers: {
                     Accept: 'application/json',
                     Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
@@ -61,7 +66,9 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                console.log(this.data);
+                flightResult = this.data;
+                document.querySelector('.lds-ripple').style.display = 'none';
+                flightResultView.paintSearchDataBlocks('return');
             } else {
                 throw Error(this.data.Message);
             }
