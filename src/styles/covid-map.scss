@@ -14,7 +14,7 @@ body {
   background: linear-gradient(to top, #ffffff 0% , #ffffff 50%, #111236 50%, #111236 100%);
   min-height: 100vh;
   min-width: 100vw;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
   .info-summary {
     max-width: 1024px;
     margin: 0 auto;
@@ -35,6 +35,7 @@ body {
       }
       .restrictions-type-description {
         font-size: 12px;
+        font-weight: bold;
       }
     }
     .summary-low > #low-restrictions-count,

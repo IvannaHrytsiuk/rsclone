@@ -15,7 +15,7 @@ body {
   background: linear-gradient(to top, #ffffff 0%, #ffffff 50%, #111236 50%, #111236 100%);
   min-height: 100vh;
   min-width: 100vw;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
 }
 
 .covid-map-container .info-summary {
@@ -58,6 +58,7 @@ body {
 .covid-map-container .info-summary .summary-major .restrictions-type-description,
 .covid-map-container .info-summary .summary-unknown .restrictions-type-description {
   font-size: 12px;
+  font-weight: bold;
 }
 
 .covid-map-container .info-summary .summary-low > #low-restrictions-count,

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>COVID MAP</title>
         <link rel="stylesheet" href="../src/styles/covid-map.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
         <!-- Insert this file to dist folder, to all work! -->
     </head>
     <body>
@@ -234,10 +236,32 @@
                 <article class="info-additional">
                     <p>Wherever you're flying from, please check the local government advice before booking.</p>
                     <p>Ready to travel? Navigate entry restrictions and quarantine requirements for any destination with our live map.</p>
-                    <p class="info-date" id="info-date"></p>
+                    <p class="info-date" id="info-date">Info correct as of -, - -, -</p>
                 </article>
             </section>
             <section class="covid-map" id="covid-map"></section>
+            <section class="info-summary">
+                <article class="summary-low">
+                    <span id="low-restrictions-count">-</span>
+                    <p class="restrictions-type-title">Low restrictions</p>
+                    <p class="restrictions-type-description">You can travel here and likely won't need to quarantine when you arrive or return.</p>
+                </article>
+                <article class="summary-moderate">
+                    <span id="moderate-restrictions-count">-</span>
+                    <p class="restrictions-type-title">Moderate restrictions</p>
+                    <p class="restrictions-type-description">Travel here is possible if you meet certain entry regulations which can include taking a COVID-19 test. You may also be required to quarantine upon arrival and/or return.</p>
+                </article>
+                <article class="summary-major">
+                    <span id="major-restrictions-count">-</span>
+                    <p class="restrictions-type-title">Major restrictions</p>
+                    <p class="restrictions-type-description">Travel here may be suspended, the country may be closed or entry only possible if you are a citizen and/or meet strict requirements.</p>
+                </article>
+                <article class="summary-unknown">
+                    <span id="unknown-restrictions-count">-</span>
+                    <p class="restrictions-type-title">Restrictions unknown</p>
+                    <p class="restrictions-type-description">Unfortunately, we do not have information for this destination. Please check with government sources for the most up-to-date travel advice.</p>
+                </article>
+            </section>
         </main>
         <script src="./main.js"></script>
     </body>
