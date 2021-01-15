@@ -11,10 +11,77 @@ body {
 }
 
 .covid-map-container {
-  background-color: #111236;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), color-stop(50%, #ffffff), color-stop(50%, #111236), to(#111236));
+  background: linear-gradient(to top, #ffffff 0%, #ffffff 50%, #111236 50%, #111236 100%);
   min-height: 100vh;
   min-width: 100vw;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.covid-map-container .info-summary {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.covid-map-container .info-summary .summary-low,
+.covid-map-container .info-summary .summary-moderate,
+.covid-map-container .info-summary .summary-major,
+.covid-map-container .info-summary .summary-unknown {
+  -ms-flex-preferred-size: 236px;
+      flex-basis: 236px;
+  color: #111236;
+}
+
+.covid-map-container .info-summary .summary-low .restrictions-type-title,
+.covid-map-container .info-summary .summary-moderate .restrictions-type-title,
+.covid-map-container .info-summary .summary-major .restrictions-type-title,
+.covid-map-container .info-summary .summary-unknown .restrictions-type-title {
+  font-size: 20px;
+}
+
+.covid-map-container .info-summary .summary-low .restrictions-type-description,
+.covid-map-container .info-summary .summary-moderate .restrictions-type-description,
+.covid-map-container .info-summary .summary-major .restrictions-type-description,
+.covid-map-container .info-summary .summary-unknown .restrictions-type-description {
+  font-size: 12px;
+}
+
+.covid-map-container .info-summary .summary-low > #low-restrictions-count,
+.covid-map-container .info-summary .summary-moderate > #moderate-restrictions-count,
+.covid-map-container .info-summary .summary-major > #major-restrictions-count,
+.covid-map-container .info-summary .summary-unknown > #unknown-restrictions-count {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.covid-map-container .info-summary .summary-low #low-restrictions-count {
+  color: #00a698;
+}
+
+.covid-map-container .info-summary .summary-moderate #moderate-restrictions-count {
+  color: #ff9400;
+}
+
+.covid-map-container .info-summary .summary-major #major-restrictions-count {
+  color: #d1435b;
+}
+
+.covid-map-container .info-summary .summary-unknown #unknown-restrictions-count {
+  color: #b2b2bf;
 }
 
 .covid-map-container .covid-info {

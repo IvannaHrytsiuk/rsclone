@@ -11,10 +11,60 @@ body {
 }
 
 .covid-map-container {
-  background-color: #111236;
+  background: linear-gradient(to top, #ffffff 0% , #ffffff 50%, #111236 50%, #111236 100%);
   min-height: 100vh;
   min-width: 100vw;
   font-family: 'Courier New', Courier, monospace;
+  .info-summary {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 20px;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .summary-low,
+    .summary-moderate,
+    .summary-major,
+    .summary-unknown {
+      flex-basis: 236px;
+      color: #111236;
+      .restrictions-type-title {
+        font-size: 20px;
+      }
+      .restrictions-type-description {
+        font-size: 12px;
+      }
+    }
+    .summary-low > #low-restrictions-count,
+    .summary-moderate > #moderate-restrictions-count,
+    .summary-major > #major-restrictions-count,
+    .summary-unknown > #unknown-restrictions-count {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .summary-low {
+      #low-restrictions-count {
+        color: #00a698;
+      }
+    }
+    .summary-moderate {
+      #moderate-restrictions-count {
+        color: #ff9400;
+      }
+    }
+    .summary-major {
+      #major-restrictions-count {
+        color: #d1435b;
+      }
+    }
+    .summary-unknown {
+      #unknown-restrictions-count {
+        color: #b2b2bf;
+      }
+    }
+  }
   .covid-info {
     position: relative;
     max-width: 1024px;

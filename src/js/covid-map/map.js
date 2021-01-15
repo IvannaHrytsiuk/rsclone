@@ -7,6 +7,7 @@ import '../../assets/fullscreen/Control.FullScreen.css';
 import { getData, PATHS } from './apis';
 import { setDataDate } from './date';
 import { style } from './style';
+import setDataSummary from './summary';
 
 const mapOptions = {
   center: [0, 0],
@@ -132,6 +133,7 @@ function setSelectListener() {
     currentCountryId = e.target.value;
     countriesData = await getData(PATHS.geo, currentCountryId);
     setDataDate(countriesData.dataset_last_updated);
+    setDataSummary(countriesData.summary);
     collectCountriesData();
   });
 }
