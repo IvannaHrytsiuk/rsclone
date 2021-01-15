@@ -1,6 +1,6 @@
 body{
   color: white;
-  font-family: sans-serif;
+  font-family: sans-serif !important;
 }
 .wrapperSearch{
   background-image: url('https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/shutterstock_539058235.jpg?alt=media&token=9ee36da4-40a4-4fa1-92a3-c594f69eead8');
@@ -132,7 +132,7 @@ body{
   }
 
   div:nth-child(3) > button {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 30px;
     background-color: #00a698;
     color: #ffffff;
@@ -474,7 +474,7 @@ body{
       width: 100%;
       height: 100%;
       border-radius: 5px;
-      padding: 9px 0;
+      padding: 5px 0;
       cursor: pointer;
       &:hover{
         background-color: #0a998d;
@@ -616,4 +616,234 @@ body{
     font-family: sans-serif;
     font-weight: 700;
     margin: 10px 0;
+}
+.modal{
+  color: rgb(46, 53, 59);
+}
+.modal-header{
+  h5{
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+}
+.modal-body{
+  background-color: rgb(245, 247, 249);
+  padding: 1rem 1rem 2rem 1rem;
+  h2{
+    font-size: 16px;
+    font-weight: 700;
+    height: 35px;
+    margin-top: 20px;
+  }
+  .modalCalendarIco{
+    width: 20px; 
+    height: 20px;
+    margin: -5px 0;
+  }
+  .modalDetailsRow{
+    width: 100%;
+    height: 40px;
+    .first{
+      width: 30%;
+      border-right: 2px dotted rgb(208, 212, 216);
+    }
+    .second{
+      width: 70%;
+    }
+  }
+}
+.flightDeatilsModal{
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(117,117,117,1);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(117,117,117,1);
+  box-shadow: 0px 0px 4px 0px rgba(117,117,117,1);
+  font-size: 14px;
+}
+.row{
+  margin-left: 0;
+}
+.first.modalDetailsRow{
+  background-color: white;
+  .first{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p{
+      text-align: center;
+      line-height: 2;
+      font-weight: 700;
+    }
+  }
+}
+.modalDateDay{
+  line-height: 2;
+  font-size: 13px;
+  padding: 2px 0;
+  display: inline-block;
+  font-weight: 700;
+}
+.modalCity{
+  font-weight: 700;
+  font-size: 13px;
+  margin: 5px 0;
+}
+.modalAirportName{
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(95, 115, 140);
+}
+.modalDetailsRow.second{
+  background-color: rgb(232, 244, 253);
+  color:rgb(1, 114, 203);
+  font-size: 13px;
+  height:30px;
+  p{
+    line-height: 2.2;
+  }
+}
+.modalDetailsRow.third{
+  background-color: #f5f7f9;
+  cursor: pointer;
+  .first{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .second{
+    display: flex;
+    align-items: center;
+    p{
+      width: 45%;
+      text-align: end;
+    }
+  }
+  .modal3Aerlinename{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    height: 24px;
+    width: max-content;
+    padding: 0 10px;
+    background: rgb(255, 255, 255);
+    margin-right: 10px;
+
+    span{
+      line-height: 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+  .modal3flightTime{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    height: 24px;
+    width: max-content;
+    padding: 0 10px;
+    background: rgb(232, 244, 253);
+    color:rgb(0, 90, 163);
+    border:1px solid rgb(208, 233, 251);
+    span{
+      line-height: 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+.modalDetailsRow.collapse{
+  height:100%;
+  background-color: #f5f7f9;
+  h4{
+    margin: 16px 0px 12px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .infoLine{
+    display: flex;
+    .first, .second{
+      width:50%;
+      margin-bottom: 8px;
+      color: rgb(95, 115, 140);
+      font-size: 12px;
+      border:none;
+      img{
+        height: 16px;
+        width: 16px;
+        margin: -3px 0;
+      }
+      span{
+        display: inline-block;
+        line-height: 1;
+        padding: 5px;
+      }
+    }
+    .second{
+      text-align: end;
+    }
+  }
+}
+.destitArrive{
+  display: flex;
+  height: 40px;
+  margin-top: 10px;
+  .destitArriveIco{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 6%;
+    img{
+      width:20px;
+      height: 20px;
+    }
+  }
+  .destitArriveTxt{
+    width: 90%;
+    .destitArriveTxtUp{
+      font-size: 12px;
+      color: rgb(95, 115, 140);
+      line-height: 16px;
+      line-height: 1.5;
+    }
+    .destitArriveTxtDown{
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .destitArriveTxtDown.destitArriveTxtDownOne{
+      line-height: 3.3;
+    }
+    a{
+      text-decoration: underline;
+      font-size: 13px;
+      outline: none;
+      color:inherit;
+      cursor: pointer;
+      &:hover{
+        text-decoration: none;
+        color:rgb(0, 152, 130);
+      }
+      img{
+        width: 80px;
+        display: inline-block;
+        margin: -5px 5px;
+      }
+    }
+  }
+}
+.modal-footer{
+  .btn{
+    background-color: rgb(0, 143, 123);
+    color:white;
+    &:hover{
+      background-color: rgb(0, 152, 130);
+    }
+  }
 }

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-mutable-exports
 export let userCountry;
 
 export const UserlocationClass = class {
