@@ -7,6 +7,37 @@
     <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="logoBlock">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt="">
+                    </div>
+                    <nav>
+                        <a href="" class="btn navBtn active">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-airplane-mode-on-52.png?alt=media&token=92bd7a10-f558-4412-ae56-a68f08bc37f3" alt="">
+                            <span>Flights</span>
+                        </a>
+                        <a href="https://www.skyscanner.co.th/hotels?na=1&sd=2021-01-18&ed=2021-01-19&s-f_iplace=KIEV" class="btn navBtn">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-bed-48.png?alt=media&token=806f9805-6982-4f5a-a74d-a9fc66d6fdb1" alt="">
+                            <span>Hotels</span>
+                        </a>
+                        <a href="https://www.skyscanner.co.th/carhire" class="btn navBtn">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-car-48.png?alt=media&token=051d7d27-7082-475f-909c-14107cd195bf" alt="">
+                            <span>Car Hire</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-md-6">
+                    <div class="locationCurrencyBlock">
+                        <button class="btn headerModalBtn" data-bs-toggle="modal" data-bs-target="#headerModal"></button>
+                        <a class="btn logInBtn">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="wrapperSearch">
         <div class="searchBlock">
             <h1>Let the journey begin</h1>
@@ -117,6 +148,39 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal header-->
+<div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="headerModalLabel">Regional settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-header">
+            <div class="regionalsettings">
+                    <div>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-globe-48.png?alt=media&token=a568e328-b255-4352-9f6b-9f4b3bc7a573" alt="">
+                        <span>Country / Region</span>
+                    </div>
+                    <p>Selecting the country you’re in will give you local deals and information.</p>
+                    <select name="country" id="selectCountry" class="form-select" aria-label="Default select example"></select>
+            </div>
+            <div class="regionalsettings" style="padding-top: 16px;">
+                <div>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-currency-exchange-48.png?alt=media&token=45da93ea-45ff-4e5a-9fd4-0c589cf44029" alt="">
+                    <span>Currency</span>
+                </div>
+                <select name="currency" id="selectCurrency" class="form-select" aria-label="Default select example"></select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

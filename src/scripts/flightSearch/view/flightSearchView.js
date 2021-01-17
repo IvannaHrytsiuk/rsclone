@@ -61,14 +61,22 @@ export const FlightSearchView = class {
         if (mm < 10) {
             mm = `0${mm}`;
         }
-        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`);
+        let dd = someDate.getDate();
+        if (dd < 10) {
+            dd = `0${dd}`;
+        }
+        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${dd}`);
         someDate.setDate(someDate.getDate() + num);
         let mm2 = someDate.getMonth() + 1;
         if (mm2 < 10) {
             mm2 = `0${mm2}`;
         }
+        let dd2 = someDate.getDate();
+        if (dd2 < 10) {
+            dd2 = `0${dd2}`;
+        }
         // eslint-disable-next-line no-param-reassign
-        elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
+        elem.value = `${someDate.getFullYear()}-${mm2}-${dd2}`;
     }
 
     counterView(value1, value2) {
