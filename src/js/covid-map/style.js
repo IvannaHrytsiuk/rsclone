@@ -1,8 +1,8 @@
 const STATUS_COLORS = {
-  UNKNOWN: 'gray',
-  LOW: 'green',
-  MODERATE: 'yellow',
-  MAJOR: 'red',
+  UNKNOWN: '#b2b2bf',
+  LOW: '#00a698',
+  MODERATE: '#ff9400',
+  MAJOR: '#d1435b',
 };
 
 function getColor(status) {
@@ -11,7 +11,9 @@ function getColor(status) {
 
 function style(feature, currentCountryId) {
   return {
-    fillColor: feature.properties.country_id === currentCountryId ? 'grey' : getColor(feature.properties.restrictions.master_travel_status),
+    fillColor: feature.properties.country_id === currentCountryId ? '#b2b2bf' : getColor(feature.properties.restrictions.master_travel_status),
+    opacity: 1,
+    fillOpacity: 0.5,
     color: 'white',
     fill: true,
     stroke: true,

@@ -45,7 +45,7 @@ map.addLayer(layer);
 L.control.zoom({
   position: 'bottomright',
 }).addTo(map);
-map.createPane('paneForGeoJSON').style.zIndex = 666;
+map.createPane('paneForGeoJSON').style.zIndex = 200;
 
 let geojson;
 let currentCountryId;
@@ -55,11 +55,36 @@ let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
 
+const mapLayerStyles = {
+  opacity: 1,
+  fillOpacity: 0.25,
+};
+
+function highlightFeature(e) {
+  const countryLayer = e.target;
+  countryLayer.setStyle(mapLayerStyles);
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    countryLayer.bringToFront();
+  }
+}
+
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+}
+
+function onEachFeature(feature, mapLayer) {
+  mapLayer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+  });
+}
+
 function setGeoJSON() {
   geojson = L.geoJson(geoJsonLayer, {
     pane: 'paneForGeoJSON',
     clickable: false,
     style,
+    onEachFeature,
   }).addTo(map);
 }
 
