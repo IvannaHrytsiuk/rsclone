@@ -55,14 +55,14 @@ let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
 
-const mapLayerStyles = {
+const MAP_HOVER_LAYER_STYLES = {
   opacity: 1,
   fillOpacity: 0.25,
 };
 
 function highlightFeature(e) {
   const countryLayer = e.target;
-  countryLayer.setStyle(mapLayerStyles);
+  countryLayer.setStyle(MAP_HOVER_LAYER_STYLES);
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
     countryLayer.bringToFront();
   }
