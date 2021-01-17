@@ -10,6 +10,22 @@ body {
   margin: 20px auto 0;
 }
 
+.current-country-info {
+  background-color: #ffffff;
+  color: #111236;
+  font-size: 16px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .covid-map-container {
   background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), color-stop(50%, #ffffff), color-stop(50%, #111236), to(#111236));
   background: linear-gradient(to top, #ffffff 0%, #ffffff 50%, #111236 50%, #111236 100%);

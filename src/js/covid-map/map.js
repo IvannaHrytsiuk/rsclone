@@ -9,6 +9,9 @@ import { setDataDate } from './date';
 import { style } from './style';
 import setDataSummary from './summary';
 
+const countriesSelect = document.querySelector('#countries');
+const currentCountryInfo = L.control({ position: 'topright' });
+
 const mapOptions = {
   center: [0, 0],
   zoom: 1,
@@ -46,6 +49,18 @@ L.control.zoom({
   position: 'bottomright',
 }).addTo(map);
 map.createPane('paneForGeoJSON').style.zIndex = 200;
+
+currentCountryInfo.onAdd = (() => {
+  currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
+  currentCountryInfo.update();
+  return currentCountryInfo.div;
+});
+
+currentCountryInfo.update = ((countryName) => {
+  currentCountryInfo.div.innerHTML = `<span class="material-icons">room</span><span>From: ${countryName || 'Choose country or region'}</span>`;
+});
+
+currentCountryInfo.addTo(map);
 
 let geojson;
 let currentCountryId;
@@ -154,12 +169,13 @@ async function getGeoJsonData() {
 }
 
 function setSelectListener() {
-  document.querySelector('#countries').addEventListener('change', async (e) => {
+  countriesSelect.addEventListener('change', async (e) => {
     currentCountryId = e.target.value;
     countriesData = await getData(PATHS.geo, currentCountryId);
     setDataDate(countriesData.dataset_last_updated);
     setDataSummary(countriesData.summary);
     collectCountriesData();
+    currentCountryInfo.update(countriesSelect.selectedOptions[0].textContent);
   });
 }
 

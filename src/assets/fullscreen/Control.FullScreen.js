@@ -22,13 +22,14 @@ L.Control.FullScreen = L.Control.extend({
 		if (this.options.content) {
 			content = this.options.content;
 		} else {
-			className += ' fullscreen-icon';
+			className += ' material-icons';
 		}
 
 		this._createButton(this.options.title, className, content, container, this.toggleFullScreen, this);
 		this._map.fullscreenControl = this;
 
 		this._map.on('enterFullscreen exitFullscreen', this._toggleTitle, this);
+		this._map.on('enterFullscreen exitFullscreen', this._toggleImage, this);
 
 		return container;
 	},
@@ -54,7 +55,7 @@ L.Control.FullScreen = L.Control.extend({
 		this.link = L.DomUtil.create('a', className, container);
 		this.link.href = '#';
 		this.link.title = title;
-		this.link.innerHTML = content;
+		this.link.textContent = 'fullscreen';
 
 		this.link.setAttribute('role', 'button');
 		this.link.setAttribute('aria-label', title);
@@ -103,6 +104,10 @@ L.Control.FullScreen = L.Control.extend({
 	
 	_toggleTitle: function () {
 		this.link.title = this._map._isFullscreen ? this.options.title : this.options.titleCancel;
+	},
+
+	_toggleImage: function () {
+		this.link.textContent = this._map._isFullscreen ? 'fullscreen' : 'fullscreen_exit';
 	},
 	
 	_handleFullscreenChange: function () {
