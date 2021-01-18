@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
+import createMainWithMap from './htmlview';
 import '../../assets/map/leaflet';
 import '../../assets/map/leaflet.css';
 import '../../assets/fullscreen/Control.FullScreen';
@@ -7,13 +8,16 @@ import '../../assets/fullscreen/Control.FullScreen.css';
 import { getData, PATHS } from './apis';
 import { setDataDate } from './date';
 import { style } from './style';
-import setDataSummary from './summary';
+import { setDataSummary, initStatusesCounters } from './summary';
 
 const showdown = require('showdown');
 
+let map;
+let countriesSelect;
 const converter = new showdown.Converter();
-const countriesSelect = document.querySelector('#countries');
 const currentCountryInfo = L.control({ position: 'topright' });
+
+const ACCESS_TOKEN = 'pk.eyJ1IjoiZ3VwYWxlbmtvcm9tYW4iLCJhIjoiY2tpeWkwMDhtMWRzbzJybXd1bWs0YWh2NCJ9.7v50Tvi4ariDNbW5wstlBw';
 
 const mapOptions = {
   center: [0, 0],
@@ -26,46 +30,47 @@ const mapOptions = {
   },
 };
 
-const map = new L.map('covid-map', mapOptions);
-const bounds = map.getBounds();
-map.setMaxBounds(bounds);
-map.on('drag', () => {
-  map.panInsideBounds(bounds, { animate: false });
-});
-
-const accessToken = 'pk.eyJ1IjoiZ3VwYWxlbmtvcm9tYW4iLCJhIjoiY2tpeWkwMDhtMWRzbzJybXd1bWs0YWh2NCJ9.7v50Tvi4ariDNbW5wstlBw';
 const layer = new L.TileLayer(
-  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${accessToken}`,
+  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
   {
     maxZoom: 18,
     minZoom: 1,
     id: 'mapbox/dark-v10',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken,
+    ACCESS_TOKEN,
     crossOrigin: true,
   },
 );
 
-map.setView([53.0282, 27.3137], 3);
+const initMap = () => {
+  map = new L.map('covid-map', mapOptions);
+  const bounds = map.getBounds();
+  map.setMaxBounds(bounds);
+  map.on('drag', () => {
+    map.panInsideBounds(bounds, { animate: false });
+  });
 
-map.addLayer(layer);
-L.control.zoom({
-  position: 'bottomright',
-}).addTo(map);
-map.createPane('paneForGeoJSON').style.zIndex = 200;
+  map.setView([53.0282, 27.3137], 3);
 
-currentCountryInfo.onAdd = (() => {
-  currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
-  currentCountryInfo.update();
-  return currentCountryInfo.div;
-});
+  map.addLayer(layer);
+  L.control.zoom({
+    position: 'bottomright',
+  }).addTo(map);
+  map.createPane('paneForGeoJSON').style.zIndex = 200;
 
-currentCountryInfo.update = ((countryName) => {
-  currentCountryInfo.div.innerHTML = `<span class="material-icons">room</span><span>From: ${countryName || 'Choose country or region'}</span>`;
-});
+  currentCountryInfo.onAdd = (() => {
+    currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
+    currentCountryInfo.update();
+    return currentCountryInfo.div;
+  });
 
-currentCountryInfo.addTo(map);
+  currentCountryInfo.update = ((countryName) => {
+    currentCountryInfo.div.innerHTML = `<span class="material-icons">room</span><span>From: ${countryName || 'Choose country or region'}</span>`;
+  });
+
+  currentCountryInfo.addTo(map);
+};
 
 let geojson;
 let currentCountryId;
@@ -74,10 +79,13 @@ let countriesIso;
 let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
+let countryRestrictionsBlock;
 
-const countryRestrictionsBlock = document.createElement('div');
-countryRestrictionsBlock.classList.add('country-restrictions-wrapper', 'hidden');
-document.querySelector('#covid-map').append(countryRestrictionsBlock);
+function initRestrictionsBlock() {
+  countryRestrictionsBlock = document.createElement('div');
+  countryRestrictionsBlock.classList.add('country-restrictions-wrapper', 'hidden');
+  document.querySelector('#covid-map').append(countryRestrictionsBlock);
+}
 
 function addCloseListener() {
   document.querySelector('#popup-close').addEventListener('click', () => {
@@ -256,6 +264,11 @@ function setSelectListener() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  createMainWithMap();
+  initMap();
+  initRestrictionsBlock();
+  initStatusesCounters();
   getGeoJsonData();
+  countriesSelect = document.querySelector('#countries');
   setSelectListener();
 });

@@ -5,10 +5,17 @@ const STATUSES = {
   unknown: 'UNKNOWN',
 };
 
-const lowRestrictionsElement = document.querySelector('#low-restrictions-count');
-const moderateRestrictionsElement = document.querySelector('#moderate-restrictions-count');
-const majorRestrictionsElement = document.querySelector('#major-restrictions-count');
-const unknownRestrictionsElement = document.querySelector('#unknown-restrictions-count');
+let lowRestrictionsElement;
+let moderateRestrictionsElement;
+let majorRestrictionsElement;
+let unknownRestrictionsElement;
+
+function initStatusesCounters() {
+  lowRestrictionsElement = document.querySelector('#low-restrictions-count');
+  moderateRestrictionsElement = document.querySelector('#moderate-restrictions-count');
+  majorRestrictionsElement = document.querySelector('#major-restrictions-count');
+  unknownRestrictionsElement = document.querySelector('#unknown-restrictions-count');
+}
 
 function setDataSummary(summary) {
   lowRestrictionsElement.textContent = summary[STATUSES.low];
@@ -17,4 +24,4 @@ function setDataSummary(summary) {
   unknownRestrictionsElement.textContent = summary[STATUSES.unknown];
 }
 
-export { setDataSummary as default };
+export { setDataSummary, initStatusesCounters };
