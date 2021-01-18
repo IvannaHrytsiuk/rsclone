@@ -17,9 +17,8 @@ export const AirportNameClass = class {
                         }
                     }
                 });
-                // console.log(airportsNameFrom, airportsNameTo);
             } else {
-                throw Error(this.data.Message);
+                throw Error();
             }
         } catch (error) {
             console.log(error);

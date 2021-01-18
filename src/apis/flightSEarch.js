@@ -45,6 +45,10 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
+                let a = [];
+                a = JSON.parse(localStorage.getItem('search')) || [];
+                a.push(this.data);
+                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('oneway');
@@ -66,6 +70,10 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
+                let a = [];
+                a = JSON.parse(localStorage.getItem('search')) || [];
+                a.push(this.data);
+                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('return');

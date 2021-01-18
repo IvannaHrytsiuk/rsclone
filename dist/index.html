@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="logoBlock">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt="">
+                        <img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt="">
                     </div>
                     <nav>
                         <a href="" class="btn navBtn active">
@@ -31,7 +31,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="locationCurrencyBlock">
-                        <button class="btn headerModalBtn" data-bs-toggle="modal" data-bs-target="#headerModal"></button>
+                        <button class="btn headerModalBtn" data-bs-toggle="modal" data-bs-target="#headerModal">
+                            <span class="countryHeaderModalBtn"></span>
+                            <span class="currencyHeaderModalBtn"></span>
+                        </button>
                         <a class="btn logInBtn">Log In</a>
                     </div>
                 </div>
@@ -51,10 +54,6 @@
                         <label>
                             <input type="radio" name="flight-type" value="1">
                             <span>One way</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="flight-type" value="3">
-                            <span>Multi-city</span>
                         </label>
                     </div>
                     <div class="inputsFlex">
@@ -117,23 +116,31 @@
                         <div>
                             <button type="button" class="btn searchFlightBtn">Search flights &#10144;</button>
                         </div>
-                    </div>
-                    <div class="down-checkboxes">
-                        <div>
-                            <input type="checkbox">
-                            <label>Non-stop flights only</label>
-                        </div>
-                        <div>
-                            <input type="checkbox">
-                            <label>Flexible tickets only</label>
-                            </div>
-                        </div>
-                    </form>
+                    </div>                        
                 </div>
             </div>
     </div>
     <div class="bookingWrapper">
         <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+    <div class="bookingDetailsWrapper">
+        <div class="container">
+            <h1 class="routeDetails"></h1>
+            <div class="row">
+                <div class="col-md-8 ticketDetails"></div>
+                <div class="col-md-4 allPrice"></div>
+            </div>
+            <div class="col-md-8 contactEmailBlock">
+                <h4>Contact details</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="your@email.com" required>
+                        <button class="btn btnConfirm">Confirm booking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   
   <!-- Modal -->
@@ -147,7 +154,7 @@
         <div class="modal-body">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn">Book</button>
+          <button type="button" class="btn bookBtn" data-bs-dismiss="modal">Book</button>
         </div>
       </div>
     </div>

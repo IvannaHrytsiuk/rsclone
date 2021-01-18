@@ -9,10 +9,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_nullStyle_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _scripts_flightSearch_controller_flightSearchControll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var _scripts_header_controller_headerControll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
-/* harmony import */ var _apis_userLocation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
-/* harmony import */ var _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
-/* harmony import */ var _scripts_header_view_headerView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(16);
-/* harmony import */ var _apis_country__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(17);
+/* harmony import */ var _scripts_flightResult_controller_flightresultControll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
+/* harmony import */ var _apis_userLocation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var _scripts_header_view_headerView__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(16);
+/* harmony import */ var _apis_country__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(17);
 ;
 
 
@@ -22,12 +23,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const User = new _apis_userLocation__WEBPACK_IMPORTED_MODULE_4__.UserlocationClass();
-const Country = new _apis_country__WEBPACK_IMPORTED_MODULE_7__.CountryClass();
-const Header = new _scripts_header_view_headerView__WEBPACK_IMPORTED_MODULE_6__.HeaderView();
+
+const User = new _apis_userLocation__WEBPACK_IMPORTED_MODULE_5__.UserlocationClass();
+const Country = new _apis_country__WEBPACK_IMPORTED_MODULE_8__.CountryClass();
+const Header = new _scripts_header_view_headerView__WEBPACK_IMPORTED_MODULE_7__.HeaderView();
 
 window.addEventListener('load', () => {
-    const flightSearchView = new _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_5__.FlightSearchView();
+    const flightSearchView = new _scripts_flightSearch_view_flightSearchView__WEBPACK_IMPORTED_MODULE_6__.FlightSearchView();
     flightSearchView.dateView(document.getElementById('departDate'), 8);
     flightSearchView.dateView(document.getElementById('returnDate'), 15);
     flightSearchView.counterView(document.getElementById('adultsCount').value, document.getElementById('childCount').value);
@@ -354,7 +356,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  color: white;\n  font-family: sans-serif !important; }\n\n.wrapperSearch {\n  background-image: url(\"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/shutterstock_539058235.jpg?alt=media&token=9ee36da4-40a4-4fa1-92a3-c594f69eead8\");\n  background-position: center;\n  width: 100%;\n  height: 500px;\n  background-size: cover;\n  position: relative; }\n\n.searchBlock {\n  width: 90%;\n  height: 400px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n  .searchBlock h1 {\n    font-size: 4.75rem;\n    padding: 0 0 1.875rem 1.5rem;\n    line-height: 1.3;\n    font-weight: 700;\n    letter-spacing: normal; }\n\n.wrapperSearchInputs {\n  margin: 0 auto;\n  padding: 1.5rem;\n  background-color: #02122c;\n  border-radius: .25rem;\n  height: 175px; }\n\n.flight-radio-boxes label > input {\n  margin: 0; }\n\n.flight-radio-boxes label > span {\n  margin-right: 5px;\n  font-size: 16px; }\n\n.inputsFlex {\n  display: flex;\n  margin-top: 15px; }\n  .inputsFlex input {\n    font-family: sans-serif; }\n  .inputsFlex label {\n    width: 100%;\n    display: block; }\n  .inputsFlex div > label {\n    font-size: 12px; }\n  .inputsFlex div > input {\n    padding: 0;\n    color: black;\n    padding: 10px; }\n  .inputsFlex div > input,\n  .inputsFlex div > select {\n    border: none;\n    outline: none;\n    box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;\n    height: 40px; }\n  .inputsFlex div > select {\n    width: 100%; }\n  .inputsFlex .from-to {\n    position: relative;\n    width: 23%; }\n  .inputsFlex .from-to > input {\n    padding-right: 25px;\n    width: 100%; }\n  .inputsFlex .switch-button {\n    position: absolute;\n    right: 0;\n    height: 40px;\n    width: 25px;\n    background-color: red;\n    outline: none;\n    border: none; }\n\n.up-checkboxes {\n  position: relative;\n  margin-top: 15px;\n  display: flex;\n  flex-wrap: wrap; }\n  .up-checkboxes div:nth-child(1),\n  .up-checkboxes div:nth-child(2) {\n    display: flex;\n    align-items: center;\n    width: 169px;\n    font-size: 12px; }\n    .up-checkboxes div:nth-child(1) input,\n    .up-checkboxes div:nth-child(2) input {\n      margin: 0; }\n    .up-checkboxes div:nth-child(1) label,\n    .up-checkboxes div:nth-child(2) label {\n      margin-left: 5px; }\n  .up-checkboxes div:nth-child(3) {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: calc(100% - 338px);\n    display: flex;\n    justify-content: flex-end;\n    min-width: 100px; }\n  .up-checkboxes div:nth-child(3) > button {\n    font-size: 22px;\n    line-height: 30px;\n    background-color: #00a698;\n    color: #ffffff;\n    border-radius: 4px;\n    padding: 6px 24px;\n    outline: none;\n    border: none; }\n  .up-checkboxes div:nth-child(3) > button:hover {\n    background-color: #00887d;\n    cursor: pointer; }\n\n.down-checkboxes {\n  display: flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n  margin-top: 15px; }\n  .down-checkboxes div {\n    display: flex;\n    align-items: center; }\n    .down-checkboxes div input {\n      margin: 0; }\n    .down-checkboxes div label {\n      margin-left: 5px; }\n  .down-checkboxes div:nth-child(1) {\n    margin-right: 15px; }\n\n.classAdults {\n  width: 30%;\n  color: #111236; }\n  .classAdults #classAdultsInp {\n    width: 100%; }\n\n.airportSearchFrom, .airportSearchTo {\n  width: 500px;\n  position: absolute;\n  color: #111236;\n  font-size: 1rem;\n  line-height: 1.3rem;\n  background-color: white;\n  border-radius: 10px;\n  z-index: 1;\n  font-family: sans-serif;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1; }\n  .airportSearchFrom li, .airportSearchTo li {\n    cursor: pointer;\n    margin: 0;\n    font-size: 1rem;\n    line-height: 1.25rem;\n    font-weight: 400;\n    height: 50px;\n    border-bottom: 1px solid lightgray;\n    border-top: 1px solid lightgray;\n    padding: 5px 0; }\n    .airportSearchFrom li:hover, .airportSearchTo li:hover {\n      background-color: #f1f1f1; }\n\n.listBlock {\n  display: flex; }\n  .listBlock div:first-child {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 20%; }\n  .listBlock img {\n    width: 20px;\n    height: 20px; }\n\n.listPlaceName {\n  font-size: 1rem;\n  line-height: 1.25rem;\n  font-weight: 400; }\n\n.listCountryName {\n  font-size: .75rem;\n  line-height: 1rem;\n  font-weight: 400; }\n\n.classAdultsModal {\n  width: 350px;\n  background-color: white;\n  border-radius: 10px;\n  position: absolute;\n  z-index: 1;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1;\n  padding: 15px;\n  display: none; }\n  .classAdultsModal hr {\n    margin: 0px 0 10px 0;\n    border-top: 1px solid lightgray; }\n  .classAdultsModal .hearders {\n    padding: .75rem 0 .375rem;\n    font-size: 1rem;\n    font-weight: 700;\n    color: #111236;\n    line-height: 1rem; }\n  .classAdultsModal div {\n    padding: .75rem 10px .375rem;\n    font-size: .77rem;\n    color: #111236;\n    line-height: 1rem;\n    background-color: #f3f2f5;\n    border-radius: 5px;\n    text-align: justify; }\n    .classAdultsModal div strong {\n      display: block;\n      font-weight: 700; }\n  .classAdultsModal .closeBtn {\n    color: #084eb2;\n    text-align: right;\n    cursor: pointer;\n    font-weight: 700;\n    font-family: sans-serif; }\n    .classAdultsModal .closeBtn:hover {\n      text-decoration: underline; }\n\n.counterTicket {\n  width: 40px;\n  border: none;\n  outline: none;\n  font-size: 2rem;\n  box-shadow: none !important;\n  background-color: #fff;\n  font-family: sans-serif; }\n\n.counterButton {\n  color: #084eb2;\n  background-color: #fff;\n  border-radius: 50%;\n  outline: none;\n  font-weight: 700;\n  line-height: 1.5rem;\n  text-align: center;\n  cursor: pointer;\n  font-size: 2rem;\n  border: 2px solid lightgray;\n  padding: 5px;\n  width: 37px;\n  height: 37px; }\n  .counterButton:hover {\n    border: 2px solid #084eb2; }\n  .counterButton:disabled {\n    background-color: #dddde5;\n    color: #b2b2bf;\n    cursor: not-allowed; }\n    .counterButton:disabled:hover {\n      border: 2px solid lightgray; }\n\n.countSpan {\n  font-size: 1rem;\n  padding-left: 10px;\n  display: inline-block; }\n\n.classAdultsTxt {\n  padding: 0.5rem 0 1.1rem 0;\n  color: #817b8f;\n  font-size: .77rem;\n  line-height: 1.125rem;\n  font-family: sans-serif;\n  text-align: justify; }\n\n#classAdultsInp:read-only {\n  cursor: pointer; }\n\n.ifChild {\n  width: 100%;\n  height: 100%; }\n  .ifChild option {\n    height: 30px;\n    font-size: 18px; }\n\n#returnDate:disabled {\n  background-color: #868686;\n  cursor: not-allowed; }\n\n.bookingWrapper {\n  display: none;\n  width: 100%;\n  height: 500px;\n  color: #02122c;\n  background-color: #f5f5f5; }\n\n.lds-ripple {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  height: 100px; }\n\n.lds-ripple div {\n  position: absolute;\n  border: 5px solid #0770e3;\n  opacity: 1;\n  border-radius: 50%;\n  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite; }\n\n.lds-ripple div:nth-child(2) {\n  animation-delay: -0.5s; }\n\n@keyframes lds-ripple {\n  0% {\n    top: 50%;\n    left: 50%;\n    width: 0;\n    height: 0;\n    opacity: 1;\n    transform: translate(-50%, -50%); }\n  100% {\n    top: 50%;\n    left: 50%;\n    width: 100px;\n    height: 100px;\n    opacity: 0;\n    transform: translate(-50%, -50%); } }\n\n.bookingMood {\n  background-image: none;\n  height: 300px;\n  border-bottom: 2px solid lightgray; }\n  .bookingMood .searchBlock {\n    height: 100%; }\n    .bookingMood .searchBlock h1 {\n      font-size: 30px;\n      color: #0770e3; }\n\n.bookingFlex {\n  width: 100%;\n  height: 100%;\n  display: flex; }\n  .bookingFlex .bookingFlexContent {\n    width: 25%;\n    padding: 2rem 1.5rem; }\n  .bookingFlex #contentResult {\n    width: 50%;\n    padding: 2rem 0.5rem; }\n\n.dataBlockOne {\n  height: 270px; }\n\n.dataBlockReturn {\n  height: 500px; }\n\n.dataBlock {\n  width: 100%;\n  background-color: white;\n  margin: 1.5rem 0;\n  padding: 1rem;\n  display: flex;\n  -webkit-box-shadow: 0px 0px 5px 0px #a1a1a1;\n  -moz-box-shadow: 0px 0px 5px 0px #a1a1a1;\n  box-shadow: 0px 0px 5px 0px #a1a1a1;\n  color: #2e353b; }\n\n.firstBlock {\n  width: 65%; }\n\n.priceBlock {\n  width: 35%;\n  justify-content: center;\n  text-align: center;\n  border-left: 1px solid lightgray;\n  font-family: sans-serif; }\n  .priceBlock div {\n    width: 100%;\n    height: 190px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative; }\n    .priceBlock div p {\n      font-weight: 700;\n      font-size: 1.7rem; }\n    .priceBlock div img {\n      position: absolute;\n      width: 20px;\n      height: 20px;\n      top: 0;\n      right: 0;\n      cursor: pointer; }\n  .priceBlock .bookbtn {\n    width: 100%;\n    height: 60px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 12px 3px 12px 15px; }\n    .priceBlock .bookbtn span {\n      background-color: #00a698;\n      color: white;\n      display: inline-block;\n      width: 100%;\n      height: 100%;\n      border-radius: 5px;\n      padding: 5px 0;\n      cursor: pointer; }\n      .priceBlock .bookbtn span:hover {\n        background-color: #0a998d; }\n\n.yearTime {\n  font-size: 1rem;\n  font-family: sans-serif; }\n\n.flightDetails {\n  display: flex;\n  width: 100%;\n  height: 150px;\n  padding: 1rem 0;\n  font-family: sans-serif; }\n  .flightDetails .information {\n    width: 95%; }\n    .flightDetails .information strong {\n      font-weight: 700;\n      font-size: 1.1rem;\n      padding: 3px 0; }\n    .flightDetails .information span {\n      color: #5f738c;\n      font-size: 0.85rem; }\n  .flightDetails .routeIco {\n    width: 5%; }\n    .flightDetails .routeIco img {\n      width: 20px;\n      margin: 5px 0; }\n\n.middleDetails {\n  display: flex;\n  padding: 1.5rem 0.5rem; }\n  .middleDetails .detailDuration {\n    background-color: #e8f4fd;\n    color: #0770e3;\n    font-size: 12px;\n    font-weight: 500;\n    border-radius: 12px;\n    padding: 8px;\n    border: 1px solid #d0e9fb;\n    width: 70px;\n    height: 30px;\n    text-align: center; }\n  .middleDetails .aerineIco {\n    background-color: #f5f7f9;\n    border: 1px solid #e8edf1;\n    border-radius: 50%;\n    width: 30px;\n    height: 30px;\n    position: relative; }\n    .middleDetails .aerineIco img {\n      width: 16px;\n      height: 16px;\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      transform: translate(-50%, -50%);\n      margin: 0; }\n  .middleDetails img {\n    margin: 0 13px;\n    width: 30px; }\n\n.fightDetailsBtns {\n  display: flex;\n  width: 100%;\n  height: 50px;\n  padding: 1rem 0 0 0;\n  font-family: sans-serif; }\n  .fightDetailsBtns .detailBag {\n    width: 65%;\n    align-items: center;\n    justify-content: space-around;\n    vertical-align: middle;\n    display: flex; }\n    .fightDetailsBtns .detailBag div {\n      background-color: #f5f7f9;\n      border: 1px solid #e8edf1;\n      height: 30px;\n      width: max-content;\n      padding: 5px 10px;\n      font-size: 13px;\n      border-radius: 12px;\n      align-items: center;\n      justify-content: space-around;\n      vertical-align: middle;\n      display: flex; }\n      .fightDetailsBtns .detailBag div img {\n        width: 15px; }\n      .fightDetailsBtns .detailBag div span {\n        margin-left: 5px;\n        font-weight: 700; }\n  .fightDetailsBtns .detailInform {\n    width: 35%;\n    align-items: center;\n    justify-content: space-around;\n    display: flex; }\n    .fightDetailsBtns .detailInform div {\n      height: 30px;\n      width: max-content;\n      padding: 5px 10px;\n      font-size: 13px;\n      align-items: center;\n      justify-content: right;\n      vertical-align: middle;\n      display: flex;\n      font-weight: 700;\n      border-radius: 5px; }\n      .fightDetailsBtns .detailInform div:hover {\n        background-color: #f5f7f9;\n        border: 1px solid #e8edf1;\n        cursor: pointer; }\n\n.nightIn {\n  text-align: center;\n  font-size: 12px;\n  font-family: sans-serif;\n  font-weight: 700;\n  margin: 10px 0; }\n\n.modal {\n  color: #2e353b; }\n\n.modal-header h5 {\n  font-size: 28px;\n  font-weight: 700;\n  line-height: 36px; }\n\n.modal-body {\n  background-color: #f5f7f9;\n  padding: 1rem 1rem 2rem 1rem; }\n  .modal-body h2 {\n    font-size: 16px;\n    font-weight: 700;\n    height: 35px;\n    margin-top: 20px; }\n  .modal-body .modalCalendarIco {\n    width: 20px;\n    height: 20px;\n    margin: -5px 0; }\n  .modal-body .modalDetailsRow {\n    width: 100%;\n    height: 40px; }\n    .modal-body .modalDetailsRow .first {\n      width: 30%;\n      border-right: 2px dotted #d0d4d8; }\n    .modal-body .modalDetailsRow .second {\n      width: 70%; }\n\n.flightDeatilsModal {\n  background: white;\n  border-radius: 3px;\n  -webkit-box-shadow: 0px 0px 4px 0px #757575;\n  -moz-box-shadow: 0px 0px 4px 0px #757575;\n  box-shadow: 0px 0px 4px 0px #757575;\n  font-size: 14px; }\n\n.row {\n  margin-left: 0; }\n\n.first.modalDetailsRow {\n  background-color: white; }\n  .first.modalDetailsRow .first {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .first.modalDetailsRow .first p {\n      text-align: center;\n      line-height: 2;\n      font-weight: 700; }\n\n.modalDateDay {\n  line-height: 2;\n  font-size: 13px;\n  padding: 2px 0;\n  display: inline-block;\n  font-weight: 700; }\n\n.modalCity {\n  font-weight: 700;\n  font-size: 13px;\n  margin: 5px 0; }\n\n.modalAirportName {\n  font-size: 12px;\n  font-weight: 500;\n  color: #5f738c; }\n\n.modalDetailsRow.second {\n  background-color: #e8f4fd;\n  color: #0172cb;\n  font-size: 13px;\n  height: 30px; }\n  .modalDetailsRow.second p {\n    line-height: 2.2; }\n\n.modalDetailsRow.third {\n  background-color: #f5f7f9;\n  cursor: pointer; }\n  .modalDetailsRow.third .first {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .modalDetailsRow.third .first img {\n      width: 24px;\n      height: 24px; }\n  .modalDetailsRow.third .second {\n    display: flex;\n    align-items: center; }\n    .modalDetailsRow.third .second p {\n      width: 45%;\n      text-align: end; }\n  .modalDetailsRow.third .modal3Aerlinename {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 12px;\n    height: 24px;\n    width: max-content;\n    padding: 0 10px;\n    background: white;\n    margin-right: 10px; }\n    .modalDetailsRow.third .modal3Aerlinename span {\n      line-height: 14px;\n      font-size: 12px;\n      font-weight: 700; }\n  .modalDetailsRow.third .modal3flightTime {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 12px;\n    height: 24px;\n    width: max-content;\n    padding: 0 10px;\n    background: #e8f4fd;\n    color: #005aa3;\n    border: 1px solid #d0e9fb; }\n    .modalDetailsRow.third .modal3flightTime span {\n      line-height: 14px;\n      font-size: 12px;\n      font-weight: 700; }\n\n.modalDetailsRow.collapse {\n  height: 100%;\n  background-color: #f5f7f9; }\n  .modalDetailsRow.collapse h4 {\n    margin: 16px 0px 12px;\n    font-weight: 700;\n    font-size: 13px; }\n  .modalDetailsRow.collapse .infoLine {\n    display: flex; }\n    .modalDetailsRow.collapse .infoLine .first, .modalDetailsRow.collapse .infoLine .second {\n      width: 50%;\n      margin-bottom: 8px;\n      color: #5f738c;\n      font-size: 12px;\n      border: none; }\n      .modalDetailsRow.collapse .infoLine .first img, .modalDetailsRow.collapse .infoLine .second img {\n        height: 16px;\n        width: 16px;\n        margin: -3px 0; }\n      .modalDetailsRow.collapse .infoLine .first span, .modalDetailsRow.collapse .infoLine .second span {\n        display: inline-block;\n        line-height: 1;\n        padding: 5px; }\n    .modalDetailsRow.collapse .infoLine .second {\n      text-align: end; }\n\n.destitArrive {\n  display: flex;\n  height: 40px;\n  margin-top: 10px; }\n  .destitArrive .destitArriveIco {\n    display: flex;\n    justify-content: left;\n    align-items: center;\n    width: 6%; }\n    .destitArrive .destitArriveIco img {\n      width: 20px;\n      height: 20px; }\n  .destitArrive .destitArriveTxt {\n    width: 90%; }\n    .destitArrive .destitArriveTxt .destitArriveTxtUp {\n      font-size: 12px;\n      color: #5f738c;\n      line-height: 16px;\n      line-height: 1.5; }\n    .destitArrive .destitArriveTxt .destitArriveTxtDown {\n      font-size: 13px;\n      font-weight: 700;\n      line-height: 1.5; }\n    .destitArrive .destitArriveTxt .destitArriveTxtDown.destitArriveTxtDownOne {\n      line-height: 3.3; }\n    .destitArrive .destitArriveTxt a {\n      text-decoration: underline;\n      font-size: 13px;\n      outline: none;\n      color: inherit;\n      cursor: pointer; }\n      .destitArrive .destitArriveTxt a:hover {\n        text-decoration: none;\n        color: #009882; }\n      .destitArrive .destitArriveTxt a img {\n        width: 80px;\n        display: inline-block;\n        margin: -5px 5px; }\n\n.modal-footer .btn {\n  background-color: #008f7b;\n  color: white; }\n  .modal-footer .btn:hover {\n    background-color: #009882; }\n\nheader {\n  background-color: white;\n  color: #111236;\n  width: 100%;\n  height: 115px; }\n  header .container {\n    height: 115px; }\n    header .container .col-md-6 {\n      height: 115px; }\n      header .container .col-md-6 nav {\n        width: 100%;\n        height: 35px; }\n\n.logoBlock {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: left;\n  height: 80px; }\n  .logoBlock img {\n    width: 180px;\n    height: 35px; }\n\n.navBtn {\n  border-radius: 0;\n  margin-left: 10px;\n  border-top-left-radius: .25rem;\n  border-top-right-radius: .25rem;\n  background-color: #0770e3;\n  color: #fff;\n  font-weight: 700;\n  text-align: center;\n  text-decoration: none;\n  width: 115px;\n  height: 35px; }\n  .navBtn img {\n    width: 18px;\n    height: 18px; }\n  .navBtn:hover {\n    color: white;\n    background-color: #042759; }\n\n.navBtn.active {\n  color: white;\n  background-color: #042759; }\n\n.locationCurrencyBlock {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n  height: 80px; }\n  .locationCurrencyBlock .logInBtn {\n    color: #0770e3;\n    text-decoration: none;\n    outline: none;\n    font-weight: 700;\n    line-height: 1.5rem;\n    text-align: center;\n    width: 95px;\n    height: 40px;\n    padding: .375rem .125rem;\n    border-radius: .25rem;\n    border: 2px solid #efefef;\n    font-size: 20px; }\n    .locationCurrencyBlock .logInBtn:hover {\n      border: 2px solid #0770e3; }\n  .locationCurrencyBlock .headerModalBtn {\n    color: #444560;\n    line-height: 1.5rem;\n    text-align: center;\n    width: max-content;\n    height: 40px;\n    border-radius: .25rem;\n    border: 2px solid #efefef;\n    font-size: 20px;\n    margin-right: 40px; }\n    .locationCurrencyBlock .headerModalBtn:hover {\n      border: 2px solid #0770e3; }\n    .locationCurrencyBlock .headerModalBtn img {\n      width: 15px;\n      height: 11px;\n      margin-right: 5px; }\n    .locationCurrencyBlock .headerModalBtn .countryName {\n      font-size: 13px;\n      margin-right: 10px; }\n    .locationCurrencyBlock .headerModalBtn .currencyView {\n      font-size: 13px;\n      color: #b2b2bf; }\n\n.regionalsettings div {\n  display: flex;\n  align-items: center;\n  height: 45px; }\n  .regionalsettings div img {\n    width: 24px;\n    height: 24px; }\n  .regionalsettings div span {\n    font-size: 13px;\n    font-weight: 700;\n    margin-left: 5px; }\n\n.regionalsettings p {\n  font-size: .75rem;\n  line-height: 1.125rem;\n  font-weight: 400;\n  letter-spacing: normal; }\n\n.modal-body-header {\n  background-color: white; }\n\n.closeBtnModal {\n  color: #b2b2bf !important;\n  background-color: white !important;\n  border: 2px solid #b2b2bf !important;\n  font-size: 15px; }\n  .closeBtnModal:hover {\n    border: 2px solid #009882 !important;\n    color: #009882 !important; }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  color: white;\n  font-family: sans-serif !important; }\n\n.wrapperSearch {\n  background-image: url(\"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/shutterstock_539058235.jpg?alt=media&token=9ee36da4-40a4-4fa1-92a3-c594f69eead8\");\n  background-position: center;\n  width: 100%;\n  height: 500px;\n  background-size: cover;\n  position: relative; }\n\n.searchBlock {\n  width: 90%;\n  height: 400px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%); }\n  .searchBlock h1 {\n    font-size: 4.75rem;\n    padding: 1rem 0 1.875rem 1.5rem;\n    line-height: 1.3;\n    font-weight: 700;\n    letter-spacing: normal; }\n\n.wrapperSearchInputs {\n  margin: 0 auto;\n  padding: 1.5rem;\n  background-color: #02122c;\n  border-radius: .25rem;\n  height: 190px; }\n\n.flight-radio-boxes label > input {\n  margin: 0; }\n\n.flight-radio-boxes label > span {\n  margin-right: 5px;\n  font-size: 16px; }\n\n.inputsFlex {\n  display: flex;\n  margin-top: 15px; }\n  .inputsFlex input {\n    font-family: sans-serif; }\n  .inputsFlex label {\n    width: 100%;\n    display: block; }\n  .inputsFlex div > label {\n    font-size: 12px; }\n  .inputsFlex div > input {\n    padding: 0;\n    color: black;\n    padding: 10px; }\n  .inputsFlex div > input,\n  .inputsFlex div > select {\n    border: none;\n    outline: none;\n    box-shadow: inset 1px 0 0 0 #b2b2bf, inset 0 1px 0 0 #b2b2bf, inset 0 -1px 0 0 #b2b2bf, inset -1px 0 0 0 #b2b2bf;\n    height: 40px; }\n  .inputsFlex div > select {\n    width: 100%; }\n  .inputsFlex .from-to {\n    position: relative;\n    width: 23%; }\n  .inputsFlex .from-to > input {\n    padding-right: 25px;\n    width: 100%; }\n  .inputsFlex .switch-button {\n    position: absolute;\n    right: 0;\n    height: 40px;\n    width: 25px;\n    background-color: red;\n    outline: none;\n    border: none; }\n\n.up-checkboxes {\n  position: relative;\n  margin-top: 15px;\n  display: flex;\n  flex-wrap: wrap; }\n  .up-checkboxes div:nth-child(1),\n  .up-checkboxes div:nth-child(2) {\n    display: flex;\n    align-items: center;\n    width: 22%;\n    font-size: 12px; }\n    .up-checkboxes div:nth-child(1) input,\n    .up-checkboxes div:nth-child(2) input {\n      margin: 0; }\n    .up-checkboxes div:nth-child(1) label,\n    .up-checkboxes div:nth-child(2) label {\n      margin-left: 5px; }\n  .up-checkboxes div:nth-child(3) {\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: calc(100% - 338px);\n    display: flex;\n    justify-content: flex-end;\n    min-width: 100px; }\n  .up-checkboxes div:nth-child(3) > button {\n    font-size: 22px;\n    line-height: 30px;\n    background-color: #00a698;\n    color: #ffffff;\n    border-radius: 4px;\n    padding: 6px 24px;\n    outline: none;\n    border: none; }\n  .up-checkboxes div:nth-child(3) > button:hover {\n    background-color: #00887d;\n    cursor: pointer; }\n\n.down-checkboxes {\n  display: flex;\n  flex-wrap: wrap;\n  font-size: 12px;\n  margin-top: 15px; }\n  .down-checkboxes div {\n    display: flex;\n    align-items: center; }\n    .down-checkboxes div input {\n      margin: 0; }\n    .down-checkboxes div label {\n      margin-left: 5px; }\n  .down-checkboxes div:nth-child(1) {\n    margin-right: 15px; }\n\n.classAdults {\n  width: 30%;\n  color: #111236; }\n  .classAdults #classAdultsInp {\n    width: 100%; }\n\n.airportSearchFrom, .airportSearchTo {\n  width: 500px;\n  position: absolute;\n  color: #111236;\n  font-size: 1rem;\n  line-height: 1.3rem;\n  background-color: white;\n  border-radius: 10px;\n  z-index: 1;\n  font-family: sans-serif;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1; }\n  .airportSearchFrom li, .airportSearchTo li {\n    cursor: pointer;\n    margin: 0;\n    font-size: 1rem;\n    line-height: 1.25rem;\n    font-weight: 400;\n    height: 50px;\n    border-bottom: 1px solid lightgray;\n    border-top: 1px solid lightgray;\n    padding: 5px 0; }\n    .airportSearchFrom li:hover, .airportSearchTo li:hover {\n      background-color: #f1f1f1; }\n\n.listBlock {\n  display: flex; }\n  .listBlock div:first-child {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 20%; }\n  .listBlock img {\n    width: 20px;\n    height: 20px; }\n\n.listPlaceName {\n  font-size: 1rem;\n  line-height: 1.25rem;\n  font-weight: 400; }\n\n.listCountryName {\n  font-size: .75rem;\n  line-height: 1rem;\n  font-weight: 400; }\n\n.classAdultsModal {\n  width: 350px;\n  background-color: white;\n  border-radius: 10px;\n  position: absolute;\n  z-index: 1;\n  -webkit-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  -moz-box-shadow: 0px 0px 7px 1px #d1d1d1;\n  box-shadow: 0px 0px 7px 1px #d1d1d1;\n  padding: 15px;\n  display: none; }\n  .classAdultsModal hr {\n    margin: 0px 0 10px 0;\n    border-top: 1px solid lightgray; }\n  .classAdultsModal .hearders {\n    padding: .75rem 0 .375rem;\n    font-size: 1rem;\n    font-weight: 700;\n    color: #111236;\n    line-height: 1rem; }\n  .classAdultsModal div {\n    padding: .75rem 10px .375rem;\n    font-size: .77rem;\n    color: #111236;\n    line-height: 1rem;\n    background-color: #f3f2f5;\n    border-radius: 5px;\n    text-align: justify; }\n    .classAdultsModal div strong {\n      display: block;\n      font-weight: 700; }\n  .classAdultsModal .closeBtn {\n    color: #084eb2;\n    text-align: right;\n    cursor: pointer;\n    font-weight: 700;\n    font-family: sans-serif; }\n    .classAdultsModal .closeBtn:hover {\n      text-decoration: underline; }\n\n.counterTicket {\n  width: 40px;\n  border: none;\n  outline: none;\n  font-size: 2rem;\n  box-shadow: none !important;\n  background-color: #fff;\n  font-family: sans-serif; }\n\n.counterButton {\n  color: #084eb2;\n  background-color: #fff;\n  border-radius: 50%;\n  outline: none;\n  font-weight: 700;\n  line-height: 1.5rem;\n  text-align: center;\n  cursor: pointer;\n  font-size: 2rem;\n  border: 2px solid lightgray;\n  padding: 5px;\n  width: 37px;\n  height: 37px; }\n  .counterButton:hover {\n    border: 2px solid #084eb2; }\n  .counterButton:disabled {\n    background-color: #dddde5;\n    color: #b2b2bf;\n    cursor: not-allowed; }\n    .counterButton:disabled:hover {\n      border: 2px solid lightgray; }\n\n.countSpan {\n  font-size: 1rem;\n  padding-left: 10px;\n  display: inline-block; }\n\n.classAdultsTxt {\n  padding: 0.5rem 0 1.1rem 0;\n  color: #817b8f;\n  font-size: .77rem;\n  line-height: 1.125rem;\n  font-family: sans-serif;\n  text-align: justify; }\n\n#classAdultsInp:read-only {\n  cursor: pointer; }\n\n.ifChild {\n  width: 100%;\n  height: 100%; }\n  .ifChild option {\n    height: 30px;\n    font-size: 18px; }\n\n#returnDate:disabled {\n  background-color: #868686;\n  cursor: not-allowed; }\n\n.bookingWrapper {\n  display: none;\n  width: 100%;\n  height: 500px;\n  color: #02122c;\n  background-color: #f5f5f5; }\n\n.lds-ripple {\n  display: inline-block;\n  position: relative;\n  width: 100%;\n  height: 100px; }\n\n.lds-ripple div {\n  position: absolute;\n  border: 5px solid #0770e3;\n  opacity: 1;\n  border-radius: 50%;\n  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite; }\n\n.lds-ripple div:nth-child(2) {\n  animation-delay: -0.5s; }\n\n@keyframes lds-ripple {\n  0% {\n    top: 50%;\n    left: 50%;\n    width: 0;\n    height: 0;\n    opacity: 1;\n    transform: translate(-50%, -50%); }\n  100% {\n    top: 50%;\n    left: 50%;\n    width: 100px;\n    height: 100px;\n    opacity: 0;\n    transform: translate(-50%, -50%); } }\n\n.bookingMood {\n  background-image: none;\n  background-color: #eef2f5;\n  height: 300px;\n  border-bottom: 2px solid lightgray; }\n  .bookingMood .searchBlock {\n    height: 100%; }\n    .bookingMood .searchBlock h1 {\n      font-size: 30px;\n      color: #0770e3;\n      padding-top: 1.5rem; }\n\n.bookingFlex {\n  width: 100%;\n  height: 100%;\n  display: flex; }\n  .bookingFlex .bookingFlexContent {\n    width: 25%;\n    padding: 2rem 1.5rem; }\n  .bookingFlex #contentResult {\n    width: 50%;\n    padding: 2rem 0.5rem; }\n\n.dataBlockOne {\n  height: 270px; }\n\n.dataBlockReturn {\n  height: 500px; }\n\n.dataBlock {\n  width: 100%;\n  background-color: white;\n  margin: 1.5rem 0;\n  padding: 1rem;\n  display: flex;\n  -webkit-box-shadow: 0px 0px 5px 0px #a1a1a1;\n  -moz-box-shadow: 0px 0px 5px 0px #a1a1a1;\n  box-shadow: 0px 0px 5px 0px #a1a1a1;\n  color: #2e353b; }\n\n.firstBlock {\n  width: 65%; }\n\n.priceBlock {\n  width: 35%;\n  justify-content: center;\n  text-align: center;\n  border-left: 1px solid lightgray;\n  font-family: sans-serif; }\n  .priceBlock div {\n    width: 100%;\n    height: 190px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative; }\n    .priceBlock div p {\n      font-weight: 700;\n      font-size: 1.7rem; }\n    .priceBlock div img {\n      position: absolute;\n      width: 20px;\n      height: 20px;\n      top: 0;\n      right: 0;\n      cursor: pointer; }\n  .priceBlock .bookbtn {\n    width: 100%;\n    height: 60px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 12px 3px 12px 15px; }\n    .priceBlock .bookbtn span {\n      background-color: #00a698;\n      color: white;\n      display: inline-block;\n      width: 100%;\n      height: 100%;\n      border-radius: 5px;\n      padding: 5px 0;\n      cursor: pointer; }\n      .priceBlock .bookbtn span:hover {\n        background-color: #0a998d; }\n\n.yearTime {\n  font-size: 1rem;\n  font-family: sans-serif; }\n\n.flightDetails {\n  display: flex;\n  width: 100%;\n  height: 150px;\n  padding: 1rem 0;\n  font-family: sans-serif; }\n  .flightDetails .information {\n    width: 95%; }\n    .flightDetails .information strong {\n      font-weight: 700;\n      font-size: 1.1rem;\n      padding: 3px 0; }\n    .flightDetails .information span {\n      color: #5f738c;\n      font-size: 0.85rem; }\n  .flightDetails .routeIco {\n    width: 5%; }\n    .flightDetails .routeIco img {\n      width: 20px;\n      margin: 5px 0; }\n\n.middleDetails {\n  display: flex;\n  padding: 1.5rem 0.5rem; }\n  .middleDetails .detailDuration {\n    background-color: #e8f4fd;\n    color: #0770e3;\n    font-size: 12px;\n    font-weight: 500;\n    border-radius: 12px;\n    padding: 8px;\n    border: 1px solid #d0e9fb;\n    width: 70px;\n    height: 30px;\n    text-align: center; }\n  .middleDetails .aerineIco {\n    background-color: #f5f7f9;\n    border: 1px solid #e8edf1;\n    border-radius: 50%;\n    width: 30px;\n    height: 30px;\n    position: relative; }\n    .middleDetails .aerineIco img {\n      width: 16px;\n      height: 16px;\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      transform: translate(-50%, -50%);\n      margin: 0; }\n  .middleDetails img {\n    margin: 0 13px;\n    width: 30px; }\n\n.fightDetailsBtns {\n  display: flex;\n  width: 100%;\n  height: 50px;\n  padding: 1rem 0 0 0;\n  font-family: sans-serif; }\n  .fightDetailsBtns .detailBag {\n    width: 65%;\n    align-items: center;\n    justify-content: space-around;\n    vertical-align: middle;\n    display: flex; }\n    .fightDetailsBtns .detailBag div {\n      background-color: #f5f7f9;\n      border: 1px solid #e8edf1;\n      height: 30px;\n      width: max-content;\n      padding: 5px 10px;\n      font-size: 13px;\n      border-radius: 12px;\n      align-items: center;\n      justify-content: space-around;\n      vertical-align: middle;\n      display: flex; }\n      .fightDetailsBtns .detailBag div img {\n        width: 15px; }\n      .fightDetailsBtns .detailBag div span {\n        margin-left: 5px;\n        font-weight: 700; }\n  .fightDetailsBtns .detailInform {\n    width: 35%;\n    align-items: center;\n    justify-content: space-around;\n    display: flex; }\n    .fightDetailsBtns .detailInform div {\n      height: 30px;\n      width: max-content;\n      padding: 5px 10px;\n      font-size: 13px;\n      align-items: center;\n      justify-content: right;\n      vertical-align: middle;\n      display: flex;\n      font-weight: 700;\n      border-radius: 5px; }\n      .fightDetailsBtns .detailInform div:hover {\n        background-color: #f5f7f9;\n        border: 1px solid #e8edf1;\n        cursor: pointer; }\n\n.nightIn {\n  text-align: center;\n  font-size: 12px;\n  font-family: sans-serif;\n  font-weight: 700;\n  margin: 10px 0; }\n\n.modal {\n  color: #2e353b; }\n\n.modal-header h5 {\n  font-size: 28px;\n  font-weight: 700;\n  line-height: 36px; }\n\n.modal-body {\n  background-color: #f5f7f9;\n  padding: 1rem 1rem 2rem 1rem; }\n  .modal-body h2 {\n    font-size: 16px;\n    font-weight: 700;\n    height: 35px;\n    margin-top: 20px; }\n  .modal-body .modalCalendarIco {\n    width: 20px;\n    height: 20px;\n    margin: -5px 0; }\n  .modal-body .modalDetailsRow {\n    width: 100%;\n    height: 40px; }\n    .modal-body .modalDetailsRow .first {\n      width: 30%;\n      border-right: 2px dotted #d0d4d8; }\n    .modal-body .modalDetailsRow .second {\n      width: 70%; }\n\n.flightDeatilsModal {\n  background: white;\n  border-radius: 3px;\n  -webkit-box-shadow: 0px 0px 4px 0px #757575;\n  -moz-box-shadow: 0px 0px 4px 0px #757575;\n  box-shadow: 0px 0px 4px 0px #757575;\n  font-size: 14px; }\n\n.row {\n  margin-left: 0; }\n\n.first.modalDetailsRow {\n  background-color: white; }\n  .first.modalDetailsRow .first {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .first.modalDetailsRow .first p {\n      text-align: center;\n      line-height: 2;\n      font-weight: 700; }\n\n.modalDateDay {\n  line-height: 2;\n  font-size: 13px;\n  padding: 2px 0;\n  display: inline-block;\n  font-weight: 700; }\n\n.modalCity {\n  font-weight: 700;\n  font-size: 13px;\n  margin: 5px 0; }\n\n.modalAirportName {\n  font-size: 12px;\n  font-weight: 500;\n  color: #5f738c; }\n\n.modalDetailsRow.second {\n  background-color: #e8f4fd;\n  color: #0172cb;\n  font-size: 13px;\n  height: 30px; }\n  .modalDetailsRow.second p {\n    line-height: 2.2; }\n\n.modalDetailsRow.third {\n  background-color: #f5f7f9;\n  cursor: pointer; }\n  .modalDetailsRow.third .first {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .modalDetailsRow.third .first img {\n      width: 24px;\n      height: 24px; }\n  .modalDetailsRow.third .second {\n    display: flex;\n    align-items: center; }\n    .modalDetailsRow.third .second p {\n      width: 45%;\n      text-align: end; }\n  .modalDetailsRow.third .modal3Aerlinename {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 12px;\n    height: 24px;\n    width: max-content;\n    padding: 0 10px;\n    background: white;\n    margin-right: 10px; }\n    .modalDetailsRow.third .modal3Aerlinename span {\n      line-height: 14px;\n      font-size: 12px;\n      font-weight: 700; }\n  .modalDetailsRow.third .modal3flightTime {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 12px;\n    height: 24px;\n    width: max-content;\n    padding: 0 10px;\n    background: #e8f4fd;\n    color: #005aa3;\n    border: 1px solid #d0e9fb; }\n    .modalDetailsRow.third .modal3flightTime span {\n      line-height: 14px;\n      font-size: 12px;\n      font-weight: 700; }\n\n.modalDetailsRow.collapse {\n  height: 100%;\n  background-color: #f5f7f9; }\n  .modalDetailsRow.collapse h4 {\n    margin: 16px 0px 12px;\n    font-weight: 700;\n    font-size: 13px; }\n  .modalDetailsRow.collapse .infoLine {\n    display: flex; }\n    .modalDetailsRow.collapse .infoLine .first, .modalDetailsRow.collapse .infoLine .second {\n      width: 50%;\n      margin-bottom: 8px;\n      color: #5f738c;\n      font-size: 12px;\n      border: none; }\n      .modalDetailsRow.collapse .infoLine .first img, .modalDetailsRow.collapse .infoLine .second img {\n        height: 16px;\n        width: 16px;\n        margin: -3px 0; }\n      .modalDetailsRow.collapse .infoLine .first span, .modalDetailsRow.collapse .infoLine .second span {\n        display: inline-block;\n        line-height: 1;\n        padding: 5px; }\n    .modalDetailsRow.collapse .infoLine .second {\n      text-align: end; }\n\n.destitArrive {\n  display: flex;\n  height: 40px;\n  margin-top: 10px; }\n  .destitArrive .destitArriveIco {\n    display: flex;\n    justify-content: left;\n    align-items: center;\n    width: 6%; }\n    .destitArrive .destitArriveIco img {\n      width: 20px;\n      height: 20px; }\n  .destitArrive .destitArriveTxt {\n    width: 90%; }\n    .destitArrive .destitArriveTxt .destitArriveTxtUp {\n      font-size: 12px;\n      color: #5f738c;\n      line-height: 16px;\n      line-height: 1.5; }\n    .destitArrive .destitArriveTxt .destitArriveTxtDown {\n      font-size: 13px;\n      font-weight: 700;\n      line-height: 1.5; }\n    .destitArrive .destitArriveTxt .destitArriveTxtDown.destitArriveTxtDownOne {\n      line-height: 3.3; }\n    .destitArrive .destitArriveTxt a {\n      text-decoration: underline;\n      font-size: 13px;\n      outline: none;\n      color: inherit;\n      cursor: pointer; }\n      .destitArrive .destitArriveTxt a:hover {\n        text-decoration: none;\n        color: #009882; }\n      .destitArrive .destitArriveTxt a img {\n        width: 80px;\n        display: inline-block;\n        margin: -5px 5px; }\n\n.modal-footer .btn {\n  background-color: #008f7b;\n  color: white; }\n  .modal-footer .btn:hover {\n    background-color: #009882; }\n\nheader {\n  background-color: white;\n  color: #111236;\n  width: 100%;\n  height: 115px; }\n  header .container {\n    height: 115px; }\n    header .container .col-md-6 {\n      height: 115px; }\n      header .container .col-md-6 nav {\n        width: 100%;\n        height: 35px; }\n\n.logoBlock {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: left;\n  height: 80px; }\n  .logoBlock img {\n    width: 180px;\n    height: 35px;\n    cursor: pointer; }\n\n.navBtn {\n  border-radius: 0;\n  margin-left: 10px;\n  border-top-left-radius: .25rem;\n  border-top-right-radius: .25rem;\n  background-color: #0770e3;\n  color: #fff;\n  font-weight: 700;\n  text-align: center;\n  text-decoration: none;\n  width: 115px;\n  height: 35px; }\n  .navBtn img {\n    width: 18px;\n    height: 18px; }\n  .navBtn:hover {\n    color: white;\n    background-color: #042759; }\n\n.navBtn.active {\n  color: white;\n  background-color: #042759; }\n\n.locationCurrencyBlock {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n  height: 80px; }\n  .locationCurrencyBlock .logInBtn {\n    color: #0770e3;\n    text-decoration: none;\n    outline: none;\n    font-weight: 700;\n    line-height: 1.5rem;\n    text-align: center;\n    width: 95px;\n    height: 40px;\n    padding: .375rem .125rem;\n    border-radius: .25rem;\n    border: 2px solid #efefef;\n    font-size: 20px; }\n    .locationCurrencyBlock .logInBtn:hover {\n      border: 2px solid #0770e3; }\n  .locationCurrencyBlock .headerModalBtn {\n    color: #444560;\n    line-height: 1.5rem;\n    text-align: center;\n    width: max-content;\n    height: 40px;\n    border-radius: .25rem;\n    border: 2px solid #efefef;\n    font-size: 20px;\n    margin-right: 40px; }\n    .locationCurrencyBlock .headerModalBtn:hover {\n      border: 2px solid #0770e3; }\n    .locationCurrencyBlock .headerModalBtn img {\n      width: 15px;\n      height: 11px;\n      margin-right: 5px; }\n    .locationCurrencyBlock .headerModalBtn .countryName {\n      font-size: 13px;\n      margin-right: 10px; }\n    .locationCurrencyBlock .headerModalBtn .currencyView {\n      font-size: 13px;\n      color: #b2b2bf; }\n\n.regionalsettings div {\n  display: flex;\n  align-items: center;\n  height: 45px; }\n  .regionalsettings div img {\n    width: 24px;\n    height: 24px; }\n  .regionalsettings div span {\n    font-size: 13px;\n    font-weight: 700;\n    margin-left: 5px; }\n\n.regionalsettings p {\n  font-size: .75rem;\n  line-height: 1.125rem;\n  font-weight: 400;\n  letter-spacing: normal; }\n\n.modal-body-header {\n  background-color: white; }\n\n.closeBtnModal {\n  color: #b2b2bf !important;\n  background-color: white !important;\n  border: 2px solid #b2b2bf !important;\n  font-size: 15px; }\n  .closeBtnModal:hover {\n    border: 2px solid #009882 !important;\n    color: #009882 !important; }\n\n.bookingDetailsWrapper {\n  width: 100%;\n  height: 500px;\n  display: none;\n  color: #2e353b;\n  background-color: #e9e9e9; }\n\n.routeDetails {\n  font-size: 40px;\n  font-weight: 700;\n  padding: 25px 0; }\n\n.col-md-8.ticketDetails {\n  background-color: white;\n  border-radius: 5px;\n  border: 1pz solid lightgray;\n  padding: 20px; }\n\n.ticketSummary {\n  font-size: 16px;\n  font-weight: 700;\n  padding-bottom: 20px; }\n\n.ticketsBlocks {\n  border-right: 1px solid lightgray; }\n\n.departTime {\n  color: #57626c;\n  font-size: 12px;\n  padding-bottom: 10px; }\n\n.col-sm-12.detailsBlock {\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n  .col-sm-12.detailsBlock .economy {\n    line-height: 1;\n    align-items: center;\n    min-height: 24px;\n    font-size: 12px;\n    background-color: #e8f4fd;\n    color: #005aa3;\n    border-radius: 12px;\n    padding: 5px 8px;\n    border: 1px solid #d0e9fb; }\n\n.details {\n  padding: 10px 0; }\n  .details img {\n    width: 20px;\n    height: 20px;\n    margin: -5px 0; }\n  .details span {\n    font-weight: 700;\n    display: inline-block; }\n\n.col-sm-12.txtBlock {\n  padding: 0 5%;\n  border-radius: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border: 1px solid lightgrey; }\n  .col-sm-12.txtBlock .col-sm-4 {\n    display: flex;\n    align-items: center;\n    justify-content: flex-end; }\n    .col-sm-12.txtBlock .col-sm-4 img {\n      width: 28px;\n      height: 28px; }\n  .col-sm-12.txtBlock .col-sm-8 {\n    padding: 10px 0; }\n    .col-sm-12.txtBlock .col-sm-8 p {\n      line-height: 16px;\n      font-size: 14px; }\n      .col-sm-12.txtBlock .col-sm-8 p span {\n        color: #7c8b99; }\n\n.flightnumber {\n  padding: 10px 3px;\n  display: flex;\n  align-items: center; }\n  .flightnumber img {\n    width: 16px;\n    height: 16px;\n    border-radius: 2px;\n    margin-right: 10px; }\n  .flightnumber span {\n    color: #7c8b99;\n    font-size: 12px; }\n\n.priceContainer {\n  padding: 20px 10px;\n  font-size: 20px; }\n  .priceContainer div {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: space-between; }\n    .priceContainer div span {\n      line-height: 3; }\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -480,18 +482,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, "html, body, div, span, applet, object,
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _apis_userLocation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
-/* harmony import */ var _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
-/* harmony import */ var _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
+/* harmony import */ var _view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 ;
-
 
 
 
 const searchFrom = document.getElementById('searchFrom');
 const searchTo = document.getElementById('searchTo');
-const flightSearchModel = new _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_3__.FlightSearchModel();
-const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.FlightSearchView();
+const flightSearchModel = new _model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_2__.FlightSearchModel();
+const view = new _view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__.FlightSearchView();
 const flightSearchClass = new _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.FlightSearchClass();
 
 searchFrom.addEventListener('keyup', (e) => {
@@ -501,7 +501,7 @@ searchFrom.addEventListener('keyup', (e) => {
 searchFrom.addEventListener('focus', () => {
     document.querySelector('.airportSearchTo').innerHTML = '';
     searchFrom.value = '';
-    flightSearchClass.getAirports(_apis_userLocation__WEBPACK_IMPORTED_MODULE_1__.userCountry.country);
+    flightSearchClass.getAirports(document.getElementById('selectCountry').value);
     view.paintSearchList(document.querySelector('.airportSearchFrom'));
 });
 searchTo.addEventListener('keyup', (e) => {
@@ -511,7 +511,7 @@ searchTo.addEventListener('keyup', (e) => {
 searchTo.addEventListener('focus', () => {
     document.querySelector('.airportSearchFrom').innerHTML = '';
     searchTo.value = '';
-    flightSearchClass.getAirports(_apis_userLocation__WEBPACK_IMPORTED_MODULE_1__.userCountry.country);
+    flightSearchClass.getAirports(document.getElementById('selectCountry').value);
     view.paintSearchList(document.querySelector('.airportSearchTo'));
 });
 
@@ -559,13 +559,13 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
     if (flightSearchModel.ifChecked() === '1') {
         let dateFrom = document.getElementById('departDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListOneWay(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD');
+        flightSearchClass.getAirplinesListOneWay(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__.toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value);
     } else if (flightSearchModel.ifChecked() === '2') {
         let dateFrom = document.getElementById('departDate').value;
         let dateTo = document.getElementById('returnDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
         dateTo = `${dateTo.slice(8, 10)}%2F${dateTo.slice(5, 7)}%2F${dateTo.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListReturn(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_2__.toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD', flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value));
+        flightSearchClass.getAirplinesListReturn(_view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__.fromAirport.PlaceId, _view_flightSearchView__WEBPACK_IMPORTED_MODULE_1__.toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value, flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value));
     }
 });
 
@@ -628,6 +628,10 @@ const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
+                let a = [];
+                a = JSON.parse(localStorage.getItem('search')) || [];
+                a.push(this.data);
+                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('oneway');
@@ -649,6 +653,10 @@ const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
+                let a = [];
+                a = JSON.parse(localStorage.getItem('search')) || [];
+                a.push(this.data);
+                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('return');
@@ -712,14 +720,19 @@ const FlightResultView = class {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "chooseTicket": () => /* binding */ chooseTicket,
 /* harmony export */   "FlightResultModel": () => /* binding */ FlightResultModel
 /* harmony export */ });
 /* harmony import */ var _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var _apis_airportsName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var _flightSearch_model_flightSearchMolel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+/* harmony import */ var _apis_country__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(17);
 ;
 
 
+
+
+let chooseTicket;
 
 const json = __webpack_require__(13);
 
@@ -745,7 +758,9 @@ const FlightResultModel = class {
             div.classList.add('dataBlock', 'dataBlockReturn');
             div.setAttribute('data-bs-toggle', 'modal');
             div.setAttribute('data-bs-target', '#detailsModal');
+            // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
+                chooseTicket = _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i];
                 this.paintModalReturn(_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i], dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr);
             });
             div.innerHTML += `
@@ -803,7 +818,7 @@ const FlightResultModel = class {
             <div class="priceBlock">
                 <div style="height:415px;">
                     <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/star.png?alt=media&token=55f97bd9-a67e-4342-af57-cfd41d1de5a4">
-                    <p>${_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i].price}$</p>
+                    <p>${_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i].price}${this.countryCurrency()}</p>
                 </div>
                 <div class="btn bookbtn"><span>Book</span></div>
             </div>`;
@@ -824,7 +839,9 @@ const FlightResultModel = class {
             div.classList.add('dataBlock', 'dataBlockOne');
             div.setAttribute('data-bs-toggle', 'modal');
             div.setAttribute('data-bs-target', '#detailsModal');
+            // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
+                chooseTicket = _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i];
                 this.paintModalOneway(_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i], dateDep, time, timeTo);
             });
             div.innerHTML += `<div class="firstBlock">
@@ -860,13 +877,23 @@ const FlightResultModel = class {
             <div class="priceBlock">
                 <div>
                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/star.png?alt=media&token=55f97bd9-a67e-4342-af57-cfd41d1de5a4">
-                    <p>${_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i].price}$</p>
+                    <p>${_apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.data[i].price}${this.countryCurrency()}</p>
                 </div>
                 <div class="bookbtn btn"><span>Book</span></div>
             </div>
             </div>`;
             document.getElementById('contentResult').appendChild(div);
         }
+    }
+
+    countryCurrency() {
+        let symbol;
+        _apis_country__WEBPACK_IMPORTED_MODULE_3__.country.forEach((item) => {
+            if (item.currencies[0].code === _apis_flightSEarch__WEBPACK_IMPORTED_MODULE_0__.flightResult.currency) {
+                symbol = item.currencies[0].symbol;
+            }
+        });
+        return symbol;
     }
 
     secondsInHours(num) {
@@ -1274,9 +1301,8 @@ const AirportNameClass = class {
                         }
                     }
                 });
-                // console.log(airportsNameFrom, airportsNameTo);
             } else {
-                throw Error(this.data.Message);
+                throw Error();
             }
         } catch (error) {
             console.log(error);
@@ -1594,38 +1620,51 @@ __webpack_require__.r(__webpack_exports__);
 let userChooseCountry;
 const HeaderView = class {
     headerInit() {
-        _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.forEach((element) => {
-            if (element.name === _apis_userLocation__WEBPACK_IMPORTED_MODULE_0__.userCountry.country) {
-                userChooseCountry = element;
+        if (_apis_country__WEBPACK_IMPORTED_MODULE_1__.country) {
+            _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.forEach((element) => {
+                if (element.name === _apis_userLocation__WEBPACK_IMPORTED_MODULE_0__.userCountry.country) {
+                    userChooseCountry = element;
+                }
+            });
+            for (let i = 0; i < _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.length; i += 1) {
+                document.getElementById('selectCountry').innerHTML += `<option value="${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].name}">${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].name}</option>`;
+                document.getElementById('selectCurrency').innerHTML += `<option value="${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].code}">${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].code} - ${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].symbol}</option>`;
             }
-        });
-        for (let i = 0; i < _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.length; i += 1) {
-            document.getElementById('selectCountry').innerHTML += `<option value="${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].name}">${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].name}</option>`;
-            document.getElementById('selectCurrency').innerHTML += `<option value="${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].code}">${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].code} - ${_apis_country__WEBPACK_IMPORTED_MODULE_1__.country[i].currencies[0].symbol}</option>`;
+            const options = Array.from(document.getElementById('selectCountry').options);
+            options.forEach((option, i) => {
+                if (option.value === userChooseCountry.name) document.getElementById('selectCountry').selectedIndex = i;
+            });
+            const optionsCurrency = Array.from(document.getElementById('selectCurrency').options);
+            optionsCurrency.forEach((option, i) => {
+                if (option.value === userChooseCountry.currencies[0].code) document.getElementById('selectCurrency').selectedIndex = i;
+            });
+            this.modalHeader();
+        } else {
+            setTimeout(() => {
+                const countryClass = new _apis_country__WEBPACK_IMPORTED_MODULE_1__.CountryClass();
+                countryClass.getCountries();
+                this.headerInit();
+            }, 500);
         }
-        const options = Array.from(document.getElementById('selectCountry').options);
-        options.forEach((option, i) => {
-            if (option.value === userChooseCountry.name) document.getElementById('selectCountry').selectedIndex = i;
-        });
-        const optionsCurrency = Array.from(document.getElementById('selectCurrency').options);
-        optionsCurrency.forEach((option, i) => {
-            if (option.value === userChooseCountry.currencies[0].code) document.getElementById('selectCurrency').selectedIndex = i;
-        });
-        this.modalHeader();
     }
 
     modalHeader() {
-        document.querySelector('.headerModalBtn').innerHTML = '';
+        document.querySelector('.countryHeaderModalBtn').innerHTML = '';
+        document.querySelector('.currencyHeaderModalBtn').innerHTML = '';
         _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.forEach((element) => {
             if (element.name === document.getElementById('selectCountry').value) {
-                document.querySelector('.headerModalBtn').innerHTML += `<img src="${element.flag} "><span class="countryName">${element.name} </span>`;
+                document.querySelector('.countryHeaderModalBtn').innerHTML = `<img src="${element.flag} "><span class="countryName">${element.name} </span>`;
             }
         });
         _apis_country__WEBPACK_IMPORTED_MODULE_1__.country.forEach((item) => {
             if (item.currencies[0].code === document.getElementById('selectCurrency').value) {
-                document.querySelector('.headerModalBtn').innerHTML += ` <span class=" currencyView">${item.currencies[0].symbol} ${item.currencies[0].code}</span>`;
+                document.querySelector('.currencyHeaderModalBtn').innerHTML = ` <span class=" currencyView">${item.currencies[0].symbol} ${item.currencies[0].code}</span>`;
             }
         });
+    }
+
+    onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
     }
 };
 
@@ -1670,6 +1709,187 @@ const headerView = new _view_headerView__WEBPACK_IMPORTED_MODULE_0__.HeaderView(
 document.querySelector('.saveheaderChange').addEventListener('click', () => {
     headerView.modalHeader();
 });
+
+document.querySelector('.logoImg').addEventListener('click', () => {
+    window.location.reload();
+});
+
+
+/***/ }),
+/* 19 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bookinPage_view_bookingPageView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var _model_flightresultModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
+;
+
+
+document.querySelector('.bookBtn').addEventListener('click', () => {
+    document.querySelector('.bookingWrapper').style.display = 'none';
+    document.querySelector('.wrapperSearch').style.display = 'none';
+    document.querySelector('.bookingDetailsWrapper').style.display = 'block';
+    const booking = new _bookinPage_view_bookingPageView__WEBPACK_IMPORTED_MODULE_0__.BookingView();
+    booking.paintBookingResult(_model_flightresultModel__WEBPACK_IMPORTED_MODULE_1__.chooseTicket);
+});
+
+
+/***/ }),
+/* 20 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BookingView": () => /* binding */ BookingView
+/* harmony export */ });
+/* harmony import */ var _flightResult_model_flightresultModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+;
+
+const flightres = new _flightResult_model_flightresultModel__WEBPACK_IMPORTED_MODULE_0__.FlightResultModel();
+
+const BookingView = class {
+    paintBookingResult(result) {
+        document.querySelector('.routeDetails').innerHTML = '';
+        if (document.getElementById('round').checked) {
+            const dateDepTo = new Date(result.route[0].local_departure);
+            const dateDTo = dateDepTo.toDateString();
+            const timeDepTo = dateDepTo.toTimeString();
+            const dateDepArr = new Date(result.route[0].local_arrival);
+            const timeDepArr = dateDepArr.toTimeString();
+            const dateDepFrom = new Date(result.route[1].local_departure);
+            const dateDFrom = dateDepFrom.toDateString();
+            const timeDepFrom = dateDepFrom.toTimeString();
+            const dateFromArr = new Date(result.route[1].local_arrival);
+            const timeFromArr = dateFromArr.toTimeString();
+            document.querySelector('.routeDetails').innerHTML = `${result.cityFrom} → ${result.cityTo} and back`;
+            document.querySelector('.ticketDetails').innerHTML = '';
+            document.querySelector('.ticketDetails').innerHTML = `
+                <p class="ticketSummary">Trip summary</p>
+                <div class="row">
+                    <div class=" col-sm-6 ticketTo ticketsBlocks">
+                        <p class="departTime"><span>DEPARTURE</span> Duration: ${flightres.secondsInHours(result.duration.departure)}</p>
+                        <div class="col-sm-12 detailsBlock">
+                            <div class="details">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
+                                <span>${dateDTo.slice(0, 3)}, ${dateDTo.slice(8, 10)} ${dateDTo.slice(4, 7)}</span>
+                            </div>
+                            <div>
+                                <p class="economy">Economy</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 txtBlock">
+                            <div class="col-sm-8">
+                                <p>${timeDepTo.slice(0, 2)}:${timeDepTo.slice(3, 5)} <span>${result.cityFrom} ${result.cityCodeFrom}</span></p>
+                                <p>${timeDepArr.slice(0, 2)}:${timeDepArr.slice(3, 5)} <span>${result.cityTo} ${result.cityCodeTo}</span></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flightnumber">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
+                                <span>Aerline: ${flightres.jsonSearch(result.route[0].airline)}</span>
+                            </div>
+                            <div class="flightnumber">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
+                                <span>Flight no: ${result.route[0].airline}${result.route[0].flight_no}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-sm-6 ticketsBloks">
+                        <p class="departTime"><span>RETURN</span> Duration: ${flightres.secondsInHours(result.duration.return)}</p>
+                        <div class="col-sm-12 detailsBlock">
+                            <div class="details">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
+                                <span>${dateDFrom.slice(0, 3)}, ${dateDFrom.slice(8, 10)} ${dateDFrom.slice(4, 7)}</span>
+                            </div>
+                            <div>
+                                <p class="economy">Economy</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 txtBlock">
+                            <div class="col-sm-8">
+                                <p>${timeDepFrom.slice(0, 2)}:${timeDepFrom.slice(3, 5)} <span>${result.cityTo} ${result.cityCodeTo}</span></p>
+                                <p>${timeFromArr.slice(0, 2)}:${timeFromArr.slice(3, 5)} <span>${result.cityFrom} ${result.cityCodeFrom}</span></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[1].airline}.png">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flightnumber">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[1].airline}.png">
+                                <span>Aerline: ${flightres.jsonSearch(result.route[1].airline)}</span>
+                            </div>
+                            <div class="flightnumber">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
+                                <span>Flight no: ${result.route[1].airline}${result.route[1].flight_no}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const dateDepTo = new Date(result.route[0].local_departure);
+            const dateDTo = dateDepTo.toDateString();
+            const timeDepTo = dateDepTo.toTimeString();
+            const dateDepArr = new Date(result.route[0].local_arrival);
+            const timeDepArr = dateDepArr.toTimeString();
+            document.querySelector('.routeDetails').innerHTML = `${result.cityFrom} → ${result.cityTo}`;
+            document.querySelector('.ticketDetails').innerHTML = '';
+            document.querySelector('.ticketDetails').innerHTML = `
+                <p class="ticketSummary">Trip summary</p>
+                <div class="row">
+                    <div class=" col-sm-6 ticketTo">
+                        <p class="departTime"><span>DEPARTURE</span> Duration: ${flightres.secondsInHours(result.duration.departure)}</p>
+                        <div class="col-sm-12 detailsBlock">
+                            <div class="details">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
+                                <span>${dateDTo.slice(0, 3)}, ${dateDTo.slice(8, 10)} ${dateDTo.slice(4, 7)}</span>
+                            </div>
+                            <div>
+                                <p class="economy">Economy</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 txtBlock">
+                            <div class="col-sm-8">
+                                <p>${timeDepTo.slice(0, 2)}:${timeDepTo.slice(3, 5)} <span>${result.cityFrom} ${result.cityCodeFrom}</span></p>
+                                <p>${timeDepArr.slice(0, 2)}:${timeDepArr.slice(3, 5)} <span>${result.cityTo} ${result.cityCodeTo}</span></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flightnumber">
+                                <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
+                                <span>Aerline: ${flightres.jsonSearch(result.route[0].airline)}</span>
+                            </div>
+                            <div class="flightnumber">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
+                                <span>Flight no: ${result.route[0].airline}${result.route[0].flight_no}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        document.querySelector('.allPrice').innerHTML = '';
+        document.querySelector('.allPrice').innerHTML = `
+            <div class="priceContainer">
+                <div>
+                    <span>${parseInt(document.getElementById('adultsCount').value) + parseInt(document.getElementById('childCount').value)} x passanger</span>
+                    <span>${result.price}${document.getElementById('selectCurrency').value}</span>
+                </div>
+                <hr>
+                <div>
+                    <span>Total (${document.getElementById('selectCurrency').value})</span>
+                    <span style="font-weight:700;">${(parseInt(document.getElementById('adultsCount').value) + parseInt(document.getElementById('childCount').value)) * result.price} ${document.getElementById('selectCurrency').value}</span>
+                </div>
+            </div>`;
+    }
+};
 
 
 /***/ })

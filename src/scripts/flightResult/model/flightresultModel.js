@@ -1,6 +1,9 @@
 import { flightResult } from '../../../apis/flightSEarch';
 import { airportsNameTo, airportsNameFrom } from '../../../apis/airportsName';
 import { FlightSearchModel } from '../../flightSearch/model/flightSearchMolel';
+import { country } from '../../../apis/country';
+
+export let chooseTicket;
 
 const json = require('../../airlines.json');
 
@@ -26,7 +29,9 @@ export const FlightResultModel = class {
             div.classList.add('dataBlock', 'dataBlockReturn');
             div.setAttribute('data-bs-toggle', 'modal');
             div.setAttribute('data-bs-target', '#detailsModal');
+            // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
+                chooseTicket = flightResult.data[i];
                 this.paintModalReturn(flightResult.data[i], dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr);
             });
             div.innerHTML += `
@@ -84,7 +89,7 @@ export const FlightResultModel = class {
             <div class="priceBlock">
                 <div style="height:415px;">
                     <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/star.png?alt=media&token=55f97bd9-a67e-4342-af57-cfd41d1de5a4">
-                    <p>${flightResult.data[i].price}$</p>
+                    <p>${flightResult.data[i].price}${this.countryCurrency()}</p>
                 </div>
                 <div class="btn bookbtn"><span>Book</span></div>
             </div>`;
@@ -105,7 +110,9 @@ export const FlightResultModel = class {
             div.classList.add('dataBlock', 'dataBlockOne');
             div.setAttribute('data-bs-toggle', 'modal');
             div.setAttribute('data-bs-target', '#detailsModal');
+            // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
+                chooseTicket = flightResult.data[i];
                 this.paintModalOneway(flightResult.data[i], dateDep, time, timeTo);
             });
             div.innerHTML += `<div class="firstBlock">
@@ -141,13 +148,23 @@ export const FlightResultModel = class {
             <div class="priceBlock">
                 <div>
                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/star.png?alt=media&token=55f97bd9-a67e-4342-af57-cfd41d1de5a4">
-                    <p>${flightResult.data[i].price}$</p>
+                    <p>${flightResult.data[i].price}${this.countryCurrency()}</p>
                 </div>
                 <div class="bookbtn btn"><span>Book</span></div>
             </div>
             </div>`;
             document.getElementById('contentResult').appendChild(div);
         }
+    }
+
+    countryCurrency() {
+        let symbol;
+        country.forEach((item) => {
+            if (item.currencies[0].code === flightResult.currency) {
+                symbol = item.currencies[0].symbol;
+            }
+        });
+        return symbol;
     }
 
     secondsInHours(num) {

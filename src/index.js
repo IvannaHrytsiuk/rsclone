@@ -2,6 +2,7 @@ import './styles/style.scss';
 import './styles/nullStyle.scss';
 import './scripts/flightSearch/controller/flightSearchControll';
 import './scripts/header/controller/headerControll';
+import './scripts/flightResult/controller/flightresultControll';
 import { UserlocationClass } from './apis/userLocation';
 import { FlightSearchView } from './scripts/flightSearch/view/flightSearchView';
 import { HeaderView } from './scripts/header/view/headerView';

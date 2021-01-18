@@ -1,5 +1,4 @@
 import { FlightSearchClass } from '../../../apis/flightSEarch';
-import { userCountry } from '../../../apis/userLocation';
 import { FlightSearchView, fromAirport, toAirport } from '../view/flightSearchView';
 import { FlightSearchModel } from '../model/flightSearchMolel';
 
@@ -16,7 +15,7 @@ searchFrom.addEventListener('keyup', (e) => {
 searchFrom.addEventListener('focus', () => {
     document.querySelector('.airportSearchTo').innerHTML = '';
     searchFrom.value = '';
-    flightSearchClass.getAirports(userCountry.country);
+    flightSearchClass.getAirports(document.getElementById('selectCountry').value);
     view.paintSearchList(document.querySelector('.airportSearchFrom'));
 });
 searchTo.addEventListener('keyup', (e) => {
@@ -26,7 +25,7 @@ searchTo.addEventListener('keyup', (e) => {
 searchTo.addEventListener('focus', () => {
     document.querySelector('.airportSearchFrom').innerHTML = '';
     searchTo.value = '';
-    flightSearchClass.getAirports(userCountry.country);
+    flightSearchClass.getAirports(document.getElementById('selectCountry').value);
     view.paintSearchList(document.querySelector('.airportSearchTo'));
 });
 
@@ -74,12 +73,12 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
     if (flightSearchModel.ifChecked() === '1') {
         let dateFrom = document.getElementById('departDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListOneWay(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD');
+        flightSearchClass.getAirplinesListOneWay(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value);
     } else if (flightSearchModel.ifChecked() === '2') {
         let dateFrom = document.getElementById('departDate').value;
         let dateTo = document.getElementById('returnDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
         dateTo = `${dateTo.slice(8, 10)}%2F${dateTo.slice(5, 7)}%2F${dateTo.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListReturn(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, 'USD', flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value));
+        flightSearchClass.getAirplinesListReturn(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value, flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value));
     }
 });
