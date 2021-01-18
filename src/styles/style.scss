@@ -938,6 +938,7 @@ header{
     img{
       width: 15px;
       height: 11px;
+      margin-right: 5px;
     }
     .countryName{
       font-size: 13px;
@@ -973,4 +974,14 @@ header{
 }
 .modal-body-header{
   background-color: white;
+}
+.closeBtnModal{
+    color: #b2b2bf !important;
+    background-color: white !important;
+    border: 2px solid #b2b2bf !important;
+    font-size: 15px;
+    &:hover{
+      border: 2px solid  rgb(0, 152, 130) !important;
+      color: rgb(0, 152, 130) !important;
+    }
 }

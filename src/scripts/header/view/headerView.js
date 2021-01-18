@@ -4,13 +4,11 @@ import { country } from '../../../apis/country';
 export let userChooseCountry;
 export const HeaderView = class {
     headerInit() {
-        document.querySelector('.headerModalBtn').innerHTML = '';
         country.forEach((element) => {
             if (element.name === userCountry.country) {
                 userChooseCountry = element;
             }
         });
-        document.querySelector('.headerModalBtn').innerHTML = `<img src="${userChooseCountry.flag} "> <span class="countryName">${userChooseCountry.name} </span> <span class=" currencyView">${userChooseCountry.currencies[0].symbol} ${userChooseCountry.currencies[0].code}</span>`;
         for (let i = 0; i < country.length; i += 1) {
             document.getElementById('selectCountry').innerHTML += `<option value="${country[i].name}">${country[i].name}</option>`;
             document.getElementById('selectCurrency').innerHTML += `<option value="${country[i].currencies[0].code}">${country[i].currencies[0].code} - ${country[i].currencies[0].symbol}</option>`;
@@ -23,9 +21,20 @@ export const HeaderView = class {
         optionsCurrency.forEach((option, i) => {
             if (option.value === userChooseCountry.currencies[0].code) document.getElementById('selectCurrency').selectedIndex = i;
         });
+        this.modalHeader();
     }
 
-    // modalHeader() {
-
-    // }
+    modalHeader() {
+        document.querySelector('.headerModalBtn').innerHTML = '';
+        country.forEach((element) => {
+            if (element.name === document.getElementById('selectCountry').value) {
+                document.querySelector('.headerModalBtn').innerHTML += `<img src="${element.flag} "><span class="countryName">${element.name} </span>`;
+            }
+        });
+        country.forEach((item) => {
+            if (item.currencies[0].code === document.getElementById('selectCurrency').value) {
+                document.querySelector('.headerModalBtn').innerHTML += ` <span class=" currencyView">${item.currencies[0].symbol} ${item.currencies[0].code}</span>`;
+            }
+        });
+    }
 };
