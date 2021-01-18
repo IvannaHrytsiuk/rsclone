@@ -1,11 +1,15 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+  },
+  optimization: {
+    minimizer: [new TerserPlugin({ extractComments: false })],
   },
   module: {
     rules: [
