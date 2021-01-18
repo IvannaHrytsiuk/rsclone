@@ -9,6 +9,9 @@ import { setDataDate } from './date';
 import { style } from './style';
 import setDataSummary from './summary';
 
+const showdown = require('showdown');
+
+const converter = new showdown.Converter();
 const countriesSelect = document.querySelector('#countries');
 const currentCountryInfo = L.control({ position: 'topright' });
 
@@ -70,6 +73,76 @@ let geoJsonLayer;
 let countriesIso2;
 let firstChange = true;
 
+const countryRestrictionsBlock = document.createElement('div');
+countryRestrictionsBlock.classList.add('country-restrictions-wrapper', 'hidden');
+document.querySelector('#covid-map').append(countryRestrictionsBlock);
+
+function addCloseListener() {
+  document.querySelector('#popup-close').addEventListener('click', () => {
+    countryRestrictionsBlock.classList.add('hidden');
+  });
+}
+
+const STATUS_ICONS = {
+  MODERATE: 'error',
+  MAJOR: 'cancel',
+  LOW: 'check_circle',
+  UNKNOWN: 'help',
+};
+
+const ARROWS = {
+  down: 'trending_down',
+  up: 'trending_up',
+};
+
+function showCountryRestrictionsInfo(e) {
+  const { target } = e;
+
+  if (countryRestrictionsBlock.classList.contains('hidden')) { countryRestrictionsBlock.classList.remove('hidden'); }
+
+  countryRestrictionsBlock.innerHTML = `<div class="country-restrictions-info">
+    <section class="popup-title-close-button">
+      <span class="restrictions-status ${STATUS_ICONS[target.feature.properties.restrictions.master_travel_status]}"><span class="material-icons">${STATUS_ICONS[target.feature.properties.restrictions.entry_restrictions]}</span>${target.feature.properties.restrictions.entry_restrictions_translation} restrictions</span>
+      <span class="popup-close" id="popup-close">x</span>
+    </section>
+    <section class="popup-country-name">
+      <span class="country-name">${target.feature.properties.ADMIN}</span>
+    </section>
+    <section class="popup-additional-info">
+      <article class="quarantine">
+        <p class="material-icons">flight_takeoff</p>
+        <p class="arrival-info">
+          <span class="info-title">On arrival in ${target.feature.properties.ADMIN}</span>
+          <span class="info-description">${target.feature.properties.restrictions.destination_self_isolation_translation}</span>
+        </p>
+      </article>
+      <article class="quarantine">
+        <p class="material-icons">flight_land</p>
+        <p class="arrival-info">
+          <span class="info-title">On arrival to ${countriesSelect.selectedOptions[0].textContent}</span>
+          <span class="info-description">${target.feature.properties.restrictions.return_self_isolation_translation}</span>
+        </p>
+      </article>
+      <article class="popup-covid-info">
+        <p class="covid-info-title">New COVID-19 cases this week</p>
+        <p class="covid-info-cases">
+          <span class="cases-flex"><span class="material-icons">coronavirus</span>${target.feature.properties.restrictions.destination_safety_status.epiPrevalenceRecent.toFixed(1)}</span>
+          <span>out of 100,000 people</span>
+        </p>
+        <p class="covid-info-cases">
+          <span class="cases-flex">
+            <span class="material-icons">${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? ARROWS.up : ARROWS.down}</span>
+            ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `Up ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days}%` : `Down ${Math.abs(target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days)}%`}</span>
+          <span>${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `up from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week` : `down from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week`}</span>
+        </p>
+      </article>
+      <p class="additional-info">${converter.makeHtml(target.feature.properties.restrictions.destination_restrictions_commentary_translation)}</p>
+    </section>
+  </div>`;
+
+  addCloseListener();
+}
+
 const MAP_HOVER_LAYER_STYLES = {
   opacity: 1,
   fillOpacity: 0.25,
@@ -91,6 +164,7 @@ function onEachFeature(feature, mapLayer) {
   mapLayer.on({
     mouseover: highlightFeature,
     mouseout: resetHighlight,
+    click: showCountryRestrictionsInfo,
   });
 }
 
