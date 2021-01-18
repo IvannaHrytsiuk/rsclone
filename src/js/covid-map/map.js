@@ -47,6 +47,8 @@ const layer = new L.TileLayer(
   },
 );
 
+map.setView([53.0282, 27.3137], 3);
+
 map.addLayer(layer);
 L.control.zoom({
   position: 'bottomright',
