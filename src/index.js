@@ -1,3 +1,4 @@
+import './init';
 import './js/covid-map/map';
 import './styles/style.scss';
 import './styles/nullStyle.scss';
