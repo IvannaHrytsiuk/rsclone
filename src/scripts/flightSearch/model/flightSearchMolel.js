@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const FlightSearchModel = class {
     counterMinus(elem) {
         let value = +elem.value;
@@ -63,5 +62,51 @@ export const FlightSearchModel = class {
         } else {
             document.getElementById('childMinus').setAttribute('disabled', true);
         }
+    }
+
+    manageSearchViewDependsOnRoute(value) {
+        if (value === '1') {
+            document.getElementById('returnDate').setAttribute('disabled', true);
+            document.getElementById('returnDateLabel').style.color = 'grey';
+            document.getElementById('returnDate').value = '';
+        } else if (value === '2') {
+            document.getElementById('returnDate').removeAttribute('disabled');
+            document.getElementById('returnDateLabel').style.color = 'white';
+            const someDate = new Date();
+            let mm = someDate.getMonth() + 1;
+            if (mm < 10) {
+                mm = `0${mm}`;
+            }
+            someDate.setDate(someDate.getDate() + 15);
+            document.getElementById('returnDate').value = `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`;
+        } else if (value === '3') {
+            document.getElementById('returnDate').removeAttribute('disabled');
+            document.getElementById('returnDateLabel').style.color = 'white';
+            const someDate = new Date();
+            let mm = someDate.getMonth() + 1;
+            if (mm < 10) {
+                mm = `0${mm}`;
+            }
+            someDate.setDate(someDate.getDate() + 15);
+            document.getElementById('returnDate').value = `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`;
+        }
+    }
+
+    // eslint-disable-next-line consistent-return
+    ifChecked() {
+        const radio = document.getElementsByName('flight-type');
+        for (let i = 0; i < radio.length; i += 1) {
+            if (radio[i].checked) {
+                return radio[i].value;
+            }
+        }
+    }
+
+    calculateDays(dateFrom, dateTo) {
+        const date1 = new Date(dateFrom);
+        const date2 = new Date(dateTo);
+        let difference = date2.getTime() - date1.getTime();
+        difference /= (1000 * 3600 * 24);
+        return Math.round(difference);
     }
 };

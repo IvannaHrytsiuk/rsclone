@@ -16,6 +16,8 @@
         "class-methods-use-this":"off",
         "no-multi-str":"off",
         "import/no-cycle":"off",
-        "max-len":"off"
+        "max-len":"off",
+        "import/prefer-default-export":"off",
+        "import/no-mutable-exports":"off"
     }
 }

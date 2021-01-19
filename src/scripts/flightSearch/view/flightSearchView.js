@@ -1,8 +1,9 @@
 import { searchAirportList } from '../../../apis/flightSEarch';
+import { AirportNameClass } from '../../../apis/airportsName';
 
-// eslint-disable-next-line import/no-mutable-exports
 export let fromAirport;
-// eslint-disable-next-line import/prefer-default-export
+export let toAirport;
+
 export const FlightSearchView = class {
     paintSearchList(elem) {
         // eslint-disable-next-line no-param-reassign
@@ -14,11 +15,17 @@ export const FlightSearchView = class {
                     li.classList.add('placeList');
                     // eslint-disable-next-line no-loop-func
                     li.addEventListener('click', () => {
-                        fromAirport = searchAirportList[i];
+                        if (elem === document.querySelector('.airportSearchFrom')) {
+                            fromAirport = searchAirportList[i];
+                        } else {
+                            toAirport = searchAirportList[i];
+                        }
                         // eslint-disable-next-line no-param-reassign
                         elem.innerHTML = '';
                         // eslint-disable-next-line no-param-reassign
                         elem.previousElementSibling.value = `${searchAirportList[i].PlaceName} (${searchAirportList[i].PlaceId})`;
+                        const airportNameClass = new AirportNameClass();
+                        airportNameClass.getName(elem, searchAirportList[i].PlaceId);
                     });
                     li.innerHTML += `<div class="listBlock"><div><img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/airplane.png?alt=media&token=f7c0d4d6-b7a0-4eb8-b43c-b91637db98c9"></div><div><p class="listPlaceName">${searchAirportList[i].PlaceName} (${searchAirportList[i].PlaceId})</p><p class="listCountryName">${searchAirportList[i].CountryName}</p><div></div>`;
                     elem.appendChild(li);
@@ -27,11 +34,17 @@ export const FlightSearchView = class {
                     li.classList.add('placeList');
                     // eslint-disable-next-line no-loop-func
                     li.addEventListener('click', () => {
-                        fromAirport = searchAirportList[i];
+                        if (elem === document.querySelector('.airportSearchFrom')) {
+                            fromAirport = searchAirportList[i];
+                        } else {
+                            toAirport = searchAirportList[i];
+                        }
                         // eslint-disable-next-line no-param-reassign
                         elem.innerHTML = '';
                         // eslint-disable-next-line no-param-reassign
                         elem.previousElementSibling.value = `${searchAirportList[i].PlaceName} (${searchAirportList[i].PlaceId})`;
+                        const airportNameClass = new AirportNameClass();
+                        airportNameClass.getName(elem, searchAirportList[i].PlaceId);
                     });
                     li.innerHTML += `<div class="listBlock"><div><img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/flag.png?alt=media&token=98b9f634-9d3f-4b59-97eb-6a5899b5bda3"></div><div><p class="listPlaceName">${searchAirportList[i].PlaceName} (${searchAirportList[i].PlaceId})</p><p class="listCountryName">${searchAirportList[i].CountryName}</p><div></div>`;
                     elem.appendChild(li);
@@ -48,14 +61,22 @@ export const FlightSearchView = class {
         if (mm < 10) {
             mm = `0${mm}`;
         }
-        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${someDate.getDate()}`);
+        let dd = someDate.getDate();
+        if (dd < 10) {
+            dd = `0${dd}`;
+        }
+        elem.setAttribute('min', `${someDate.getFullYear()}-${mm}-${dd}`);
         someDate.setDate(someDate.getDate() + num);
         let mm2 = someDate.getMonth() + 1;
         if (mm2 < 10) {
             mm2 = `0${mm2}`;
         }
+        let dd2 = someDate.getDate();
+        if (dd2 < 10) {
+            dd2 = `0${dd2}`;
+        }
         // eslint-disable-next-line no-param-reassign
-        elem.value = `${someDate.getFullYear()}-${mm2}-${someDate.getDate()}`;
+        elem.value = `${someDate.getFullYear()}-${mm2}-${dd2}`;
     }
 
     counterView(value1, value2) {
