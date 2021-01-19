@@ -1124,3 +1124,56 @@ header{
     margin-bottom: 20px;
   }
 }
+.footerRootWrapper{
+  background-color: #02122c;
+  padding: 0 40px;
+  .container{
+    padding: 30px 0;
+  }
+  h3{
+    color: #f87757;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+  }
+  li{
+    padding: 5px 0;
+    a{
+      text-decoration: none;
+      outline: none;
+      color:rgb(248, 247, 247);
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.footerRootRSchool{
+  background-color: white;
+  .container{
+    padding: 30px 0;
+  }
+  .col-md-6{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  img{
+    width: 100px;
+  }
+  .col-sm-9{
+    a{
+      text-decoration: none;
+      color: #02122c;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    p{
+      padding: 5px 0;
+    }
+  }
+  span{
+    color: #02122c;
+  }
+}
