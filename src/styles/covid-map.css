@@ -1,0 +1,342 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.covid-map {
+  width: 512px;
+  height: 512px;
+  margin: 20px auto 0;
+}
+
+.current-country-info {
+  background-color: #ffffff;
+  color: #111236;
+  font-size: 16px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country-restrictions-wrapper {
+  font-family: 'Roboto', sans-serif;
+  cursor: default;
+  color: #111236;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.country-restrictions-wrapper .country-restrictions-info {
+  background-color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .restrictions-status {
+  font-size: 14px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 21px;
+  padding: 10px;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .restrictions-status.error {
+  color: #ff9400;
+  border: 1px solid #ff9400;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .restrictions-status.cancel {
+  color: #d1435b;
+  border: 1px solid #d1435b;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .restrictions-status.check_circle {
+  color: #00a698;
+  border: 1px solid #00a698;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .restrictions-status.help {
+  color: #b2b2bf;
+  border: 1px solid #b2b2bf;
+}
+
+.country-restrictions-wrapper .country-restrictions-info .popup-title-close-button .popup-close {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  cursor: pointer;
+}
+
+.country-restrictions-wrapper .popup-country-name {
+  height: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.country-restrictions-wrapper .popup-country-name .country-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.country-restrictions-wrapper .popup-additional-info {
+  overflow-y: scroll;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  height: calc(100% - 118px);
+  overflow-x: hidden;
+}
+
+.country-restrictions-wrapper .popup-additional-info .quarantine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+}
+
+.country-restrictions-wrapper .popup-additional-info .quarantine .arrival-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
+}
+
+.country-restrictions-wrapper .popup-additional-info .quarantine .arrival-info .info-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.country-restrictions-wrapper .popup-additional-info .quarantine .arrival-info .info-description {
+  font-size: 12px;
+}
+
+.country-restrictions-wrapper .popup-additional-info .popup-covid-info .covid-info-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.country-restrictions-wrapper .popup-additional-info .popup-covid-info .covid-info-cases {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.country-restrictions-wrapper .popup-additional-info .popup-covid-info .covid-info-cases .cases-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country-restrictions-wrapper .popup-additional-info .popup-covid-info .covid-info-cases span:nth-child(2) {
+  font-size: 12px;
+}
+
+.country-restrictions-wrapper .popup-additional-info .additional-info {
+  font-size: 14px;
+  white-space: break-spaces;
+  text-align: justify;
+}
+
+.country-restrictions-wrapper.hidden {
+  display: none;
+}
+
+.covid-map-container {
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), color-stop(50%, #ffffff), color-stop(50%, #111236), to(#111236));
+  background: linear-gradient(to top, #ffffff 0%, #ffffff 50%, #111236 50%, #111236 100%);
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Roboto', sans-serif;
+}
+
+.covid-map-container .info-summary {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.covid-map-container .info-summary .summary-low,
+.covid-map-container .info-summary .summary-moderate,
+.covid-map-container .info-summary .summary-major,
+.covid-map-container .info-summary .summary-unknown {
+  -ms-flex-preferred-size: 236px;
+      flex-basis: 236px;
+  color: #111236;
+}
+
+.covid-map-container .info-summary .summary-low .restrictions-type-title,
+.covid-map-container .info-summary .summary-moderate .restrictions-type-title,
+.covid-map-container .info-summary .summary-major .restrictions-type-title,
+.covid-map-container .info-summary .summary-unknown .restrictions-type-title {
+  font-size: 20px;
+}
+
+.covid-map-container .info-summary .summary-low .restrictions-type-description,
+.covid-map-container .info-summary .summary-moderate .restrictions-type-description,
+.covid-map-container .info-summary .summary-major .restrictions-type-description,
+.covid-map-container .info-summary .summary-unknown .restrictions-type-description {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.covid-map-container .info-summary .summary-low > #low-restrictions-count,
+.covid-map-container .info-summary .summary-moderate > #moderate-restrictions-count,
+.covid-map-container .info-summary .summary-major > #major-restrictions-count,
+.covid-map-container .info-summary .summary-unknown > #unknown-restrictions-count {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.covid-map-container .info-summary .summary-low #low-restrictions-count {
+  color: #00a698;
+}
+
+.covid-map-container .info-summary .summary-moderate #moderate-restrictions-count {
+  color: #ff9400;
+}
+
+.covid-map-container .info-summary .summary-major #major-restrictions-count {
+  color: #d1435b;
+}
+
+.covid-map-container .info-summary .summary-unknown #unknown-restrictions-count {
+  color: #b2b2bf;
+}
+
+.covid-map-container .covid-info {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #ffffff;
+}
+
+.covid-map-container .covid-info .beta-info {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  padding: 5px;
+  font-size: 12px;
+  padding: 6px;
+  background-color: #f1f2f8;
+  color: #111236;
+  border-radius: 4px;
+}
+
+.covid-map-container .covid-info .info-for-country h1 {
+  font-size: 60px;
+  margin: 30px 0;
+}
+
+.covid-map-container .covid-info .info-for-country label,
+.covid-map-container .covid-info .info-for-country select {
+  font-size: 16px;
+}
+
+.covid-map-container .covid-info .info-additional p {
+  font-size: 16px;
+}
+
+.covid-map-container .covid-info .info-for-country select {
+  color: #5a489b;
+  outline: none;
+  padding: 6px;
+  border-radius: 4px;
+  border: none;
+}
+
+.covid-map-container .covid-info .info-for-country,
+.covid-map-container .covid-info .info-additional {
+  -ms-flex-preferred-size: 512px;
+      flex-basis: 512px;
+}
+
+.covid-map-container .covid-info .info-additional .info-date {
+  font-size: 12px;
+}
