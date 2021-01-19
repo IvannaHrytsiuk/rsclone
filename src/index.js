@@ -2,6 +2,7 @@ import './styles/style.scss';
 import './styles/nullStyle.scss';
 import './scripts/flightSearch/controller/flightSearchControll';
 import './scripts/header/controller/headerControll';
+import './scripts/bookinPage/controll/bookingPageControll';
 import './scripts/flightResult/controller/flightresultControll';
 import { UserlocationClass } from './apis/userLocation';
 import { FlightSearchView } from './scripts/flightSearch/view/flightSearchView';
