@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></head>
+<body>
+    <div class="wrapperSearch">
+        <div class="searchBlock">
+            <h1>Let the journey begin</h1>
+            <div class="wrapperSearchInputs">
+                <form>
+                    <div class="flight-radio-boxes">
+                        <label>
+                            <input type="radio" name="flight-type" checked>
+                            <span>Return</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="flight-type">
+                            <span>One way</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="flight-type">
+                            <span>Multi-city</span>
+                        </label>
+                    </div>
+                    <div class="inputsFlex">
+                        <div class="from-to">
+                            <label>From</label>
+                            <input type="text" id="searchFrom" placeholder="Country, city or airport">
+                            <ul class="airportSearchFrom"></ul>
+                            <button class="switch-button">&harr;</button>
+                        </div>
+                        <div class="from-to">
+                            <label>To</label>
+                            <input type="text" id="searchTo" placeholder="Country, city or airport">
+                            <ul class="airportSearchTo"></ul>
+                        </div>
+                        <div>
+                            <label>Depart</label>
+                            <input type="date" id="departDate" max="2023-01-01">
+                        </div>
+                        <div>
+                            <label>Return</label>
+                            <input type="date" id="returnDate"  max="2023-01-01">
+                        </div>
+                        <div class="classAdults">
+                            <label>Cabin Class & Travellers</label>
+                            <input type="text" id="classAdultsInp" readonly>
+                            <div class="classAdultsModal">
+                                <p class="hearders">Cabin class</p>
+                                <div>
+                                    <strong>We can show only Economy prices for this search.</strong>
+                                    <span>To see Business and First Class options, please tell us your exact dates and/or destination city.</span>
+                                </div>
+                                <p class="hearders">Adults</p>
+                                <button class="counterButton" type="button" id="adultsMinus" disabled><span>-</span></button>
+                                <input type="text" class="counterTicket" id="adultsCount" disabled value="1">
+                                <button class="counterButton" type="button" id="adultsPlus"><span>+</span></button>
+                                <span class="countSpan">16+ years</span>
+                                <p class="hearders">Children</p>
+                                <button class="counterButton" type="button" id="childMinus" disabled><span>-</span></button>
+                                <input type="text" class="counterTicket" id="childCount" disabled value="0">
+                                <button class="counterButton" type="button" id="childPlus"><span>+</span></button>
+                                <span class="countSpan">0-15 years</span>
+                                <div class="ifChild">
+                                </div>
+                                <p class="classAdultsTxt">Your age at time of travel must be valid for the age category booked. Airlines have restrictions on under 18s travelling alone.</p>
+                                <p class="classAdultsTxt">Age limits and policies for travelling with children may vary so please check with the airline before booking.</p>
+                                <hr>
+                                <p class="closeBtn">Done</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="up-checkboxes">
+                        <div>
+                            <input type="checkbox">
+                            <label>Add nearby airports</label>
+                        </div>
+                        <div>
+                            <input type="checkbox">
+                            <label>Add nearby airports</label>
+                        </div>
+                        <div>
+                            <button type="submit">Search flights &#10144;</button>
+                        </div>
+                    </div>
+                    <div class="down-checkboxes">
+                        <div>
+                            <input type="checkbox">
+                            <label>Non-stop flights only</label>
+                        </div>
+                        <div>
+                            <input type="checkbox">
+                            <label>Flexible tickets only</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>';
+    <script src="main.js"></script>
+</body>
+</html>
