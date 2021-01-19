@@ -47,7 +47,12 @@ export const FlightSearchClass = class {
             if (this.data) {
                 let a = [];
                 a = JSON.parse(localStorage.getItem('search')) || [];
-                a.push(this.data);
+                if (a.length < 4) {
+                    a.push(this.data);
+                } else {
+                    a.shift();
+                    a.push(this.data);
+                }
                 localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
                 document.querySelector('.lds-ripple').style.display = 'none';

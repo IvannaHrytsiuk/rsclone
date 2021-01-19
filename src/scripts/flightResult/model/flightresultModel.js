@@ -179,7 +179,6 @@ export const FlightResultModel = class {
         let jsonname;
         json.forEach((elem) => {
             if (elem.iata === value) {
-                console.log(elem.name);
                 jsonname = elem.name;
             }
         });
