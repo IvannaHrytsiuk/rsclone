@@ -21,56 +21,56 @@ const currentCountryInfo = L.control({ position: 'topright' });
 const ACCESS_TOKEN = 'pk.eyJ1IjoiZ3VwYWxlbmtvcm9tYW4iLCJhIjoiY2tpeWkwMDhtMWRzbzJybXd1bWs0YWh2NCJ9.7v50Tvi4ariDNbW5wstlBw';
 
 const mapOptions = {
-  center: [0, 0],
-  zoom: 1,
-  zoomControl: false,
-  attributionControl: false,
-  fullscreenControl: true,
-  fullscreenControlOptions: {
-    position: 'topleft',
-  },
+    center: [0, 0],
+    zoom: 1,
+    zoomControl: false,
+    attributionControl: false,
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft',
+    },
 };
 
 const layer = new L.TileLayer(
-  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
-  {
-    maxZoom: 18,
-    minZoom: 1,
-    id: 'mapbox/dark-v10',
-    tileSize: 512,
-    zoomOffset: -1,
-    ACCESS_TOKEN,
-    crossOrigin: true,
-  },
+    `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
+    {
+        maxZoom: 18,
+        minZoom: 1,
+        id: 'mapbox/dark-v10',
+        tileSize: 512,
+        zoomOffset: -1,
+        ACCESS_TOKEN,
+        crossOrigin: true,
+    },
 );
 
 const initMap = () => {
-  map = new L.map('covid-map', mapOptions);
-  const bounds = map.getBounds();
-  map.setMaxBounds(bounds);
-  map.on('drag', () => {
-    map.panInsideBounds(bounds, { animate: false });
-  });
+    map = new L.map('covid-map', mapOptions);
+    const bounds = map.getBounds();
+    map.setMaxBounds(bounds);
+    map.on('drag', () => {
+        map.panInsideBounds(bounds, { animate: false });
+    });
 
-  map.setView([53.0282, 27.3137], 3);
+    map.setView([53.0282, 27.3137], 3);
 
-  map.addLayer(layer);
-  L.control.zoom({
-    position: 'bottomright',
-  }).addTo(map);
-  map.createPane('paneForGeoJSON').style.zIndex = 200;
+    map.addLayer(layer);
+    L.control.zoom({
+        position: 'bottomright',
+    }).addTo(map);
+    map.createPane('paneForGeoJSON').style.zIndex = 200;
 
-  currentCountryInfo.onAdd = (() => {
-    currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
-    currentCountryInfo.update();
-    return currentCountryInfo.div;
-  });
+    currentCountryInfo.onAdd = (() => {
+        currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
+        currentCountryInfo.update();
+        return currentCountryInfo.div;
+    });
 
-  currentCountryInfo.update = ((countryName) => {
-    currentCountryInfo.div.innerHTML = `<span class="material-icons">room</span><span>From: ${countryName || 'Choose country or region'}</span>`;
-  });
+    currentCountryInfo.update = ((countryName) => {
+        currentCountryInfo.div.innerHTML = `<span class="material-icons">room</span><span>From: ${countryName || 'Choose country or region'}</span>`;
+    });
 
-  currentCountryInfo.addTo(map);
+    currentCountryInfo.addTo(map);
 };
 
 let geojson;
@@ -83,35 +83,35 @@ let firstChange = true;
 let countryRestrictionsBlock;
 
 function initRestrictionsBlock() {
-  countryRestrictionsBlock = document.createElement('div');
-  countryRestrictionsBlock.classList.add('country-restrictions-wrapper', 'hidden');
-  document.querySelector('#covid-map').append(countryRestrictionsBlock);
+    countryRestrictionsBlock = document.createElement('div');
+    countryRestrictionsBlock.classList.add('country-restrictions-wrapper', 'hidden');
+    document.querySelector('#covid-map').append(countryRestrictionsBlock);
 }
 
 function addCloseListener() {
-  document.querySelector('#popup-close').addEventListener('click', () => {
-    countryRestrictionsBlock.classList.add('hidden');
-  });
+    document.querySelector('#popup-close').addEventListener('click', () => {
+        countryRestrictionsBlock.classList.add('hidden');
+    });
 }
 
 const STATUS_ICONS = {
-  MODERATE: 'error',
-  MAJOR: 'cancel',
-  LOW: 'check_circle',
-  UNKNOWN: 'help',
+    MODERATE: 'error',
+    MAJOR: 'cancel',
+    LOW: 'check_circle',
+    UNKNOWN: 'help',
 };
 
 const ARROWS = {
-  down: 'trending_down',
-  up: 'trending_up',
+    down: 'trending_down',
+    up: 'trending_up',
 };
 
 function showCountryRestrictionsInfo(e) {
-  const { target } = e;
+    const { target } = e;
 
-  if (countryRestrictionsBlock.classList.contains('hidden')) { countryRestrictionsBlock.classList.remove('hidden'); }
+    if (countryRestrictionsBlock.classList.contains('hidden')) { countryRestrictionsBlock.classList.remove('hidden'); }
 
-  countryRestrictionsBlock.innerHTML = `<div class="country-restrictions-info">
+    countryRestrictionsBlock.innerHTML = `<div class="country-restrictions-info">
     <section class="popup-title-close-button">
       <span class="restrictions-status ${STATUS_ICONS[target.feature.properties.restrictions.master_travel_status]}"><span class="material-icons">${STATUS_ICONS[target.feature.properties.restrictions.entry_restrictions]}</span>${target.feature.properties.restrictions.entry_restrictions_translation} restrictions</span>
       <span class="popup-close" id="popup-close">x</span>
@@ -151,125 +151,125 @@ function showCountryRestrictionsInfo(e) {
     </section>
   </div>`;
 
-  addCloseListener();
+    addCloseListener();
 }
 
 const MAP_HOVER_LAYER_STYLES = {
-  opacity: 1,
-  fillOpacity: 0.25,
+    opacity: 1,
+    fillOpacity: 0.25,
 };
 
 function highlightFeature(e) {
-  const countryLayer = e.target;
-  countryLayer.setStyle(MAP_HOVER_LAYER_STYLES);
-  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    countryLayer.bringToFront();
-  }
+    const countryLayer = e.target;
+    countryLayer.setStyle(MAP_HOVER_LAYER_STYLES);
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        countryLayer.bringToFront();
+    }
 }
 
 function resetHighlight(e) {
-  geojson.resetStyle(e.target);
+    geojson.resetStyle(e.target);
 }
 
 function onEachFeature(feature, mapLayer) {
-  mapLayer.on({
-    mouseover: highlightFeature,
-    mouseout: resetHighlight,
-    click: showCountryRestrictionsInfo,
-  });
+    mapLayer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: showCountryRestrictionsInfo,
+    });
 }
 
 function setGeoJSON() {
-  geojson = L.geoJson(geoJsonLayer, {
-    pane: 'paneForGeoJSON',
-    clickable: false,
-    style,
-    onEachFeature,
-  }).addTo(map);
+    geojson = L.geoJson(geoJsonLayer, {
+        pane: 'paneForGeoJSON',
+        clickable: false,
+        style,
+        onEachFeature,
+    }).addTo(map);
 }
 
 function checkGeoJSON() {
-  if (!geojson) {
-    setGeoJSON();
-  } else {
-    map.removeLayer(geojson);
-    setGeoJSON();
-  }
+    if (!geojson) {
+        setGeoJSON();
+    } else {
+        map.removeLayer(geojson);
+        setGeoJSON();
+    }
 }
 
 function setCountriesData() {
-  geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
-    const country = obj;
-    country.properties.restrictions = countriesData.features[countriesIso2
-      .indexOf(country.properties.iso2)].properties.restrictions;
-    country.properties.country_id = countriesData.features[countriesIso2
-      .indexOf(country.properties.iso2)].properties.country_id;
-    return country;
-  });
+    geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
+        const country = obj;
+        country.properties.restrictions = countriesData.features[countriesIso2
+            .indexOf(country.properties.iso2)].properties.restrictions;
+        country.properties.country_id = countriesData.features[countriesIso2
+            .indexOf(country.properties.iso2)].properties.country_id;
+        return country;
+    });
 }
 
 function collectCountriesData() {
-  if (firstChange) {
-    countriesIso2 = countriesData.features.map((obj) => obj.properties.country_code);
-    geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso2
-      .indexOf(obj.properties.iso2) !== -1 && obj.properties.iso2 !== 'EH');
-    firstChange = false;
-  }
-  setCountriesData();
-  checkGeoJSON();
+    if (firstChange) {
+        countriesIso2 = countriesData.features.map((obj) => obj.properties.country_code);
+        geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso2
+            .indexOf(obj.properties.iso2) !== -1 && obj.properties.iso2 !== 'EH');
+        firstChange = false;
+    }
+    setCountriesData();
+    checkGeoJSON();
 }
 
 function createIsoList() {
-  countriesIso = countriesIso.map((obj) => {
-    if (obj.countryInfo.iso3 === 'GBR') {
-      return {
-        iso2: 'UK',
-        iso3: 'GBR',
-      };
-    }
-    return {
-      iso2: obj.countryInfo.iso2,
-      iso3: obj.countryInfo.iso3,
-    };
-  });
-  countriesIso.push({ iso2: 'KP', iso3: 'PRK' }, { iso2: 'TM', iso3: 'TKM' }, { iso2: 'KO', iso3: 'XXK' });
+    countriesIso = countriesIso.map((obj) => {
+        if (obj.countryInfo.iso3 === 'GBR') {
+            return {
+                iso2: 'UK',
+                iso3: 'GBR',
+            };
+        }
+        return {
+            iso2: obj.countryInfo.iso2,
+            iso3: obj.countryInfo.iso3,
+        };
+    });
+    countriesIso.push({ iso2: 'KP', iso3: 'PRK' }, { iso2: 'TM', iso3: 'TKM' }, { iso2: 'KO', iso3: 'XXK' });
 }
 
 function filterCountriesByIso() {
-  const countriesIso3 = countriesIso.map((obj) => obj.iso3);
-  geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso3
-    .indexOf(obj.properties.ISO_A3) !== -1);
-  geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
-    const country = obj;
-    country.properties.iso2 = countriesIso[countriesIso3.indexOf(obj.properties.ISO_A3)].iso2;
-    return country;
-  });
+    const countriesIso3 = countriesIso.map((obj) => obj.iso3);
+    geoJsonLayer.features = geoJsonLayer.features.filter((obj) => countriesIso3
+        .indexOf(obj.properties.ISO_A3) !== -1);
+    geoJsonLayer.features = geoJsonLayer.features.map((obj) => {
+        const country = obj;
+        country.properties.iso2 = countriesIso[countriesIso3.indexOf(obj.properties.ISO_A3)].iso2;
+        return country;
+    });
 }
 
 async function getGeoJsonData() {
-  geoJsonLayer = await getData(PATHS.json);
-  countriesIso = await getData(PATHS.locations);
-  createIsoList();
-  filterCountriesByIso();
+    geoJsonLayer = await getData(PATHS.json);
+    countriesIso = await getData(PATHS.locations);
+    createIsoList();
+    filterCountriesByIso();
 }
 
 function setSelectListener() {
-  countriesSelect.addEventListener('change', async (e) => {
-    currentCountryId = e.target.value;
-    countriesData = await getData(PATHS.geo, currentCountryId);
-    setDataDate(countriesData.dataset_last_updated);
-    setDataSummary(countriesData.summary);
-    collectCountriesData();
-    currentCountryInfo.update(countriesSelect.selectedOptions[0].textContent);
-  });
+    countriesSelect.addEventListener('change', async (e) => {
+        currentCountryId = e.target.value;
+        countriesData = await getData(PATHS.geo, currentCountryId);
+        setDataDate(countriesData.dataset_last_updated);
+        setDataSummary(countriesData.summary);
+        collectCountriesData();
+        currentCountryInfo.update(countriesSelect.selectedOptions[0].textContent);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  createMainWithMap();
-  initMap();
-  initRestrictionsBlock();
-  initStatusesCounters();
-  getGeoJsonData();
-  countriesSelect = document.querySelector('#countries');
-  setSelectListener();
+    createMainWithMap();
+    initMap();
+    initRestrictionsBlock();
+    initStatusesCounters();
+    getGeoJsonData();
+    countriesSelect = document.querySelector('#countries');
+    setSelectListener();
 });
