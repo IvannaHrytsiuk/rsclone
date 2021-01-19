@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
+    "dev": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -20,15 +19,21 @@
   },
   "homepage": "https://github.com/IvannaHrytsiuk/skyscanner#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "file-loader": "^6.2.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {
+    "showdown": "^1.9.1"
   }
 }
