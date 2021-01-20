@@ -1,3 +1,6 @@
+import { SearchCashView } from './scripts/searchCash/view/searchCash';
+
+const searchCash = new SearchCashView();
 document.body.innerHTML = `<div>
     <header>
         <div class="container">
@@ -132,6 +135,11 @@ document.body.innerHTML = `<div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="searchCashingBlock">
+        <div class="container">
+            <div class="row">${searchCash.init()}</div>
         </div>
     </div>
     <footer>
