@@ -45,7 +45,7 @@ document.body.innerHTML = `
                 <div class="row">
                     <div class="col-md-12">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="your@email.com" required>
+                        <input type="email" class="form-control" id="emailConfirm" placeholder="your@email.com" required>
                         <button class="btn btnConfirm" type="button">Confirm booking</button>
                     </div>
                 </div>
