@@ -50,8 +50,7 @@ module.exports = {
             ],
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
+            filename: 'index.css',
         }),
         new HtmlWebPackPlugin({
             inject: false,
