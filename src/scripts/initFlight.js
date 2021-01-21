@@ -1,13 +1,10 @@
-import { SearchCashView } from './scripts/searchCash/view/searchCash';
-
-const searchCash = new SearchCashView();
-document.body.innerHTML = `<div>
-    <header>
+document.body.innerHTML = `
+<header>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="logoBlock">
-                        <img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt="">
+                        <a href="index.html"><img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt=""></a>
                     </div>
                     <nav>
                         <a href="" class="btn navBtn active">
@@ -36,7 +33,7 @@ document.body.innerHTML = `<div>
             </div>
         </div>
     </header>
-    <div class="wrapperSearch">
+    <div class="wrapperSearch bookingMood">
         <div class="searchBlock">
         <h1>Let the journey begin</h1>
         <div class="wrapperSearchInputs">
@@ -109,7 +106,7 @@ document.body.innerHTML = `<div>
                         <label>Add nearby airports</label>
                     </div>
                     <div>
-                        <button type="button" class="btn searchFlightBtn">Search flights &#10144;</button>
+                        <a href="flight.html" type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
                     </div>
                 </div>                        
             </div>
@@ -117,30 +114,6 @@ document.body.innerHTML = `<div>
     </div>
     <div class="bookingWrapper">
         <div class="lds-ripple"><div></div><div></div></div>
-    </div>
-    <div class="bookingDetailsWrapper">
-        <div class="container">
-            <h1 class="routeDetails"></h1>
-            <div class="row">
-                <div class="col-md-8 ticketDetails"></div>
-                <div class="col-md-4 allPrice"></div>
-            </div>
-            <div class="col-md-8 contactEmailBlock">
-                <h4>Contact details</h4>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="your@email.com" required>
-                        <button class="btn btnConfirm" type="button">Confirm booking</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="searchCashingBlock">
-        <div class="container">
-            <div class="row">${searchCash.init()}</div>
-        </div>
     </div>
     <footer>
         <div class="footerRootWrapper">
@@ -215,24 +188,6 @@ document.body.innerHTML = `<div>
     </footer>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-  <h5 class="modal-title" id="detailsModalLabel">Itinerary details</h5>
-  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn bookBtn" data-bs-dismiss="modal">Book</button>
-</div>
-</div>
-</div>
-</div>
-
 <!-- Modal header-->
 <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
 <div class="modal-dialog">
@@ -261,6 +216,23 @@ document.body.innerHTML = `<div>
 <div class="modal-footer modal-footer-header">
     <button type="button" class="btn btn-primary saveheaderChange" data-bs-dismiss="modal">Save</button>
     <button type="button" class="btn closeBtnModal" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="detailsModalLabel">Itinerary details</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body modalDet">
+</div>
+<div class="modal-footer">
+  <a href="booking.html" type="button" class="btn bookBtn" >Book</a>
 </div>
 </div>
 </div>

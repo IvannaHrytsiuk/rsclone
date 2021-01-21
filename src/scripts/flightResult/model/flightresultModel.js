@@ -3,8 +3,6 @@ import { airportsNameTo, airportsNameFrom } from '../../../apis/airportsName';
 import { FlightSearchModel } from '../../flightSearch/model/flightSearchMolel';
 import { country } from '../../../apis/country';
 
-export let chooseTicket;
-
 const json = require('../../airlines.json');
 
 const flightSearchModel = new FlightSearchModel();
@@ -31,7 +29,7 @@ export const FlightResultModel = class {
             div.setAttribute('data-bs-target', '#detailsModal');
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
-                chooseTicket = flightResult.data[i];
+                localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
                 this.paintModalReturn(flightResult.data[i], dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr);
             });
             div.innerHTML += `
@@ -39,7 +37,7 @@ export const FlightResultModel = class {
                 <p class="yearTime">${dateDTo.slice(0, 3)}, ${dateDTo.slice(8, 10)} ${dateDTo.slice(4, 7)}</p>
                 <div class="flightDetails">
                     <div class="routeIco">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/%D0%91%D0%B5%D0%B7%20%D1%96%D0%BC%D0%B5%D0%BD%D1%96.png?alt=media&token=1cba4112-0dfe-4f6d-aa63-a931be23be53">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/route.png?alt=media&token=7153600a-0d67-47a4-9840-a1d8e21998e1">
                     </div>
                     <div class="information">
                         <p><strong>${timeDepTo.slice(0, 2)}:${timeDepTo.slice(3, 5)} ${flightResult.data[i].route[0].cityFrom}</strong><span> ${flightResult.data[i].route[0].cityCodeFrom}</span></p>
@@ -60,7 +58,7 @@ export const FlightResultModel = class {
                 <p class="yearTime">${dateDFrom.slice(0, 3)}, ${dateDFrom.slice(8, 10)} ${dateDFrom.slice(4, 7)}</p>
                 <div class="flightDetails">
                     <div class="routeIco">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/%D0%91%D0%B5%D0%B7%20%D1%96%D0%BC%D0%B5%D0%BD%D1%96.png?alt=media&token=1cba4112-0dfe-4f6d-aa63-a931be23be53">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/route.png?alt=media&token=7153600a-0d67-47a4-9840-a1d8e21998e1">
                     </div>
                     <div class="information">
                         <p><strong>${timeDepFrom.slice(0, 2)}:${timeDepFrom.slice(3, 5)} ${flightResult.data[i].route[1].cityFrom}</strong><span> ${flightResult.data[i].route[1].cityCodeFrom}</span></p>
@@ -112,14 +110,14 @@ export const FlightResultModel = class {
             div.setAttribute('data-bs-target', '#detailsModal');
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
-                chooseTicket = flightResult.data[i];
+                localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
                 this.paintModalOneway(flightResult.data[i], dateDep, time, timeTo);
             });
             div.innerHTML += `<div class="firstBlock">
                 <p class="yearTime">${dateDep.slice(0, 3)}, ${dateDep.slice(8, 10)} ${dateDep.slice(4, 7)}</p>
                 <div class="flightDetails">
                 <div class="routeIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/%D0%91%D0%B5%D0%B7%20%D1%96%D0%BC%D0%B5%D0%BD%D1%96.png?alt=media&token=1cba4112-0dfe-4f6d-aa63-a931be23be53">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/route.png?alt=media&token=7153600a-0d67-47a4-9840-a1d8e21998e1">
                 </div>
                 <div class="information">
                     <p><strong>${time.slice(0, 2)}:${time.slice(3, 5)} ${flightResult.data[i].cityFrom}</strong><span> ${flightResult.data[i].cityCodeFrom}</span></p>
@@ -186,8 +184,8 @@ export const FlightResultModel = class {
     }
 
     paintModalOneway(data, dateDep, time, timeTo) {
-        document.querySelector('.modal-body').innerHTML = '';
-        document.querySelector('.modal-body').innerHTML = `
+        document.querySelector('.modalDet').innerHTML = '';
+        document.querySelector('.modalDet').innerHTML = `
             <h2>To ${data.route[0].cityTo}</h2>
             <img class="modalCalendarIco" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
             <span class="modalDateDay">${dateDep.slice(0, 3)}, ${dateDep.slice(8, 10)} ${dateDep.slice(4, 7)}</span>
@@ -300,8 +298,8 @@ export const FlightResultModel = class {
     }
 
     paintModalReturn(data, dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr) {
-        document.querySelector('.modal-body').innerHTML = '';
-        document.querySelector('.modal-body').innerHTML = `
+        document.querySelector('.modalDet').innerHTML = '';
+        document.querySelector('.modalDet').innerHTML = `
             <h2>To ${data.route[0].cityTo}</h2>
             <img class="modalCalendarIco" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
             <span class="modalDateDay">${dateDTo.slice(0, 3)}, ${dateDTo.slice(8, 10)} ${dateDTo.slice(4, 7)}</span>

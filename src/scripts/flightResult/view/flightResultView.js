@@ -1,7 +1,6 @@
 import { flightResult } from '../../../apis/flightSEarch';
 import { FlightResultModel } from '../model/flightresultModel';
 
-const flightResultModel = new FlightResultModel();
 export const FlightResultView = class {
     paintSearchDataBlocks(value) {
         document.querySelector('.bookingWrapper').innerHTML = '<div class="bookingFlex"><div class="bookingFlexContent"></div><div class="bookingFlexContent" id="contentResult"></div><div class="bookingFlexContent"></div></div>';
@@ -15,8 +14,10 @@ export const FlightResultView = class {
     paintSearchDataReturn() {
         document.getElementById('contentResult').innerHTML = '';
         if (flightResult.data.length > 30) {
+            const flightResultModel = new FlightResultModel();
             flightResultModel.paintResultView(30);
         } else {
+            const flightResultModel = new FlightResultModel();
             flightResultModel.paintResultView(flightResult.data.length);
         }
     }

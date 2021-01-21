@@ -5,7 +5,7 @@ const flightres = new FlightResultModel();
 export const BookingView = class {
     paintBookingResult(result) {
         document.querySelector('.routeDetails').innerHTML = '';
-        if (document.getElementById('round').checked) {
+        if (localStorage.getItem('choosenTicket')) {
             const dateDepTo = new Date(result.route[0].local_departure);
             const dateDTo = dateDepTo.toDateString();
             const timeDepTo = dateDepTo.toTimeString();

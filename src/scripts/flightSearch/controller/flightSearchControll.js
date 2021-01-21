@@ -68,17 +68,39 @@ for (let i = 0; i < document.getElementsByName('flight-type').length; i += 1) {
 }
 
 document.querySelector('.searchFlightBtn').addEventListener('click', () => {
-    document.querySelector('.bookingWrapper').style.display = 'block';
-    document.querySelector('.wrapperSearch').classList.add('bookingMood');
     if (flightSearchModel.ifChecked() === '1') {
         let dateFrom = document.getElementById('departDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListOneWay(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value);
+        let a = [];
+        a = JSON.parse(localStorage.getItem('search')) || [];
+        a.push({
+            route: 'oneway',
+            from: fromAirport.PlaceId,
+            to: toAirport.PlaceId,
+            date: dateFrom,
+            adults: document.getElementById('adultsCount').value,
+            child: document.getElementById('childCount').value,
+            curr: localStorage.getItem('userCurrency'),
+        });
+        localStorage.setItem('search', JSON.stringify(a));
     } else if (flightSearchModel.ifChecked() === '2') {
         let dateFrom = document.getElementById('departDate').value;
         let dateTo = document.getElementById('returnDate').value;
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
         dateTo = `${dateTo.slice(8, 10)}%2F${dateTo.slice(5, 7)}%2F${dateTo.slice(0, 4)}`;
-        flightSearchClass.getAirplinesListReturn(fromAirport.PlaceId, toAirport.PlaceId, dateFrom, dateTo, document.getElementById('adultsCount').value, document.getElementById('childCount').value, document.getElementById('selectCurrency').value, flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value));
+        let a = [];
+        a = JSON.parse(localStorage.getItem('search')) || [];
+        a.push({
+            route: 'return',
+            from: fromAirport.PlaceId,
+            to: toAirport.PlaceId,
+            date1: dateFrom,
+            date2: dateTo,
+            adults: document.getElementById('adultsCount').value,
+            child: document.getElementById('childCount').value,
+            curr: localStorage.getItem('userCurrency'),
+            days: flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value),
+        });
+        localStorage.setItem('search', JSON.stringify(a));
     }
 });

@@ -45,16 +45,8 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                let a = [];
-                a = JSON.parse(localStorage.getItem('search')) || [];
-                if (a.length < 4) {
-                    a.push(this.data);
-                } else {
-                    a.shift();
-                    a.push(this.data);
-                }
-                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
+                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('oneway');
             } else {
@@ -75,11 +67,8 @@ export const FlightSearchClass = class {
             });
             this.data = await this.res.json();
             if (this.data) {
-                let a = [];
-                a = JSON.parse(localStorage.getItem('search')) || [];
-                a.push(this.data);
-                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
+                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('return');
             } else {

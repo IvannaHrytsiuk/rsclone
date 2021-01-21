@@ -3,10 +3,14 @@ const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+        flight: './src/flight.js',
+        booking: './src/booking.js',
+    },
     output: {
+        filename: '[name]build.js',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
     },
     optimization: {
         minimizer: [new TerserPlugin({ extractComments: false })],

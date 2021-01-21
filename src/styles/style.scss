@@ -131,7 +131,7 @@ body{
     min-width: 100px;
   }
 
-  div:nth-child(3) > button {
+  div:nth-child(3) > a {
     font-size: 22px;
     line-height: 30px;
     background-color: #00a698;
@@ -142,7 +142,7 @@ body{
     border: none;
   }
 
-  div:nth-child(3) > button:hover {
+  div:nth-child(3) > a:hover {
     background-color: #00887d;
     cursor: pointer;
   }
@@ -261,7 +261,7 @@ body{
     font-size: .77rem;
     color: #111236;
     line-height: 1rem;
-    background-color: #f3f2f5;
+    background-color: #ffffff;
     border-radius: 5px;
     text-align: justify;
     strong{
@@ -336,6 +336,7 @@ body{
 .ifChild{
   width:100%;
   height: 100%;
+  margin-top: 20px;
   option{
     height: 30px;
     font-size: 18px;
@@ -348,9 +349,8 @@ body{
   }
 }
 .bookingWrapper{
-  display: none;
   width: 100%;
-  height: 500px;
+  height: 100%;
   color: #02122c;
   background-color: #f5f5f5;
 }
@@ -991,7 +991,6 @@ header{
 .bookingDetailsWrapper{
   width: 100%;
   height: 100%;
-  display: none;
   color:#2e353b;
   background-color: #e9e9e9;
   padding: 30px 0;
