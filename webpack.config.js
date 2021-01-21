@@ -1,21 +1,34 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    performance: {
+        maxEntrypointSize: 100000000,
+        maxAssetSize: 100000000,
+    },
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
+        filename: 'index.js',
+        publicPath: '',
     },
     optimization: {
-        minimizer: [new TerserPlugin({ extractComments: false })],
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                test: /\.(js|scss)$/i,
+                extractComments: false,
+            }),
+        ],
     },
     module: {
         rules: [
             {
                 test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
@@ -38,6 +51,16 @@ module.exports = {
             patterns: [
                 { from: './src/assets/geojson', to: 'assets/geojson' },
             ],
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
+        new HtmlWebPackPlugin({
+            inject: false,
+            template: './src/index.html',
+            filename: './index.html',
+            minify: false,
         }),
     ],
 };

@@ -254,7 +254,7 @@ const createMainWithMap = () => {
     </article>
 </section>`;
 
-    document.body.append(mainElement);
+    document.querySelector('body').append(mainElement);
 };
 
 export { createMainWithMap as default };
