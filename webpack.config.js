@@ -18,10 +18,7 @@ module.exports = {
     optimization: {
         minimize: true,
         minimizer: [
-            new TerserPlugin({
-                test: /\.(js|scss)$/i,
-                extractComments: false,
-            }),
+            new TerserPlugin({ extractComments: false }),
         ],
     },
     module: {
