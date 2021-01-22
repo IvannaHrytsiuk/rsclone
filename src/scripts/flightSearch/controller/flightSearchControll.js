@@ -81,6 +81,8 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
             adults: document.getElementById('adultsCount').value,
             child: document.getElementById('childCount').value,
             curr: localStorage.getItem('userCurrency'),
+            cityFrom: fromAirport.PlaceName,
+            cityTo: toAirport.PlaceName,
         });
         localStorage.setItem('search', JSON.stringify(a));
     } else if (flightSearchModel.ifChecked() === '2') {
@@ -99,6 +101,8 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
             adults: document.getElementById('adultsCount').value,
             child: document.getElementById('childCount').value,
             curr: localStorage.getItem('userCurrency'),
+            cityFrom: fromAirport.PlaceName,
+            cityTo: toAirport.PlaceName,
             days: flightSearchModel.calculateDays(document.getElementById('departDate').value, document.getElementById('returnDate').value),
         });
         localStorage.setItem('search', JSON.stringify(a));

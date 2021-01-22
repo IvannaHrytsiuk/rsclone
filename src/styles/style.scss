@@ -416,7 +416,7 @@ body{
   }
 }
 .dataBlockOne{
-  height: 270px;
+  height: 275px;
 }
 .dataBlockReturn{
   height: 500px;
@@ -548,6 +548,17 @@ body{
       transform: translate(-50%, -50%);
       margin: 0;
     }
+    
+  }
+  .stopsTo{
+    background-color: rgb(245, 247, 249);
+    border: 1px solid rgb(232, 237, 241);
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    width: max-content;
+    height: 30px;
+    position: relative;
   }
   img{
     margin: 0 13px;
@@ -1185,6 +1196,10 @@ header{
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 10px;
+    height:50px;
+    span{
+      line-height: 1.5;
+    }
   }
   h3{
     line-height: 3;
@@ -1193,7 +1208,7 @@ header{
     font-weight: 700;
   }
   .col-sm-3{
-    height: 100%;
+    min-height: 160px;
     background-color: #f3f3f3;
     -webkit-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
     -moz-box-shadow: 0px 0px 7px 1px rgba(209,209,209,1);
