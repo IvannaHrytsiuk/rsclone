@@ -1,5 +1,5 @@
 import { flightResult } from '../../../apis/flightSEarch';
-import { airportsNameTo, airportsNameFrom } from '../../../apis/airportsName';
+import { airportsNameTo, airportsNameFrom, names } from '../../../apis/airportsName';
 import { FlightSearchModel } from '../../flightSearch/model/flightSearchMolel';
 import { country } from '../../../apis/country';
 
@@ -119,7 +119,7 @@ export const FlightResultModel = class {
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
                 localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
-                this.paintModalOneway(flightResult.data[i], dateDep, time, timeTo);
+                this.paintModalOneway(flightResult.data[i], dateDep);
             });
             div.innerHTML += `
             <div class="firstBlock">
@@ -193,20 +193,39 @@ export const FlightResultModel = class {
         return jsonname;
     }
 
-    paintModalOneway(data, dateDep, time, timeTo) {
+    paintModalOneway(data, dateDep) {
         document.querySelector('.modalDet').innerHTML = '';
         document.querySelector('.modalDet').innerHTML = `
             <h2>To ${data.route[0].cityTo}</h2>
             <img class="modalCalendarIco" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
             <span class="modalDateDay">${dateDep.slice(0, 3)}, ${dateDep.slice(8, 10)} ${dateDep.slice(4, 7)}</span>
+        `;
+        for (let i = 0; i < data.route.length; i += 1) {
+            const date = new Date(data.route[i].local_departure);
+            const time = date.toISOString();
+            const dateArr = new Date(data.route[i].local_arrival);
+            const timeArr = dateArr.toISOString();
+            let airportname;
+            let airportnameTo;
+            names.forEach((el) => {
+                if (el.iata === data.route[i].cityCodeFrom) {
+                    airportname = el.name;
+                }
+            });
+            names.forEach((el) => {
+                if (el.iata === data.route[i].cityCodeTo) {
+                    airportnameTo = el.name;
+                }
+            });
+            document.querySelector('.modalDet').innerHTML += `
             <div class="flightDeatilsModal">
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${time.slice(0, 2)}:${time.slice(3, 5)}</p>
+                        <p>${time.slice(11, 13)}:${time.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${data.route[0].cityFrom}</p>
-                        <p class="modalAirportName">${airportsNameFrom} (${data.route[0].cityCodeFrom})</p>
+                        <p class="modalCity">${data.route[i].cityFrom}</p>
+                        <p class="modalAirportName">${airportname} (${data.route[i].cityCodeFrom})</p>
                     </div>
                 </div>
                 <div class="modalDetailsRow second row">
@@ -217,10 +236,10 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow third row" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     <div class="first">
-                        <img src="https://images.kiwi.com/airlines/64/${data.route[0].airline}.png">
+                        <img src="https://images.kiwi.com/airlines/64/${data.route[i].airline}.png">
                     </div>
                     <div class="second">
-                        <div class="modal3Aerlinename"><span>${this.jsonSearch(data.route[0].airline)}</span></div>
+                        <div class="modal3Aerlinename"><span>${this.jsonSearch(data.route[i].airline)}</span></div>
                         <div class="modal3flightTime"><span>${this.secondsInHours(data.duration.departure)}</span></div>
                         <p>▼</p>
                     </div>
@@ -231,11 +250,11 @@ export const FlightResultModel = class {
                         <h4>Connection info</h4>
                         <div class="infoLine">
                             <div class="first">
-                                <img src="https://images.kiwi.com/airlines/64/${data.route[0].airline}.png">
+                                <img src="https://images.kiwi.com/airlines/64/${data.route[i].airline}.png">
                                 <span>Aerline</span>
                             </div>
                             <div class="second">
-                                <p>${this.jsonSearch(data.route[0].airline)}</p>
+                                <p>${this.jsonSearch(data.route[i].airline)}</p>
                             </div>
                         </div>
                         <div class="infoLine">
@@ -244,7 +263,7 @@ export const FlightResultModel = class {
                                 <span>Flight no</span>
                             </div>
                             <div class="second">
-                                <p>${data.route[0].airline} ${data.route[0].flight_no}</p>
+                                <p>${data.route[i].airline} ${data.route[i].flight_no}</p>
                             </div>
                         </div>
                         <h4>Seating info</h4>
@@ -288,23 +307,39 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${timeTo.slice(0, 2)}:${timeTo.slice(3, 5)}</p>
+                        <p>${timeArr.slice(11, 13)}:${timeArr.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${this.jsonSearch(data.route[0].airline)}</p>
-                        <p class="modalAirportName">${airportsNameTo} (${data.route[0].cityCodeTo})</p>
+                        <p class="modalCity">${this.jsonSearch(data.route[i].airline)}</p>
+                        <p class="modalAirportName">${airportnameTo} (${data.route[i].cityCodeTo})</p>
                     </div>
                 </div>
             </div>
-            <div class="destitArrive">
-                <div class="destitArriveIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
-                </div>
-                <div class="destitArriveTxt">
-                    <p class="destitArriveTxtUp">Arrive at destination</p>
-                    <p class="destitArriveTxtDown">${data.route[0].cityTo}</p>
-                </div>
-            </div>`;
+            `;
+            if (i === data.route.length - 1) {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">Arrive at destination</p>
+                            <p class="destitArriveTxtDown">${data.route[0].cityTo}</p>
+                        </div>
+                    </div>`;
+            } else {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-clock-48.png?alt=media&token=ecb40a2c-9213-4f64-9dbc-f220b4fc3991">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">${this.calculateLayover(data.route[i].local_arrival, data.route[i + 1].local_departure)} layover</p>
+                            <p class="destitArriveTxtUp">Connection protected by the carrier</p>
+                        </div>
+                    </div>`;
+            }
+        }
     }
 
     paintModalReturn(data, dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr) {
@@ -550,5 +585,13 @@ export const FlightResultModel = class {
 
     findIndex(city, data) {
         return data.route.findIndex((elem) => elem.cityTo === city);
+    }
+
+    calculateLayover(date1, date2) {
+        const diff = Math.abs(new Date(date2) - new Date(date1));
+        let minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        minutes = (minutes < 10) ? `0${minutes}` : minutes;
+        return `${hours}h ${minutes}m`;
     }
 };
