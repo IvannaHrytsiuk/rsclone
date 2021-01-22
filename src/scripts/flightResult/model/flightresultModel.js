@@ -1,5 +1,5 @@
 import { flightResult } from '../../../apis/flightSEarch';
-import { airportsNameTo, airportsNameFrom, names } from '../../../apis/airportsName';
+import { names } from '../../../apis/airportsName';
 import { FlightSearchModel } from '../../flightSearch/model/flightSearchMolel';
 import { country } from '../../../apis/country';
 
@@ -20,6 +20,7 @@ export const FlightResultModel = class {
             const dateDArr = dateDepArr.toDateString();
             const timeDepArr = dateDepArr.toISOString();
             const dateDepFrom = new Date(flightResult.data[i].route[index + 1].local_departure);
+            const dateDepFromBack = dateDepFrom.toDateString();
             const dateDepBack = new Date(flightResult.data[i].route[index + 1].local_departure);
             const dateDBack = dateDepBack.toDateString();
             const timeDepBack = dateDepBack.toISOString();
@@ -35,7 +36,7 @@ export const FlightResultModel = class {
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
                 localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
-                // this.paintModalReturn(flightResult.data[i], dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr);
+                this.paintModalReturn(flightResult.data[i], index, dateDTo, dateDepArr, dateDepFrom, dateDepFromBack);
             });
             div.innerHTML += `
             <div class="firstBlock">
@@ -326,7 +327,8 @@ export const FlightResultModel = class {
                             <p class="destitArriveTxtUp">Arrive at destination</p>
                             <p class="destitArriveTxtDown">${data.route[0].cityTo}</p>
                         </div>
-                    </div>`;
+                    </div>
+                    `;
             } else {
                 document.querySelector('.modalDet').innerHTML += `
                     <div class="destitArrive">
@@ -342,20 +344,49 @@ export const FlightResultModel = class {
         }
     }
 
-    paintModalReturn(data, dateDTo, timeDepTo, timeDepArr, dateDepArr, dateDepFrom, dateDFrom, timeDepFrom, timeFromArr) {
+    paintModalReturn(data, index, dateDTo, dateDepArr, dateDepFrom, dateDepFromBack) {
+        const arrTo = [];
+        const arrFrom = [];
+        for (let i = 0; i < data.route.length; i += 1) {
+            if (i <= index) {
+                arrTo.push(data.route[i]);
+            } else {
+                arrFrom.push(data.route[i]);
+            }
+        }
         document.querySelector('.modalDet').innerHTML = '';
         document.querySelector('.modalDet').innerHTML = `
-            <h2>To ${data.route[0].cityTo}</h2>
+            <h2>To ${data.route[index].cityTo}</h2>
             <img class="modalCalendarIco" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
             <span class="modalDateDay">${dateDTo.slice(0, 3)}, ${dateDTo.slice(8, 10)} ${dateDTo.slice(4, 7)}</span>
+        `;
+        for (let i = 0; i < arrTo.length; i += 1) {
+            const dateTo = new Date(data.route[i].local_departure);
+            const timeTo = dateTo.toISOString();
+            const dateArrTo = new Date(data.route[i].local_arrival);
+            const timeArrTo = dateArrTo.toISOString();
+            let airportnameFrom;
+            let airportnameTo;
+            // eslint-disable-next-line no-loop-func
+            names.forEach((el) => {
+                if (el.iata === arrTo[i].cityCodeFrom) {
+                    airportnameFrom = el.name;
+                }
+            });
+            names.forEach((el) => {
+                if (el.iata === arrTo[i].cityCodeTo) {
+                    airportnameTo = el.name;
+                }
+            });
+            document.querySelector('.modalDet').innerHTML += `
             <div class="flightDeatilsModal">
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${timeDepTo.slice(0, 2)}:${timeDepTo.slice(3, 5)}</p>
+                        <p>${timeTo.slice(11, 13)}:${timeTo.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${data.route[0].cityFrom}</p>
-                        <p class="modalAirportName">${airportsNameFrom} (${data.route[0].cityCodeFrom})</p>
+                        <p class="modalCity">${arrTo[i].cityFrom}</p>
+                        <p class="modalAirportName">${airportnameFrom} (${arrTo[i].cityCodeFrom})</p>
                     </div>
                 </div>
                 <div class="modalDetailsRow second row">
@@ -366,10 +397,10 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow third row" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     <div class="first">
-                        <img src="https://images.kiwi.com/airlines/64/${data.route[0].airline}.png">
+                        <img src="https://images.kiwi.com/airlines/64/${arrTo[i].airline}.png">
                     </div>
                     <div class="second">
-                        <div class="modal3Aerlinename"><span>${this.jsonSearch(data.route[0].airline)}</span></div>
+                        <div class="modal3Aerlinename"><span>${this.jsonSearch(arrTo[i].airline)}</span></div>
                         <div class="modal3flightTime"><span>${this.secondsInHours(data.duration.departure)}</span></div>
                         <p>▼</p>
                     </div>
@@ -380,11 +411,11 @@ export const FlightResultModel = class {
                         <h4>Connection info</h4>
                         <div class="infoLine">
                             <div class="first">
-                                <img src="https://images.kiwi.com/airlines/64/${data.route[0].airline}.png">
+                                <img src="https://images.kiwi.com/airlines/64/${arrTo[i].airline}.png">
                                 <span>Aerline</span>
                             </div>
                             <div class="second">
-                                <p>${this.jsonSearch(data.route[0].airline)}</p>
+                                <p>${this.jsonSearch(arrTo[i].airline)}</p>
                             </div>
                         </div>
                         <div class="infoLine">
@@ -393,7 +424,7 @@ export const FlightResultModel = class {
                                 <span>Flight no</span>
                             </div>
                             <div class="second">
-                                <p>${data.route[0].airline} ${data.route[0].flight_no}</p>
+                                <p>${arrTo[i].airline} ${arrTo[i].flight_no}</p>
                             </div>
                         </div>
                         <h4>Seating info</h4>
@@ -437,51 +468,87 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${timeDepArr.slice(0, 2)}:${timeDepArr.slice(3, 5)}</p>
+                        <p>${timeArrTo.slice(11, 13)}:${timeArrTo.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${this.jsonSearch(data.route[0].airline)}</p>
-                        <p class="modalAirportName">${airportsNameTo} (${data.route[0].cityCodeTo})</p>
+                        <p class="modalCity">${this.jsonSearch(arrTo[i].airline)}</p>
+                        <p class="modalAirportName">${airportnameTo} (${arrTo[i].cityCodeTo})</p>
                     </div>
                 </div>
             </div>
-            <div class="destitArrive">
-                <div class="destitArriveIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
-                </div>
-                <div class="destitArriveTxt">
-                    <p class="destitArriveTxtUp">Arrive at destination</p>
-                    <p class="destitArriveTxtDown">${data.route[0].cityTo}</p>
-                </div>
-            </div>
-            <div class="destitArrive">
-                <div class="destitArriveIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-empty-bed-100.png?alt=media&token=4ead69b8-18b0-44d9-ba23-b9346de83c1c">
-                </div>
-                <div class="destitArriveTxt">
-                    <p class="destitArriveTxtDown destitArriveTxtDownOne">${flightSearchModel.calculateDays(dateDepArr, dateDepFrom)} nights in destitation</p>
-                </div>
-            </div>
-            <div class="destitArrive">
-                <div class="destitArriveIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-external-link-48.png?alt=media&token=b86d2ba6-9b61-4ca2-9feb-9d9c27e74adc">
-                </div>
-                <div class="destitArriveTxt">
-                    <a href="https://www.booking.com/" target=”_blank” class="destitArriveTxtDown destitArriveTxtDownOne">Check accommodation prices  <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Booking-Logo-PNG.png?alt=media&token=6035f8c9-d861-4e60-aef6-875157738926"></a>
-                </div>
-            </div>
-
-            <h2>To ${data.route[1].cityTo}</h2>
+            `;
+            if (i === arrTo.length - 1) {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">Arrive at destination</p>
+                            <p class="destitArriveTxtDown">${arrTo[i].cityTo}</p>
+                        </div>
+                    </div>
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-empty-bed-100.png?alt=media&token=4ead69b8-18b0-44d9-ba23-b9346de83c1c">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtDown destitArriveTxtDownOne">${flightSearchModel.calculateDays(dateDepArr, dateDepFrom)} nights in destitation</p>
+                        </div>
+                    </div>
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-external-link-48.png?alt=media&token=b86d2ba6-9b61-4ca2-9feb-9d9c27e74adc">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <a href="https://www.booking.com/" target=”_blank” class="destitArriveTxtDown destitArriveTxtDownOne">Check accommodation prices  <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Booking-Logo-PNG.png?alt=media&token=6035f8c9-d861-4e60-aef6-875157738926"></a>
+                        </div>
+                    </div>`;
+            } else {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-clock-48.png?alt=media&token=ecb40a2c-9213-4f64-9dbc-f220b4fc3991">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">${this.calculateLayover(arrTo[i].local_arrival, arrTo[i + 1].local_departure)} layover</p>
+                            <p class="destitArriveTxtUp">Connection protected by the carrier</p>
+                        </div>
+                    </div>`;
+            }
+        }
+        document.querySelector('.modalDet').innerHTML += `
+            <h2>To ${data.route[data.route.length - 1].cityTo}</h2>
             <img class="modalCalendarIco" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
-            <span class="modalDateDay">${dateDFrom.slice(0, 3)}, ${dateDFrom.slice(8, 10)} ${dateDFrom.slice(4, 7)}</span>
+            <span class="modalDateDay">${dateDepFromBack.slice(0, 3)}, ${dateDepFromBack.slice(8, 10)} ${dateDepFromBack.slice(4, 7)}</span>
+        `;
+        for (let i = 0; i < arrFrom.length; i += 1) {
+            const dateTo = new Date(arrFrom[i].local_departure);
+            const timeTo = dateTo.toISOString();
+            const dateArrTo = new Date(arrFrom[i].local_arrival);
+            const timeArrTo = dateArrTo.toISOString();
+            let airportnameFrom;
+            let airportnameTo;
+            // eslint-disable-next-line no-loop-func
+            names.forEach((el) => {
+                if (el.iata === arrFrom[i].cityCodeFrom) {
+                    airportnameFrom = el.name;
+                }
+            });
+            names.forEach((el) => {
+                if (el.iata === arrFrom[i].cityCodeTo) {
+                    airportnameTo = el.name;
+                }
+            });
+            document.querySelector('.modalDet').innerHTML += `
             <div class="flightDeatilsModal">
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${timeDepFrom.slice(0, 2)}:${timeDepFrom.slice(3, 5)}</p>
+                        <p>${timeTo.slice(11, 13)}:${timeTo.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${data.route[1].cityFrom}</p>
-                        <p class="modalAirportName">${airportsNameTo} (${data.route[1].cityCodeFrom})</p>
+                        <p class="modalCity">${arrFrom[i].cityFrom}</p>
+                        <p class="modalAirportName">${airportnameFrom} (${arrFrom[i].cityCodeFrom})</p>
                     </div>
                 </div>
                 <div class="modalDetailsRow second row">
@@ -492,10 +559,10 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow third row" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     <div class="first">
-                        <img src="https://images.kiwi.com/airlines/64/${data.route[1].airline}.png">
+                        <img src="https://images.kiwi.com/airlines/64/${arrFrom[i].airline}.png">
                     </div>
                     <div class="second">
-                        <div class="modal3Aerlinename"><span>${this.jsonSearch(data.route[1].airline)}</span></div>
+                        <div class="modal3Aerlinename"><span>${this.jsonSearch(arrFrom[i].airline)}</span></div>
                         <div class="modal3flightTime"><span>${this.secondsInHours(data.duration.return)}</span></div>
                         <p>▼</p>
                     </div>
@@ -506,11 +573,11 @@ export const FlightResultModel = class {
                         <h4>Connection info</h4>
                         <div class="infoLine">
                             <div class="first">
-                                <img src="https://images.kiwi.com/airlines/64/${data.route[1].airline}.png">
+                                <img src="https://images.kiwi.com/airlines/64/${arrFrom[i].airline}.png">
                                 <span>Aerline</span>
                             </div>
                             <div class="second">
-                                <p>${this.jsonSearch(data.route[1].airline)}</p>
+                                <p>${this.jsonSearch(arrFrom[i].airline)}</p>
                             </div>
                         </div>
                         <div class="infoLine">
@@ -519,7 +586,7 @@ export const FlightResultModel = class {
                                 <span>Flight no</span>
                             </div>
                             <div class="second">
-                                <p>${data.route[1].airline} ${data.route[1].flight_no}</p>
+                                <p>${arrFrom[i].airline} ${arrFrom[i].flight_no}</p>
                             </div>
                         </div>
                         <h4>Seating info</h4>
@@ -563,24 +630,39 @@ export const FlightResultModel = class {
                 </div>
                 <div class="modalDetailsRow row first">
                     <div class="first">
-                        <p>${timeFromArr.slice(0, 2)}:${timeFromArr.slice(3, 5)}</p>
+                        <p>${timeArrTo.slice(11, 13)}:${timeArrTo.slice(14, 16)}</p>
                     </div>
                     <div class="second">
-                        <p class="modalCity">${this.jsonSearch(data.route[1].airline)}</p>
-                        <p class="modalAirportName">${airportsNameFrom} (${data.route[1].cityCodeTo})</p>
+                        <p class="modalCity">${this.jsonSearch(arrFrom[i].airline)}</p>
+                        <p class="modalAirportName">${airportnameTo} (${arrFrom[i].cityCodeTo})</p>
                     </div>
-                </div>
-            </div>
-            <div class="destitArrive">
-                <div class="destitArriveIco">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
-                </div>
-                <div class="destitArriveTxt">
-                    <p class="destitArriveTxtUp">Arrive at destination</p>
-                    <p class="destitArriveTxtDown">${data.route[1].cityTo}</p>
                 </div>
             </div>
             `;
+            if (i === arrFrom.length - 1) {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-point-of-interest-48.png?alt=media&token=ffc3eacb-6e98-40bf-86ed-da50c1f0873d">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">Arrive at destination</p>
+                            <p class="destitArriveTxtDown">${arrFrom[i].cityTo}</p>
+                        </div>
+                    </div>`;
+            } else {
+                document.querySelector('.modalDet').innerHTML += `
+                    <div class="destitArrive">
+                        <div class="destitArriveIco">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-clock-48.png?alt=media&token=ecb40a2c-9213-4f64-9dbc-f220b4fc3991">
+                        </div>
+                        <div class="destitArriveTxt">
+                            <p class="destitArriveTxtUp">${this.calculateLayover(arrFrom[i].local_arrival, arrFrom[i + 1].local_departure)} layover</p>
+                            <p class="destitArriveTxtUp">Connection protected by the carrier</p>
+                        </div>
+                    </div>`;
+            }
+        }
     }
 
     findIndex(city, data) {
