@@ -1,11 +1,8 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
 import createMainWithMap from './htmlview';
-import '../../styles/covid-map.scss';
 import '../../assets/map/leaflet';
-import '../../assets/map/leaflet.css';
 import '../../assets/fullscreen/Control.FullScreen';
-import '../../assets/fullscreen/Control.FullScreen.css';
 import { getData, PATHS } from './apis';
 import { setDataDate } from './date';
 import { style } from './style';
