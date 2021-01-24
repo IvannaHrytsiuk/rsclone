@@ -2,7 +2,7 @@ export const EmailedClass = class {
     async sendEmail(email) {
         try {
             this.res = await fetch(`https://skyscanner-server.herokuapp.com/confirmBooking/${email}`, {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'User-Agent': 'PostmanRuntime/7.26.8',
                 },
