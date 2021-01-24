@@ -1,7 +1,7 @@
 export const EmailedClass = class {
     async sendEmail(email) {
         try {
-            this.res = await fetch(`http://localhost:3000/confirmBooking/${email}`, {
+            this.res = await fetch(`https://skyscanner-server.herokuapp.com/confirmBooking/${email}`, {
                 method: 'POST',
                 headers: {
                     'User-Agent': 'PostmanRuntime/7.26.8',
