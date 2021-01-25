@@ -1,25 +1,11 @@
-document.body.innerHTML = `<div>
-    <header>
+document.body.innerHTML = `
+<header>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="logoBlock">
                         <a href="index.html"><img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt=""></a>
                     </div>
-                    <nav>
-                        <a href="index.html" class="btn navBtn active">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-airplane-mode-on-52.png?alt=media&token=92bd7a10-f558-4412-ae56-a68f08bc37f3" alt="">
-                            <span>Flights</span>
-                        </a>
-                        <a href="https://www.skyscanner.co.th/hotels?na=1&sd=2021-01-18&ed=2021-01-19&s-f_iplace=KIEV" class="btn navBtn">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-bed-48.png?alt=media&token=806f9805-6982-4f5a-a74d-a9fc66d6fdb1" alt="">
-                            <span>Hotels</span>
-                        </a>
-                        <a href="https://www.skyscanner.co.th/carhire" class="btn navBtn">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-car-48.png?alt=media&token=051d7d27-7082-475f-909c-14107cd195bf" alt="">
-                            <span>Car Hire</span>
-                        </a>
-                    </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="locationCurrencyBlock">
@@ -27,95 +13,37 @@ document.body.innerHTML = `<div>
                             <span class="countryHeaderModalBtn"></span>
                             <span class="currencyHeaderModalBtn"></span>
                         </button>
-                        <a class="btn logInBtn" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <div class="wrapperSearch">
-        <div class="searchBlock">
-        <h1>Let the journey begin</h1>
-        <div class="wrapperSearchInputs">
-            <form>
-                <div class="flight-radio-boxes">
-                    <label>
-                        <input type="radio" name="flight-type" value="2" id="round">
-                        <span>Return</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="flight-type" value="1">
-                        <span>One way</span>
-                    </label>
-                </div>
-                <div class="inputsFlex">
-                    <div class="from-to">
-                        <label>From</label>
-                        <input type="text" id="searchFrom" placeholder="Country, city or airport">
-                        <ul class="airportSearchFrom"></ul>
-                        <button class="switch-button">&harr;</button>
-                    </div>
-                    <div class="from-to">
-                        <label>To</label>
-                        <input type="text" id="searchTo" placeholder="Country, city or airport">
-                        <ul class="airportSearchTo"></ul>
-                    </div>
-                    <div>
-                        <label>Depart</label>
-                        <input type="date" id="departDate" max="2023-01-01">
-                    </div>
-                    <div>
-                        <label id="returnDateLabel">Return</label>
-                        <input type="date" id="returnDate"  max="2023-01-01">
-                    </div>
-                    <div class="classAdults">
-                        <label>Cabin Class & Travellers</label>
-                        <input type="text" id="classAdultsInp" readonly>
-                        <div class="classAdultsModal">
-                            <p class="hearders">Cabin class</p>
-                            <div>
-                                <strong>We can show only Economy prices for this search.</strong>
-                                <span>To see Business and First Class options, please tell us your exact dates and/or destination city.</span>
-                            </div>
-                            <p class="hearders">Adults</p>
-                            <button class="counterButton" type="button" id="adultsMinus" disabled><span>-</span></button>
-                            <input type="text" class="counterTicket" id="adultsCount" disabled value="1">
-                            <button class="counterButton" type="button" id="adultsPlus"><span>+</span></button>
-                            <span class="countSpan">16+ years</span>
-                            <p class="hearders">Children</p>
-                            <button class="counterButton" type="button" id="childMinus" disabled><span>-</span></button>
-                            <input type="text" class="counterTicket" id="childCount" disabled value="0">
-                            <button class="counterButton" type="button" id="childPlus"><span>+</span></button>
-                            <span class="countSpan">0-15 years</span>
-                            <div class="ifChild">
-                            </div>
-                            <p class="classAdultsTxt">Your age at time of travel must be valid for the age category booked. Airlines have restrictions on under 18s travelling alone.</p>
-                            <p class="classAdultsTxt">Age limits and policies for travelling with children may vary so please check with the airline before booking.</p>
-                            <hr>
-                            <p class="closeBtn">Done</p>
+    <div class="mainregister">
+        <div class="container">
+            <div class="col-md-6">
+                <h3>Registration</h3>
+                <form id="rgisterForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="firstnameInp" class="form-label">First Name <span>*</span></label>
+                            <input type="text" class="form-control" id="firstnameInp" required>
+                            <label for="emailInp" class="form-label">Email <span>*</span></label>
+                            <input type="email" class="form-control" id="emailInp" required>
+                            <label for="passwordInp" class="form-label">Password <span>*</span></label>
+                            <input type="password" class="form-control" id="passwordInp" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastnameInp" class="form-label">Last Name <span>*</span></label>
+                            <input type="text" class="form-control" id="lastnameInp" required>
+                            <label for="birthInp" class="form-label">Date of birth <span>*</span></label>
+                            <input type="date" class="form-control" id="birthInp" max="2010-01-01" min="1921-01-01" required>
+                            <label for="password2Inp" class="form-label">Confirm password <span>*</span></label>
+                            <input type="password" class="form-control" id="password2Inp" required>
                         </div>
                     </div>
-                </div>
-                <div class="up-checkboxes">
-                    <div>
-                        <input type="checkbox">
-                        <label>Add nearby airports</label>
-                    </div>
-                    <div>
-                        <input type="checkbox">
-                        <label>Add nearby airports</label>
-                    </div>
-                    <div>
-                        <a href="flight.html" type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
-                    </div>
-                </div>                        
+                    <button class="btn btn-outline-primary"><a>Register</a></button>
+                </form>
             </div>
-        </div>
-    </div>
-    <div class="searchCashingBlock">
-        <div class="container">
-            ${localStorage.getItem('search') ? '<h3>Continue your search</h3>' : ''}
-            <div class="row rowBlockSearchCash"></div>
         </div>
     </div>
     <footer>
@@ -189,9 +117,8 @@ document.body.innerHTML = `<div>
             </div>
         </div>
     </footer>
-</div>
 
-<!-- Modal header-->
+    <!-- Modal header-->
 <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
@@ -222,23 +149,5 @@ document.body.innerHTML = `<div>
 </div>
 </div>
 </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modalImg"></div>
-        <div class="container">
-            <input type="email" class="form-control" id="loginEmail" placeholder="Your@email.com">
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-            <button class="btn btnLogIn">Log in</button>
-            <p>or <a href="register.html">create an account</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 `;

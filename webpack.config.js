@@ -7,6 +7,7 @@ module.exports = {
         index: './src/index.js',
         flight: './src/flight.js',
         booking: './src/booking.js',
+        register: './src/register.js',
     },
     output: {
         filename: '[name]build.js',
