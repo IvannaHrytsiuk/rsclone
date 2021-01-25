@@ -73,6 +73,9 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
         dateFrom = `${dateFrom.slice(8, 10)}%2F${dateFrom.slice(5, 7)}%2F${dateFrom.slice(0, 4)}`;
         let a = [];
         a = JSON.parse(localStorage.getItem('search')) || [];
+        if (a.length > 4) {
+            a.shift();
+        }
         a.push({
             route: 'oneway',
             from: fromAirport.PlaceId,
@@ -92,6 +95,9 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
         dateTo = `${dateTo.slice(8, 10)}%2F${dateTo.slice(5, 7)}%2F${dateTo.slice(0, 4)}`;
         let a = [];
         a = JSON.parse(localStorage.getItem('search')) || [];
+        if (a.length > 4) {
+            a.shift();
+        }
         a.push({
             route: 'return',
             from: fromAirport.PlaceId,
