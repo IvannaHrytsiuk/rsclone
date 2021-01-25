@@ -1309,3 +1309,34 @@ header{
     }
   }
 }
+.blockFilter{
+  width: 100%;
+  height: max-content;
+  margin: 1.5rem 0;
+  padding: 15px;
+  color:rgb(46, 53, 59);
+  h3{
+    font-size: 18px;
+    color: #444560;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+  label{
+    color: rgb(190, 190, 190);
+  }
+}
+.noData{
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 24px;
+  color: #444560;
+  font-weight: 700;
+}
+.noDataP{
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 18px;
+  color: #444560;
+  line-height: 1.5;
+}

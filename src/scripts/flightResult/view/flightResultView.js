@@ -1,7 +1,8 @@
-import { flightResult } from '../../../apis/flightSEarch';
+import { flightResult, link, FlightSearchClass } from '../../../apis/flightSEarch';
 import { FlightResultModel } from '../model/flightresultModel';
 
 const flightResultModel = new FlightResultModel();
+
 export const FlightResultView = class {
     paintSearchDataBlocks(value) {
         document.querySelector('.bookingWrapper').innerHTML = `
@@ -16,23 +17,32 @@ export const FlightResultView = class {
             this.paintSearchDataReturn();
         }
         this.paintAds();
+        this.paintFilters();
     }
 
     paintSearchDataReturn() {
-        document.getElementById('contentResult').innerHTML = '';
-        if (flightResult.data.length > 50) {
-            flightResultModel.paintResultView(50);
+        if (flightResult.data.length === 0) {
+            document.getElementById('contentResult').innerHTML = "<h3 class='noData'>Sorry, we couldn't find any results</h3><p class='noDataP'>It looks like you recently applied some filters.<br> Reset them below to get results.</p>";
         } else {
-            flightResultModel.paintResultView(flightResult.data.length);
+            document.getElementById('contentResult').innerHTML = '';
+            if (flightResult.data.length > 50) {
+                flightResultModel.paintResultView(50);
+            } else {
+                flightResultModel.paintResultView(flightResult.data.length);
+            }
         }
     }
 
     paintSearchDataOne() {
-        document.getElementById('contentResult').innerHTML = '';
-        if (flightResult.data.length > 50) {
-            flightResultModel.paintResultViewOne(50);
+        if (flightResult.data.length === 0) {
+            document.getElementById('contentResult').innerHTML = "<h3 class='noData'>Sorry, we couldn't find any results</h3><p class='noDataP'>It looks like you recently applied some filters.<br> Reset them below to get results.</p>";
         } else {
-            flightResultModel.paintResultViewOne(flightResult.data.length);
+            document.getElementById('contentResult').innerHTML = '';
+            if (flightResult.data.length > 50) {
+                flightResultModel.paintResultViewOne(50);
+            } else {
+                flightResultModel.paintResultViewOne(flightResult.data.length);
+            }
         }
     }
 
@@ -119,5 +129,107 @@ export const FlightResultView = class {
             </div>
         </div>
         `;
+    }
+
+    paintFilters() {
+        document.getElementById('filtersContent').innerHTML = `
+        <form name="filterForm" id="filterForm">    
+            <div class="blockFilter">
+                <h3>Sort by:</h3>
+                <select class="form-select" aria-label="Default select example" id="selectSort">
+                    <option selected value="price">Price</option>
+                    <option value="duration">Duration</option>
+                    <option value="quality">Quality</option>
+                    <option value="date">Date</option>
+                </select>
+            </div>
+            <div class="blockFilter">
+                <h3>Max journey duration:</h3>
+                <input type="range" class="form-range" min="0" max="100" step="1" value="0" id="duration">
+                <label id="durationLabel"></label>
+            </div>
+            <div class="blockFilter">
+                <h3>Max stops:</h3>
+                <input type="range" class="form-range" min="0" max="5" step="1" value="0" id="stops">
+                <label id="stopsLabel"></label>
+            </div>
+            <div class="blockFilter">
+                <h3>Stopover:</h3>
+                <input type="range" class="form-range" min="0" max="25" step="1" value="0" id="stopover">
+                <label id="stopoverLabel"></label>
+            </div>
+        </form>
+        `;
+        document.getElementById('filterForm').addEventListener('change', (e) => {
+            document.getElementById('contentResult').innerHTML = '<div class="lds-ripple"><div></div><div></div></div>';
+            let url;
+            const flight = new FlightSearchClass();
+            // eslint-disable-next-line default-case
+            switch (e.target) {
+            case document.getElementById('selectSort'):
+                if (link.includes('&sort=')) {
+                    const arr = link.split('&');
+                    for (let i = 0; i < arr.length; i += 1) {
+                        if (arr[i].includes('sort=')) {
+                            arr[i] = `sort=${document.getElementById('selectSort').value}`;
+                        }
+                    }
+                    url = arr.join('&');
+                } else {
+                    url = `${link}&sort=${document.getElementById('selectSort').value}`;
+                }
+                break;
+            case document.getElementById('duration'):
+                if (link.includes('&max_fly_duration=')) {
+                    const arr = link.split('&');
+                    for (let i = 0; i < arr.length; i += 1) {
+                        if (arr[i].includes('max_fly_duration=')) {
+                            arr[i] = `max_fly_duration=${document.getElementById('duration').value}`;
+                        }
+                    }
+                    url = arr.join('&');
+                } else {
+                    url = `${link}&max_fly_duration=${document.getElementById('duration').value}`;
+                }
+                break;
+            case document.getElementById('stops'):
+                if (link.includes('&max_stopovers=')) {
+                    const arr = link.split('&');
+                    for (let i = 0; i < arr.length; i += 1) {
+                        if (arr[i].includes('max_stopovers=')) {
+                            arr[i] = `max_stopovers=${document.getElementById('stops').value}`;
+                        }
+                    }
+                    url = arr.join('&');
+                } else {
+                    url = `${link}&max_stopovers=${document.getElementById('stops').value}`;
+                }
+                break;
+            case document.getElementById('stopover'):
+                if (link.includes('&stopover_to=')) {
+                    const arr = link.split('&');
+                    for (let i = 0; i < arr.length; i += 1) {
+                        if (arr[i].includes('stopover_to=')) {
+                            arr[i] = `stopover_to=${document.getElementById('stopover').value}`;
+                        }
+                    }
+                    url = arr.join('&');
+                } else {
+                    url = `${link}&stopover_to=${document.getElementById('stopover').value}`;
+                }
+                break;
+            }
+            const way = document.getElementsByName('flight-type')[0].checked ? 'return' : 'oneway';
+            flight.getFilteredFlight(url, way);
+        });
+        document.getElementById('duration').addEventListener('change', () => {
+            document.getElementById('durationLabel').innerHTML = `${document.getElementById('duration').value} ${document.getElementById('duration').value > 1 ? 'hours' : 'hour'}`;
+        });
+        document.getElementById('stops').addEventListener('change', () => {
+            document.getElementById('stopsLabel').innerHTML = `${document.getElementById('stops').value} ${document.getElementById('stops').value > 1 ? 'stops' : 'stop'}`;
+        });
+        document.getElementById('stopover').addEventListener('change', () => {
+            document.getElementById('stopoverLabel').innerHTML = `${document.getElementById('stopover').value} ${document.getElementById('stopover').value > 1 ? 'hours' : 'hour'}`;
+        });
     }
 };
