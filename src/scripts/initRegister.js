@@ -4,7 +4,7 @@ document.body.innerHTML = `
             <div class="row">
                 <div class="col-md-6">
                     <div class="logoBlock">
-                        <a href="index.html"><img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt=""></a>
+                        <a class="logoLink"href="index.html"><img class="logoImg" src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/Skyscanner-Logo.wine.png?alt=media&token=ccb60142-0538-40ba-b18a-99c03ce8c3fa" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-6">

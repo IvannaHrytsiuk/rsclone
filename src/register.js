@@ -10,6 +10,7 @@ import { HeaderView } from './scripts/header/view/headerView';
 const Country = new CountryClass();
 const Header = new HeaderView();
 const User = new UserlocationClass();
+const toastr = require('toastr');
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('userCountry')) {

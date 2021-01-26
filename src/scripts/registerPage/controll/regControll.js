@@ -30,4 +30,5 @@ document.getElementById('rgisterForm').addEventListener('submit', (event) => {
         });
     }
     document.getElementById('rgisterForm').classList.add('was-validated');
+    event.preventDefault();
 }, false);
