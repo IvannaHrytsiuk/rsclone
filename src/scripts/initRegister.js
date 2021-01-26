@@ -22,26 +22,26 @@ document.body.innerHTML = `
         <div class="container">
             <div class="col-md-6">
                 <h3>Registration</h3>
-                <form id="rgisterForm">
+                <form id="rgisterForm" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="firstnameInp" class="form-label">First Name <span>*</span></label>
-                            <input type="text" class="form-control" id="firstnameInp" required>
+                            <input type="text" class="form-control" id="firstnameInp" required pattern="[A-Za-z]{2,8}">
                             <label for="emailInp" class="form-label">Email <span>*</span></label>
-                            <input type="email" class="form-control" id="emailInp" required>
+                            <input type="email" class="form-control" id="emailInp" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                             <label for="passwordInp" class="form-label">Password <span>*</span></label>
-                            <input type="password" class="form-control" id="passwordInp" required>
+                            <input type="password" class="form-control" id="passwordInp" required pattern="[A-Za-z0-9]{6,15}">
                         </div>
                         <div class="col-sm-6">
                             <label for="lastnameInp" class="form-label">Last Name <span>*</span></label>
-                            <input type="text" class="form-control" id="lastnameInp" required>
+                            <input type="text" class="form-control" id="lastnameInp" required pattern="[A-Za-z]{2,8}">
                             <label for="birthInp" class="form-label">Date of birth <span>*</span></label>
-                            <input type="date" class="form-control" id="birthInp" max="2010-01-01" min="1921-01-01" required>
+                            <input type="date" class="form-control" id="birthInp" required max="2010-01-01" min="1921-01-01">
                             <label for="password2Inp" class="form-label">Confirm password <span>*</span></label>
                             <input type="password" class="form-control" id="password2Inp" required>
                         </div>
                     </div>
-                    <button class="btn btn-outline-primary"><a>Register</a></button>
+                    <button type="submit" class="btn btn-outline-primary registerBtn"><a>Register</a></button>
                 </form>
             </div>
         </div>
