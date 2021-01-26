@@ -31,4 +31,46 @@ export const AuthClass = class {
             })
             .catch((error) => console.log('error', error));
     }
+
+    login(user) {
+        const raw = JSON.stringify(user);
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: raw,
+            redirect: 'follow',
+        };
+
+        fetch('http://localhost:8080/api/auth/signin', requestOptions)
+            .then((response) => {
+                if (response.status !== 200) {
+                    document.querySelector('.alert-danger').hidden = false;
+                } else {
+                    response.text();
+                }
+            })
+            .then((result) => {
+                if (result) {
+                    const token = JSON.parse(result).accessToken;
+                    const request = {
+                        method: 'GET',
+                        headers: {
+                            'x-access-token': token,
+                        },
+                        redirect: 'follow',
+                    };
+
+                    fetch('http://localhost:8080/api/test/user', request)
+                        .then((response) => response.text())
+                        .then((res) => {
+                            localStorage.setItem('user', res);
+                        })
+                        .catch((error) => console.log('error', error));
+                }
+            })
+            .catch((error) => console.log('error', error));
+    }
 };

@@ -1,4 +1,5 @@
 import { country, CountryClass } from '../../../apis/country';
+import { AuthClass } from '../../../apis/auth';
 
 export let userChooseCountry;
 export const HeaderView = class {
@@ -30,6 +31,7 @@ export const HeaderView = class {
                 this.headerInit();
             }, 500);
         }
+        this.loginModalInit();
     }
 
     modalHeader() {
@@ -51,5 +53,36 @@ export const HeaderView = class {
 
     onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
+    }
+
+    loginModalInit() {
+        document.querySelector('.loginModal').innerHTML = `
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modalImg"></div>
+        <div class="container">
+            <div class="alert alert-danger" role="alert">Incorect login or password</div>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Your@email.com" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+            <button class="btn btnLogIn">Log in</button>
+            <p>or <a href="register.html">create an account</a></p>
+        </div>`;
+        document.querySelector('.alert-danger').hidden = true;
+        document.querySelector('.btnLogIn').addEventListener('click', () => {
+            if (document.getElementById('loginEmail').checkValidity() && document.getElementById('loginPassword').checkValidity()) {
+                const auth = new AuthClass();
+                auth.login({
+                    email: document.getElementById('loginEmail').value,
+                    password: document.getElementById('loginPassword'),
+                });
+            } else {
+                document.querySelector('.alert-danger').hidden = false;
+            }
+        });
+        document.getElementById('loginEmail').addEventListener('focus', () => {
+            document.querySelector('.alert-danger').hidden = true;
+        });
+        document.getElementById('loginPassword').addEventListener('focus', () => {
+            document.querySelector('.alert-danger').hidden = true;
+        });
     }
 };

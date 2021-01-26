@@ -228,15 +228,7 @@ document.body.innerHTML = `<div>
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modalImg"></div>
-        <div class="container">
-            <input type="email" class="form-control" id="loginEmail" placeholder="Your@email.com">
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-            <button class="btn btnLogIn">Log in</button>
-            <p>or <a href="register.html">create an account</a></p>
-        </div>
+      <div class="modal-body loginModal">
       </div>
     </div>
   </div>
