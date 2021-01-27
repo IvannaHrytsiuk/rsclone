@@ -1,7 +1,5 @@
 import './scripts/init';
-import './js/covid-map/map';
-import './styles/style.scss';
-import './styles/nullStyle.scss';
+import './scripts/styles-imports';
 import './scripts/flightSearch/controller/flightSearchControll';
 import './scripts/header/controller/headerControll';
 import { UserlocationClass } from './apis/userLocation';
@@ -9,6 +7,7 @@ import { FlightSearchView } from './scripts/flightSearch/view/flightSearchView';
 import { HeaderView } from './scripts/header/view/headerView';
 import { CountryClass } from './apis/country';
 import { SearchCashView } from './scripts/searchCash/view/searchCash';
+import './js/covid-map/map';
 
 const User = new UserlocationClass();
 const Country = new CountryClass();

@@ -1,6 +1,4 @@
 import './scripts/initFlight';
-import './styles/style.scss';
-import './styles/nullStyle.scss';
 import './scripts/header/controller/headerControll';
 import './scripts/flightSearch/controller/flightSearchControll';
 import { FlightSearchClass } from './apis/flightSEarch';
