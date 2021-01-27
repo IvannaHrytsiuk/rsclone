@@ -254,7 +254,7 @@ const createMainWithMap = () => {
     </article>
 </section>`;
 
-    document.querySelector('footer').prepend(mainElement);
+    document.querySelector('.searchCashingBlock').prepend(mainElement);
 };
 
 export { createMainWithMap as default };
