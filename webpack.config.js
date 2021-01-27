@@ -9,10 +9,15 @@ module.exports = {
         maxEntrypointSize: 100000000,
         maxAssetSize: 100000000,
     },
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+        flight: './src/flight.js',
+        booking: './src/booking.js',
+        register: './src/register.js',
+    },
     output: {
+        filename: '[name]build.js',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
         publicPath: '',
     },
     optimization: {

@@ -8,6 +8,8 @@ export const UserlocationClass = class {
             this.data = await this.res.json();
             if (this.data) {
                 userCountry = this.data;
+
+                localStorage.setItem('userCountry', this.data.country);
             } else {
                 throw Error(this.data.Message);
             }

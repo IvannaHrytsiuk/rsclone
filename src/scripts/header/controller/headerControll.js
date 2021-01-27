@@ -5,6 +5,13 @@ document.querySelector('.saveheaderChange').addEventListener('click', () => {
     headerView.modalHeader();
 });
 
-document.querySelector('.logoImg').addEventListener('click', () => {
-    window.location.reload();
-});
+if (document.querySelector('.logInBtn')) {
+    document.querySelector('.logInBtn').addEventListener('click', () => {
+        if (document.querySelector('.logInBtn').innerHTML === 'Log out') {
+            localStorage.removeItem('user');
+            headerView.logIn();
+        } else {
+            headerView.logIn();
+        }
+    });
+}

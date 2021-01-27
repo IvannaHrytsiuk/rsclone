@@ -1,7 +1,9 @@
+// eslint-disable-next-line import/named
 import { FlightResultView } from '../scripts/flightResult/view/flightResultView';
 
 export let searchAirportList;
 export let flightResult;
+export let link;
 
 const flightResultView = new FlightResultView();
 export const FlightSearchClass = class {
@@ -44,17 +46,10 @@ export const FlightSearchClass = class {
                 },
             });
             this.data = await this.res.json();
+            link = `https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`;
             if (this.data) {
-                let a = [];
-                a = JSON.parse(localStorage.getItem('search')) || [];
-                if (a.length < 4) {
-                    a.push(this.data);
-                } else {
-                    a.shift();
-                    a.push(this.data);
-                }
-                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
+                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('oneway');
             } else {
@@ -73,15 +68,40 @@ export const FlightSearchClass = class {
                     Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
                 },
             });
+            link = `https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&return_from=${dateto}&return_to=${dateto}&nights_in_dst_from=${daysCount}&nights_in_dst_to=${daysCount}&flight_type=round&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`;
             this.data = await this.res.json();
             if (this.data) {
-                let a = [];
-                a = JSON.parse(localStorage.getItem('search')) || [];
-                a.push(this.data);
-                localStorage.setItem('search', JSON.stringify(a));
                 flightResult = this.data;
+                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('return');
+            } else {
+                throw Error(this.data.Message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getFilteredFlight(url, way) {
+        try {
+            this.res = await fetch(`https://tequila-api.kiwi.com/v2/search?${url}`, {
+                headers: {
+                    Accept: 'application/json',
+                    Apikey: '-d9YzR50PN8Qh_4UZCwoDO2abTqdVGm1',
+                },
+            });
+            link = url;
+            this.data = await this.res.json();
+            if (this.data) {
+                flightResult = this.data;
+                console.log(flightResult);
+                document.querySelector('.lds-ripple').style.display = 'none';
+                if (way === 'oneway') {
+                    flightResultView.paintSearchDataOne();
+                } else {
+                    flightResultView.paintSearchDataReturn();
+                }
             } else {
                 throw Error(this.data.Message);
             }

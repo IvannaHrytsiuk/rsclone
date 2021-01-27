@@ -1,5 +1,6 @@
 export let airportsNameFrom;
 export let airportsNameTo;
+export let names;
 
 export const AirportNameClass = class {
     async getName(elem, iataCode) {
@@ -7,6 +8,7 @@ export const AirportNameClass = class {
             this.url = 'https://raw.githubusercontent.com/jbrooksuk/JSON-Airports/master/airports.json';
             this.res = await fetch(this.url);
             this.data = await this.res.json();
+            names = this.data;
             if (this.data) {
                 this.data.forEach((element) => {
                     if (element.iata === iataCode) {
