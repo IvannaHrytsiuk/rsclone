@@ -1,4 +1,5 @@
 import './scripts/initFlight';
+import './scripts/other-styles';
 import './scripts/header/controller/headerControll';
 import './scripts/flightSearch/controller/flightSearchControll';
 import { FlightSearchClass } from './apis/flightSEarch';

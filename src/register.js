@@ -1,4 +1,5 @@
 import './scripts/initRegister';
+import './scripts/other-styles';
 import './scripts/header/controller/headerControll';
 import './scripts/registerPage/controll/regControll';
 import { CountryClass } from './apis/country';

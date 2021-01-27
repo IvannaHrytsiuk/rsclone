@@ -1,4 +1,5 @@
 import './scripts/initBooking';
+import './scripts/other-styles';
 import './scripts/header/controller/headerControll';
 import './scripts/bookinPage/controll/bookingPageControll';
 import { BookingView } from './scripts/bookinPage/view/bookingPageView';

@@ -1,5 +1,5 @@
 import './scripts/init';
-import './scripts/styles-imports';
+import './scripts/main-styles';
 import './scripts/flightSearch/controller/flightSearchControll';
 import './scripts/header/controller/headerControll';
 import { UserlocationClass } from './apis/userLocation';
