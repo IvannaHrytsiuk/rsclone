@@ -1,4 +1,4 @@
-// eslint-disable no-unused-vars
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const request = require('request');
 const nodemailer = require('nodemailer');
@@ -48,10 +48,14 @@ app.get('/airport/name/:id', (req, res, next) => {
     }).pipe(res);
 });
 
-app.post('/confirmBooking/:email', (req, res) => {
+app.get('/confirmBooking/:email', (req, res) => {
+    const { email } = req.params;
+
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
+        method: 'POST',
         secure: true,
+        port: 465,
         auth: {
             user: 'testrsclone@gmail.com',
             pass: '123qaz123qaz',
@@ -59,7 +63,7 @@ app.post('/confirmBooking/:email', (req, res) => {
     });
     const mailOptions = {
         from: 'testrsclone@gmail.com',
-        to: req.params.email,
+        to: email,
         subject: 'Your booking details',
         text: `
         Hello!
@@ -72,14 +76,10 @@ app.post('/confirmBooking/:email', (req, res) => {
         
         Good luck :)`,
     };
-    // eslint-disable-next-line consistent-return
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message %s sent: %s', info.messageId, info.response);
+    transporter.sendMail(mailOptions, (_, info) => {
+        res.status(200).send({ message: 'Message sent!', message_id: info.messageId, response: info.response });
+        transporter.close();
     });
-    res.end();
 });
 
 app.listen(PORT, () => {
