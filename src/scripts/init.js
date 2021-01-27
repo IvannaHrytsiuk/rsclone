@@ -27,8 +27,9 @@ document.body.innerHTML = `<div>
                             <span class="countryHeaderModalBtn"></span>
                             <span class="currencyHeaderModalBtn"></span>
                         </button>
-                        <a class="btn logInBtn" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                        <a class="btn logInBtn"></a>
                     </div>
+                    <p class="ifUser"></p>
                 </div>
             </div>
         </div>

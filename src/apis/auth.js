@@ -1,3 +1,5 @@
+import { HeaderView } from '../scripts/header/view/headerView';
+
 const toastr = require('toastr');
 
 toastr.options.toastClass = 'toastr';
@@ -34,24 +36,17 @@ export const AuthClass = class {
 
     login(user) {
         const raw = JSON.stringify(user);
-
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
         const requestOptions = {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: myHeaders,
             body: raw,
             redirect: 'follow',
         };
 
         fetch('http://localhost:8080/api/auth/signin', requestOptions)
-            .then((response) => {
-                if (response.status !== 200) {
-                    document.querySelector('.alert-danger').hidden = false;
-                } else {
-                    response.text();
-                }
-            })
+            .then((response) => response.text())
             .then((result) => {
                 if (result) {
                     const token = JSON.parse(result).accessToken;
@@ -67,6 +62,9 @@ export const AuthClass = class {
                         .then((response) => response.text())
                         .then((res) => {
                             localStorage.setItem('user', res);
+                            const header = new HeaderView();
+                            header.logIn();
+                            document.querySelector('.closeModal').click();
                         })
                         .catch((error) => console.log('error', error));
                 }

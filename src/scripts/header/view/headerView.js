@@ -32,6 +32,7 @@ export const HeaderView = class {
             }, 500);
         }
         this.loginModalInit();
+        this.logIn();
     }
 
     modalHeader() {
@@ -56,33 +57,56 @@ export const HeaderView = class {
     }
 
     loginModalInit() {
-        document.querySelector('.loginModal').innerHTML = `
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modalImg"></div>
-        <div class="container">
-            <div class="alert alert-danger" role="alert">Incorect login or password</div>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Your@email.com" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
-            <button class="btn btnLogIn">Log in</button>
-            <p>or <a href="register.html">create an account</a></p>
-        </div>`;
-        document.querySelector('.alert-danger').hidden = true;
-        document.querySelector('.btnLogIn').addEventListener('click', () => {
-            if (document.getElementById('loginEmail').checkValidity() && document.getElementById('loginPassword').checkValidity()) {
-                const auth = new AuthClass();
-                auth.login({
-                    email: document.getElementById('loginEmail').value,
-                    password: document.getElementById('loginPassword'),
-                });
-            } else {
-                document.querySelector('.alert-danger').hidden = false;
+        if (document.querySelector('.loginModal')) {
+            document.querySelector('.loginModal').innerHTML = `
+            <button type="button" class="btn-close closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modalImg"></div>
+            <div class="container">
+                <div class="alert alert-danger" role="alert">Incorect login or password</div>
+                <input type="email" class="form-control" id="loginEmail" placeholder="Your@email.com" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                <button class="btn btnLogIn">Log in</button>
+                <p>or <a href="register.html">create an account</a></p>
+            </div>`;
+            document.querySelector('.alert-danger').hidden = true;
+            document.querySelector('.btnLogIn').addEventListener('click', () => {
+                if (document.getElementById('loginEmail').checkValidity() && document.getElementById('loginPassword').checkValidity()) {
+                    const auth = new AuthClass();
+                    auth.login({
+                        email: document.getElementById('loginEmail').value,
+                        password: document.getElementById('loginPassword').value,
+                    });
+                } else {
+                    document.querySelector('.alert-danger').hidden = false;
+                }
+            });
+            document.getElementById('loginEmail').addEventListener('focus', () => {
+                document.querySelector('.alert-danger').hidden = true;
+            });
+            document.getElementById('loginPassword').addEventListener('focus', () => {
+                document.querySelector('.alert-danger').hidden = true;
+            });
+        }
+    }
+
+    logIn() {
+        if (localStorage.getItem('user')) {
+            if (document.querySelector('.logInBtn')) {
+                document.querySelector('.logInBtn').innerHTML = 'Log out';
+                document.querySelector('.ifUser').innerHTML = `Hello, ${JSON.parse(localStorage.getItem('user')).user.fname} ${JSON.parse(localStorage.getItem('user')).user.lname}`;
+                if (document.querySelector('.logInBtn').hasAttribute('data-bs-target')) {
+                    document.querySelector('.logInBtn').removeAttribute('data-bs-toggle');
+                    document.querySelector('.logInBtn').removeAttribute('data-bs-target');
+                }
             }
-        });
-        document.getElementById('loginEmail').addEventListener('focus', () => {
-            document.querySelector('.alert-danger').hidden = true;
-        });
-        document.getElementById('loginPassword').addEventListener('focus', () => {
-            document.querySelector('.alert-danger').hidden = true;
-        });
+        } else {
+            // eslint-disable-next-line no-lonely-if
+            if (document.querySelector('.logInBtn')) {
+                document.querySelector('.logInBtn').innerHTML = 'Log in';
+                document.querySelector('.ifUser').innerHTML = '';
+                document.querySelector('.logInBtn').setAttribute('data-bs-toggle', 'modal');
+                document.querySelector('.logInBtn').setAttribute('data-bs-target', '#loginModal');
+            }
+        }
     }
 };

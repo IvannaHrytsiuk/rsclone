@@ -27,8 +27,9 @@ document.body.innerHTML = `
                             <span class="countryHeaderModalBtn"></span>
                             <span class="currencyHeaderModalBtn"></span>
                         </button>
-                        <a class="btn logInBtn">Log In</a>
+                        <a class="btn logInBtn" data-bs-toggle="modal" data-bs-target="#loginModal">${localStorage.getItem('user') ? 'Log Out' : 'Log In'}</a>
                     </div>
+                    <p class="ifUser"></p>
                 </div>
             </div>
         </div>
