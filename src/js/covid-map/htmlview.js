@@ -254,7 +254,7 @@ const createMainWithMap = () => {
     </article>
 </section>`;
 
-    document.querySelector('body').append(mainElement);
+    document.querySelector('footer').prepend(mainElement);
 };
 
 export { createMainWithMap as default };
