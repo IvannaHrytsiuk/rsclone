@@ -42,6 +42,7 @@ export const HeaderView = class {
             if (element.name === document.getElementById('selectCountry').value) {
                 document.querySelector('.countryHeaderModalBtn').innerHTML = `<img src="${element.flag} "><span class="countryName">${element.name} </span>`;
                 localStorage.setItem('userCountry', element.name);
+                localStorage.setItem('userCountryCode', element.alpha2Code);
             }
         });
         country.forEach((item) => {

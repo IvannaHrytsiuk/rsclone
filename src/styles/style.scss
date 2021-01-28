@@ -528,7 +528,7 @@ body{
     border-radius: 12px;
     padding: 8px;
     border: 1px solid rgb(208, 233, 251);
-    width: 70px;
+    width: 75px;
     height: 30px;
     text-align: center;
   }
@@ -1468,6 +1468,11 @@ header{
   width: 100%;
   height: 100%;
   padding: 50px 0;
+  a{
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+  }
   h3{
     font-weight: 700;
     font-size: 1.5rem;

@@ -10,6 +10,7 @@ export const UserlocationClass = class {
                 userCountry = this.data;
 
                 localStorage.setItem('userCountry', this.data.country);
+                localStorage.setItem('userCountryCode', this.data.countryCode);
             } else {
                 throw Error(this.data.Message);
             }
