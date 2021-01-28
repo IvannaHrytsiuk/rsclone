@@ -20,6 +20,8 @@ const ACCESS_TOKEN = 'pk.eyJ1IjoiZ3VwYWxlbmtvcm9tYW4iLCJhIjoiY2tpeWkwMDhtMWRzbzJ
 const mapOptions = {
     center: [0, 0],
     zoom: 1,
+    minZoom: 1,
+    worldCopyJump: true,
     zoomControl: false,
     attributionControl: false,
     fullscreenControl: true,
@@ -43,18 +45,12 @@ const layer = new L.TileLayer(
 
 const initMap = () => {
     map = new L.map('covid-map', mapOptions);
-    const bounds = map.getBounds();
-    map.setMaxBounds(bounds);
-    map.on('drag', () => {
-        map.panInsideBounds(bounds, { animate: false });
-    });
-
-    map.setView([53.0282, 27.3137], 3);
-
-    map.addLayer(layer);
+    map.setMaxBounds(map.getBounds());
+    map.setView([53.0282, 27.3137], 2);
     L.control.zoom({
         position: 'bottomright',
     }).addTo(map);
+    map.addLayer(layer);
     map.createPane('paneForGeoJSON').style.zIndex = 200;
 
     currentCountryInfo.onAdd = (() => {
