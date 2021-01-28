@@ -3,7 +3,6 @@ const createMainWithMap = () => {
     mainElement.classList.add('covid-map-container');
 
     mainElement.innerHTML = `<section class="covid-info">
-    <span class="beta-info">BETA</span>
     <article class="info-for-country">
         <h1>COVID-19 travel info</h1>
         <label for="countries">from</label>

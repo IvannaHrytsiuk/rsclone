@@ -3,15 +3,6 @@ import { FlightSearchModel } from '../../flightSearch/model/flightSearchMolel';
 import { AirportNameClass } from '../../../apis/airportsName';
 import { FlightSearchClass } from '../../../apis/flightSEarch';
 
-// let valueFrom;
-// let valueTo;
-// document.getElementById('searchFrom').addEventListener('change', () => {
-//     valueFrom = fromAirport.PlaceId;
-// });
-// document.getElementById('searchTo').addEventListener('change', () => {
-//     valueTo = toAirport.PlaceId;
-// });
-
 document.querySelector('.searchFlightBtn').addEventListener('click', () => {
     if (window.location.href.includes('flight.html')) {
         const flightSearchModel = new FlightSearchModel();

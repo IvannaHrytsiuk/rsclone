@@ -174,6 +174,9 @@ body{
 .classAdults{
   width: 30%;
   color: #111236;
+  label{
+    color:white
+  }
   #classAdultsInp{
     width: 100%;
   }
@@ -1484,6 +1487,29 @@ header{
     margin-bottom: 40px;
     cursor: pointer;
   }
+  .routeBlock{
+    height: 80px;
+    padding: 0 20px;
+    width: 100%;
+    background-color: #02122C;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    h3{
+      color: white;
+      font-weight: 700;
+      margin: 0;
+      line-height: 2;
+      font-size: 1.2rem;
+      span {
+        font-weight: normal;
+      }
+    }
+    p{
+      color:#FF7B59;
+      line-height: 2;
+      font-weight: bold;
+    }
+  }
 }
 .col-md-12{
   .imgBlock{
@@ -1571,26 +1597,233 @@ header{
             transform-origin: 50% 16%;
   }
 }
-.routeBlock{
-  height: 80px;
-  padding: 0 20px;
-  width: 100%;
-  background-color: #02122C;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  h3{
-    color: white;
-    font-weight: 700;
-    margin: 0;
-    line-height: 2;
-    font-size: 1.2rem;
-    span {
-      font-weight: normal;
+
+
+$mediaMaxWidthDesk: 992px;
+$mediaMaxWidthTablet: 768px;
+$mediaMaxWidthTabletSm: 698px;
+$mediaMaxWidthTablet2: 576px;
+$mediaMaxWidthMobile: 425px;
+
+@media (max-width: $mediaMaxWidthDesk) {
+  header{
+    .locationCurrencyBlock{
+      .headerModalBtn{
+        margin-right: 5px;
+      }
+    }
+    .row{
+      .col-md-6{
+        &:first-child{
+          width: 60%;
+        }
+        &:last-child{
+          width: 40%;
+        }
+      }
     }
   }
-  p{
-    color:#FF7B59;
-    line-height: 2;
-    font-weight: bold;
+  .searchBlock{
+    width: 100%;
+  }
+  .inputsFlex{
+    flex-wrap: wrap;
+    .from-to{
+      width: 50%;
+    }
+  }
+  .classAdults{
+    width: 45%;
+    margin-left: 5%;
+  }
+  .wrapperSearchInputs{
+    height: 280px;
+  }
+  form{
+    label{
+      margin-top: 10px;
+    }
+  }
+  .searchBlock{
+    h1{
+      font-size: 3rem;
+    }
+  }
+  .addAirport{
+    display: none !important;
+  }
+  .rowBlockSearchCash{
+    .col-sm-3{
+      width: 45%;
+    }
+  }
+  .recomends{
+    .col-md-5, .col-md-12, .col-md-3, .col-md-4{
+      width: 50% !important;
+    }
+    .imgBlock{
+      height: 300px;
+    }
+  }
+}
+@media (max-width: $mediaMaxWidthTablet) {
+  .footerRootWrapper{
+    .col-md-3{
+      width: 50%;
+      padding-top: 1rem;
+    }
+  }
+  .footerRootRSchool {
+    .col-md-6{
+      width: 40%;
+      padding-top: 1rem;
+    }
+  }
+  .mainregister{
+    .col-md-6{
+      width: 100%;
+    }
+  }
+  header{
+    .container{
+      margin: 0 30px;
+      max-width: 90%;
+    }
+    .row{
+      width: 100%;
+      .col-md-6{
+        &:first-child{
+          width: 70%;
+        }
+        &:last-child{
+          width: 30%;
+        }
+      }
+    }
+  }
+  .locationCurrencyBlock{
+    .logInBtn{
+      width: 25px;
+      border: none;
+      img{
+        width: 25px;
+      }
+    }
+  }
+  .locationCurrencyBlock{
+    .headerModalBtn{
+      border: none;
+      .countryName{
+        display: none;
+      }
+    }
+  }
+  .navBtn{
+    margin-left: 0;
+  }
+}
+@media (max-width: $mediaMaxWidthTabletSm) {
+  .wrapperSearch{
+    background-image: none;
+    height: 400px;
+  }
+  .wrapperSearchInputs{
+    background-color: #042759;
+    height: 100%;
+  }
+  .searchBlock {
+    top: 0;
+    left: 0;
+    transform: none;
+    height: 100%;
+    h1{
+      display: none;
+    }
+  }
+  .inputsFlex{
+    .from-to, .classAdults{
+      width: 100% !important;
+      margin-left: 0;
+    }
+    div{
+      input{
+        border-radius: 5px;
+      }
+      width: 40%;
+    }
+  }
+  .switch-button{
+    display: none;
+  }
+  .classAdultsModal{
+    width: 320px !important;
+    div{
+      width: 100% !important;
+    }
+  }
+  .up-checkboxes div:nth-child(3){
+    width: max-content;
+  }
+}
+@media (max-width: $mediaMaxWidthTablet2) {
+  header{
+    .container{
+      .row{
+        .col-md-6{
+          width: 100% !important;
+          height: 35px;
+        }
+      }
+    }
+  }
+  .wrapperSearch{
+    height: 460px;
+  }
+  .ticketsBloks{
+    padding-top: 20px;
+  }
+  nav, .ifUser{
+    display: none;
+  }
+  .inputsFlex{
+    div{
+      width: 100%;
+      input{
+        width: 100%;
+      }
+    }
+  }
+  .recomends{
+    .col-md-5, .col-md-12, .col-md-3, .col-md-4{
+      width: 100% !important;
+    }
+    .routeBlock{
+      h3, p{
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@media (max-width: $mediaMaxWidthMobile) {
+  .footerRootWrapper{
+    .col-md-3{
+      width: 100%;
+      padding-top: 1rem;
+    }
+  }
+  .footerRootRSchool {
+    .col-md-6{
+      width: 100%;
+      padding-top: 1rem;
+      .col-sm-9{
+        width: 50%;
+      }
+    }
+  }
+  .rowBlockSearchCash{
+    width: 90%;
+    .col-sm-3{
+      width: 100% !important;
+    }
   }
 }

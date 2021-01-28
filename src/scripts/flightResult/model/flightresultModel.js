@@ -36,6 +36,7 @@ export const FlightResultModel = class {
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
                 localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
+                localStorage.setItem('passengers', flightResult.search_params.seats.passengers);
                 this.paintModalReturn(flightResult.data[i], index, dateDTo, dateDepArr, dateDepFrom, dateDepFromBack);
             });
             div.innerHTML += `

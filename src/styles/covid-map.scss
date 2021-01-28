@@ -12,7 +12,7 @@ body {
 
 .current-country-info {
   background-color: #ffffff;
-  color: #111236;
+  color: #042759;
   font-size: 16px;
   padding: 5px;
   display: flex;
@@ -21,9 +21,9 @@ body {
 }
 
 .country-restrictions-wrapper {
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   cursor: default;
-  color: #111236;
+  color: #042759;
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -143,10 +143,10 @@ body {
 }
 
 .covid-map-container {
-  background: linear-gradient(to top, #ffffff 0% , #ffffff 50%, #111236 50%, #111236 100%);
+  background: linear-gradient(to top, #f0f0f0 0% , #f0f0f0 50%, #042759 50%, #042759 100%);
   min-height: 100vh;
   min-width: 100vw;
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   .info-summary {
     max-width: 1024px;
     margin: 0 auto;
@@ -246,12 +246,49 @@ body {
     }
     .info-for-country,
     .info-additional {
-      flex-basis: 512px;
+      flex-basis: 50%;
     }
     .info-additional {
       .info-date {
         font-size: 12px;
       }
+    }
+  }
+}
+
+$mediaMaxWidthDesk: 1060px;
+$mediaMaxWidthTablet: 768px;
+$mediaMaxWidthMob: 425px;
+
+@media (max-width: $mediaMaxWidthDesk) {
+  .covid-info, .covid-map, .info-summary{
+    width: 90%;
+  }
+  .info-summary{
+    article{
+      flex-basis: 23% !important;
+    }
+  }
+}
+@media (max-width: $mediaMaxWidthTablet) {
+  .covid-info, .covid-map{
+    width: 90%;
+  }
+  .covid-info{
+    .info-for-country, .info-additional{
+      flex-basis: 100% !important;
+    }
+  }
+  .info-summary{
+    article{
+      flex-basis: 40% !important;
+    }
+  }
+}
+@media (max-width: $mediaMaxWidthTablet) {
+  .info-summary{
+    article{
+      flex-basis: 80% !important;
     }
   }
 }

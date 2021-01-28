@@ -91,22 +91,51 @@ export const HeaderView = class {
     }
 
     logIn() {
-        if (localStorage.getItem('user')) {
-            if (document.querySelector('.logInBtn')) {
-                document.querySelector('.logInBtn').innerHTML = 'Log out';
-                document.querySelector('.ifUser').innerHTML = `Hello, ${JSON.parse(localStorage.getItem('user')).user.fname} ${JSON.parse(localStorage.getItem('user')).user.lname}`;
-                if (document.querySelector('.logInBtn').hasAttribute('data-bs-target')) {
-                    document.querySelector('.logInBtn').removeAttribute('data-bs-toggle');
-                    document.querySelector('.logInBtn').removeAttribute('data-bs-target');
+        const x = window.matchMedia('(max-width: 768px)');
+        x.addListener(this.media(x));
+    }
+
+    media(x) {
+        if (x.matches) {
+            if (localStorage.getItem('user')) {
+                if (document.querySelector('.logInBtn')) {
+                    document.querySelector('.logInBtn').setAttribute('data-log', 'Log out');
+                    document.querySelector('.logInBtn').innerHTML = '<img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/per.png?alt=media&token=8c01f1b1-d4e6-4941-987f-653a54e0ce45">';
+                    document.querySelector('.ifUser').innerHTML = `Hello, ${JSON.parse(localStorage.getItem('user')).user.fname} ${JSON.parse(localStorage.getItem('user')).user.lname}`;
+                    if (document.querySelector('.logInBtn').hasAttribute('data-bs-target')) {
+                        document.querySelector('.logInBtn').removeAttribute('data-bs-toggle');
+                        document.querySelector('.logInBtn').removeAttribute('data-bs-target');
+                    }
+                }
+            } else {
+                // eslint-disable-next-line no-lonely-if
+                if (document.querySelector('.logInBtn')) {
+                    document.querySelector('.logInBtn').innerHTML = '<img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/per.png?alt=media&token=8c01f1b1-d4e6-4941-987f-653a54e0ce45">';
+                    document.querySelector('.logInBtn').setAttribute('data-log', 'Log in');
+                    document.querySelector('.ifUser').innerHTML = '';
+                    document.querySelector('.logInBtn').setAttribute('data-bs-toggle', 'modal');
+                    document.querySelector('.logInBtn').setAttribute('data-bs-target', '#loginModal');
                 }
             }
         } else {
             // eslint-disable-next-line no-lonely-if
-            if (document.querySelector('.logInBtn')) {
-                document.querySelector('.logInBtn').innerHTML = 'Log in';
-                document.querySelector('.ifUser').innerHTML = '';
-                document.querySelector('.logInBtn').setAttribute('data-bs-toggle', 'modal');
-                document.querySelector('.logInBtn').setAttribute('data-bs-target', '#loginModal');
+            if (localStorage.getItem('user')) {
+                if (document.querySelector('.logInBtn')) {
+                    document.querySelector('.logInBtn').innerHTML = 'Log out';
+                    document.querySelector('.ifUser').innerHTML = `Hello, ${JSON.parse(localStorage.getItem('user')).user.fname} ${JSON.parse(localStorage.getItem('user')).user.lname}`;
+                    if (document.querySelector('.logInBtn').hasAttribute('data-bs-target')) {
+                        document.querySelector('.logInBtn').removeAttribute('data-bs-toggle');
+                        document.querySelector('.logInBtn').removeAttribute('data-bs-target');
+                    }
+                }
+            } else {
+                // eslint-disable-next-line no-lonely-if
+                if (document.querySelector('.logInBtn')) {
+                    document.querySelector('.logInBtn').innerHTML = 'Log in';
+                    document.querySelector('.ifUser').innerHTML = '';
+                    document.querySelector('.logInBtn').setAttribute('data-bs-toggle', 'modal');
+                    document.querySelector('.logInBtn').setAttribute('data-bs-target', '#loginModal');
+                }
             }
         }
     }
