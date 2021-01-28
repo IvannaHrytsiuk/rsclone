@@ -2,6 +2,7 @@ import './scripts/initFlight';
 import './scripts/other-styles';
 import './scripts/header/controller/headerControll';
 import './scripts/flightSearch/controller/flightSearchControll';
+import './scripts/flightResult/controll/resultControll';
 import { FlightSearchClass } from './apis/flightSEarch';
 import { AirportNameClass } from './apis/airportsName';
 import { HeaderView } from './scripts/header/view/headerView';

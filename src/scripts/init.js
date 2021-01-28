@@ -107,7 +107,7 @@ document.body.innerHTML = `<div>
                         <label>Add nearby airports</label>
                     </div>
                     <div>
-                        <a href="flight.html" type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
+                        <a type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
                     </div>
                 </div>                        
             </div>

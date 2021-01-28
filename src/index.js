@@ -32,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     Country.getCountries();
     document.getElementById('round').checked = true;
+    document.querySelector('.searchFlightBtn').setAttribute('href', 'flight.html');
 });
