@@ -119,6 +119,18 @@ document.body.innerHTML = `<div>
             <div class="row rowBlockSearchCash"></div>
         </div>
     </div>
+    <div class="recomendedPanel">
+        <div class="container">
+            <h3>Recommendations for you</h3>
+            <div class="row recomends">
+                <div class="col-md-5"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-12"></div>
+            </div>
+            
+        </div>
+    </div>
     <div class="confidencePanel">
         <div class="container">
             <div class="row">
