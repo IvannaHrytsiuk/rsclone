@@ -98,11 +98,11 @@ document.body.innerHTML = `
                     </div>
                 </div>
                 <div class="up-checkboxes">
-                    <div>
+                    <div class="addAirport">
                         <input type="checkbox">
                         <label>Add nearby airports</label>
                     </div>
-                    <div>
+                    <div class="addAirport">
                         <input type="checkbox">
                         <label>Add nearby airports</label>
                     </div>

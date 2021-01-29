@@ -148,7 +148,6 @@ body {
   min-width: 100vw;
   font-family: sans-serif;
   .info-summary {
-    max-width: 1024px;
     margin: 0 auto;
     display: flex;
     margin-top: 20px;
@@ -163,11 +162,14 @@ body {
       flex-basis: 236px;
       color: #111236;
       .restrictions-type-title {
-        font-size: 20px;
+        font-size: 1.4rem;
+        font-weight: 700;
       }
       .restrictions-type-description {
-        font-size: 12px;
-        font-weight: bold;
+        font-weight: 600;
+        font-family: sans-serif;
+        line-height: 1.2;
+        text-align: justify;
       }
     }
     .summary-low > #low-restrictions-count,
@@ -233,6 +235,8 @@ body {
     .info-additional {
       p {
         font-size: 16px;
+        line-height: 1.3;
+        width: 85%;
       }
     }
     .info-for-country {

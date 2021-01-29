@@ -420,9 +420,28 @@ body{
 }
 .dataBlockOne{
   height: 275px;
+  .priceBlock{
+    div{
+      &:first-child{
+        height:415px;
+      }
+    }
+  }
 }
 .dataBlockReturn{
   height: 500px;
+  .priceBlock{
+    div{
+      height: 415px;
+    }
+  }
+}
+.dataBlockOne{
+  .priceBlock{
+    div{
+      height: 190px;
+    }
+  }
 }
 .dataBlock {
   width: 100%;
@@ -447,7 +466,6 @@ body{
   
   div{
     width: 100%;
-    height: 190px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -467,7 +485,7 @@ body{
   }
   .bookbtn{
     width: 100%;
-    height: 60px;
+    height: 60px !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -618,6 +636,7 @@ body{
         display: flex;
         font-weight: 700;
         border-radius: 5px;
+        border: 1px solid lightgray;
         &:hover{
           background-color: rgb(245, 247, 249);
           border: 1px solid rgb(232, 237, 241);
@@ -1597,6 +1616,81 @@ header{
             transform-origin: 50% 16%;
   }
 }
+.filterBtn{
+  display: none;
+}
+.show{
+  -webkit-animation: scale-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+.exit{
+  -webkit-animation: scale-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: scale-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes scale-out-top {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+@keyframes scale-out-top {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
 
 
 $mediaMaxWidthDesk: 992px;
@@ -1665,6 +1759,20 @@ $mediaMaxWidthMobile: 425px;
       height: 300px;
     }
   }
+  #oneAd{
+    display: none;
+  }
+  .bookingMood{
+    height: 375px;
+  }
+  #filtersContent{
+    width:35%;
+  }
+  .bookingFlex{
+    #contentResult{
+      width: 65%;
+    }
+  }
 }
 @media (max-width: $mediaMaxWidthTablet) {
   .footerRootWrapper{
@@ -1720,6 +1828,28 @@ $mediaMaxWidthMobile: 425px;
   }
   .navBtn{
     margin-left: 0;
+  }
+  #filtersContent{
+    width:100%;
+  }
+  .bookingFlex{
+    display: block;
+    #contentResult{
+      width: 100%;
+      padding: .2rem 1rem;
+    }
+    .bookingFlexContent{
+      padding: .2rem 1rem;
+    }
+  }
+  #filterForm{
+    display: none;
+  }
+  .filterBtn{
+    display: block;
+  }
+  .blockFilter{
+    margin: 0;
   }
 }
 @media (max-width: $mediaMaxWidthTabletSm) {
@@ -1803,6 +1933,31 @@ $mediaMaxWidthMobile: 425px;
       }
     }
   }
+  .firstBlock{
+    width: 100%;
+  }
+  .priceBlock{
+    width: 100%;
+    border: none;
+    div{
+      height: 60px !important;
+      img{
+        display: none;
+      }
+    }
+  }
+  .dataBlock{
+    flex-wrap: wrap;
+  }
+  .dataBlockReturn {
+    height: 100%;
+  }
+  .modal3Aerlinename{
+    width: 120px !important;
+  }
+  .modal3flightTime{
+    width: 80px !important;
+  }
 }
 @media (max-width: $mediaMaxWidthMobile) {
   .footerRootWrapper{
@@ -1825,5 +1980,20 @@ $mediaMaxWidthMobile: 425px;
     .col-sm-3{
       width: 100% !important;
     }
+  }
+  .fightDetailsBtns{
+    .detailBag{
+      display: none;
+    }
+    .detailInform{
+      width: 100%;
+      justify-content: left;
+    }
+  }
+  .modal3Aerlinename{
+    display: none !important;
+  }
+  .destitArriveTxtDown.destitArriveTxtDownOne{
+    line-height: 0 !important;
   }
 }

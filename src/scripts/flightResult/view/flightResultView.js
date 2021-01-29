@@ -2,7 +2,7 @@ import { flightResult, link, FlightSearchClass } from '../../../apis/flightSEarc
 import { FlightResultModel } from '../model/flightresultModel';
 
 const flightResultModel = new FlightResultModel();
-
+let count = 0;
 export const FlightResultView = class {
     paintSearchDataBlocks(value) {
         document.querySelector('.bookingWrapper').innerHTML = `
@@ -133,6 +133,7 @@ export const FlightResultView = class {
 
     paintFilters() {
         document.getElementById('filtersContent').innerHTML = `
+        <button class="btn btn-outline-primary filterBtn">Filters</button>
         <form name="filterForm" id="filterForm">    
             <div class="blockFilter">
                 <h3>Sort by:</h3>
@@ -160,6 +161,23 @@ export const FlightResultView = class {
             </div>
         </form>
         `;
+        document.querySelector('.filterBtn').addEventListener('click', () => {
+            if (count === 0) {
+                document.getElementById('filterForm').classList.add('show');
+                document.getElementById('filterForm').style.display = 'block';
+                count = 1;
+                setTimeout(() => {
+                    document.getElementById('filterForm').classList.remove('show');
+                }, 1000);
+            } else {
+                document.getElementById('filterForm').classList.add('exit');
+                setTimeout(() => {
+                    document.getElementById('filterForm').style.display = 'none';
+                    document.getElementById('filterForm').classList.remove('exit');
+                }, 1000);
+                count = 0;
+            }
+        });
         document.getElementById('filterForm').addEventListener('change', (e) => {
             document.getElementById('contentResult').innerHTML = '<div class="lds-ripple"><div></div><div></div></div>';
             let url;
