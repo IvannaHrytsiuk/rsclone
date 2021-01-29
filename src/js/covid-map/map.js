@@ -51,7 +51,7 @@ const initMap = () => {
         position: 'bottomright',
     }).addTo(map);
     map.addLayer(layer);
-    map.createPane('paneForGeoJSON').style.zIndex = 200;
+    map.createPane('paneForGeoJSON').style.zIndex = 500;
 
     currentCountryInfo.onAdd = (() => {
         currentCountryInfo.div = L.DomUtil.create('div', 'current-country-info');
