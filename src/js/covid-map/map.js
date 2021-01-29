@@ -257,19 +257,21 @@ function setSelectListener() {
     });
 }
 
-function setCountry() {
-    const select = document.querySelector('#countries');
-    const childNodes = [...select.children];
+function setCountry(select) {
+    const countrySelect = select;
+    const childNodes = [...countrySelect.children];
     const country = localStorage.getItem('userCountry') || 'Belarus';
     const mappedCountries = childNodes.map((option) => option.textContent);
     mappedCountries.unshift();
     const countryIndex = mappedCountries.indexOf(country);
-    if (countryIndex !== -1) {
-        select.value = childNodes[countryIndex].value;
-    } else {
-        select.value = 29475251;
-    }
-    select.dispatchEvent(new Event('change'));
+    setTimeout(() => {
+        if (countryIndex !== -1) {
+            countrySelect.value = childNodes[countryIndex].value;
+        } else {
+            countrySelect.value = 29475251;
+        }
+        countrySelect.dispatchEvent(new Event('change'));
+    }, 2000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -280,5 +282,5 @@ document.addEventListener('DOMContentLoaded', () => {
     getGeoJsonData();
     countriesSelect = document.querySelector('#countries');
     setSelectListener();
-    setCountry();
+    setCountry(countriesSelect);
 });
