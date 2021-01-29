@@ -31,6 +31,10 @@ export const FlightSearchClass = class {
         try {
             this.res = await fetch(`https://skyscanner-server.herokuapp.com/airport/name/${id}`);
             this.data = await this.res.json();
+            if (this.data) {
+                document.querySelector('.loadingio-spinner-bars-mcasxxfwlf').style.display = 'none';
+                document.querySelector('.loadingio-spinner-bars-mcasxxfwlf2').style.display = 'none';
+            }
             searchAirportList = this.data;
         } catch (error) {
             console.log(error);

@@ -54,12 +54,18 @@ document.body.innerHTML = `<div>
                         <label>From</label>
                         <input type="text" id="searchFrom" placeholder="Country, city or airport">
                         <ul class="airportSearchFrom"></ul>
-                        <button class="switch-button">&harr;</button>
+                        <button class="switch-button" type="button"><img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-repeat-48.png?alt=media&token=5766ed9c-e2a9-4b53-852e-630736881c6a"></button>
+                        <div class="loadingio-spinner-bars-mcasxxfwlf"><div class="ldio-a6c11yh00r">
+<div></div><div></div><div></div><div></div>
+</div></div>
                     </div>
                     <div class="from-to">
                         <label>To</label>
                         <input type="text" id="searchTo" placeholder="Country, city or airport">
                         <ul class="airportSearchTo"></ul>
+                        <div class="loadingio-spinner-bars-mcasxxfwlf2"><div class="ldio-a6c11yh00r2">
+<div></div><div></div><div></div><div></div>
+</div></div>
                     </div>
                     <div>
                         <label>Depart</label>

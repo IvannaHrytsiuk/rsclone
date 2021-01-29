@@ -10,9 +10,11 @@ const flightSearchClass = new FlightSearchClass();
 
 searchFrom.addEventListener('keyup', (e) => {
     flightSearchClass.getAirports(e.target.value);
+    document.querySelector('.loadingio-spinner-bars-mcasxxfwlf').style.display = 'inline-block';
     view.paintSearchList(document.querySelector('.airportSearchFrom'));
 });
 searchFrom.addEventListener('focus', () => {
+    document.querySelector('.loadingio-spinner-bars-mcasxxfwlf').style.display = 'inline-block';
     document.querySelector('.airportSearchTo').innerHTML = '';
     searchFrom.value = '';
     flightSearchClass.getAirports(document.getElementById('selectCountry').value);
@@ -20,9 +22,11 @@ searchFrom.addEventListener('focus', () => {
 });
 searchTo.addEventListener('keyup', (e) => {
     flightSearchClass.getAirports(e.target.value);
+    document.querySelector('.loadingio-spinner-bars-mcasxxfwlf2').style.display = 'inline-block';
     view.paintSearchList(document.querySelector('.airportSearchTo'));
 });
 searchTo.addEventListener('focus', () => {
+    document.querySelector('.loadingio-spinner-bars-mcasxxfwlf2').style.display = 'inline-block';
     document.querySelector('.airportSearchFrom').innerHTML = '';
     searchTo.value = '';
     flightSearchClass.getAirports(document.getElementById('selectCountry').value);
@@ -115,4 +119,11 @@ document.querySelector('.searchFlightBtn').addEventListener('click', () => {
             localStorage.setItem('search', JSON.stringify(a));
         }
     }
+});
+
+document.querySelector('.switch-button').addEventListener('click', () => {
+    const fromV = document.getElementById('searchFrom').value;
+    const toV = document.getElementById('searchTo').value;
+    document.getElementById('searchFrom').value = toV;
+    document.getElementById('searchTo').value = fromV;
 });
