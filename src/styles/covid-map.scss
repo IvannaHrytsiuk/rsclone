@@ -97,6 +97,9 @@ body {
       display: flex;
       align-items: center;
       column-gap: 5px;
+      p {
+        font-size: 24px;
+      }
       .arrival-info {
         display: flex;
         flex-direction: column;
@@ -132,8 +135,19 @@ body {
     }
     .additional-info {
       font-size: 14px;
-      white-space: break-spaces;
       text-align: justify;
+      word-break: break-word;
+      ol, ul {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding-left: 20px;
+      }
+      ul {
+        list-style: disc !important;
+      }
+      ol {
+        list-style: decimal !important;
+      }
     }
   }
 }

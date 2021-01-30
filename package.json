@@ -37,6 +37,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "remarkable": "^2.0.1",
     "showdown": "^1.9.1",
     "toastr": "^2.1.4"
   }

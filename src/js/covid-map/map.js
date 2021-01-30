@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
+import { Remarkable } from 'remarkable';
 import createMainWithMap from './htmlview';
 import '../../assets/map/leaflet';
 import '../../assets/fullscreen/Control.FullScreen';
@@ -8,13 +9,10 @@ import { setDataDate } from './date';
 import { style } from './style';
 import { setDataSummary, initStatusesCounters } from './summary';
 
-const showdown = require('showdown');
-
+const md = new Remarkable();
 let map;
 let countriesSelect;
-const converter = new showdown.Converter();
 const currentCountryInfo = L.control({ position: 'topright' });
-
 const ACCESS_TOKEN = 'pk.eyJ1IjoiZ3VwYWxlbmtvcm9tYW4iLCJhIjoiY2tpeWkwMDhtMWRzbzJybXd1bWs0YWh2NCJ9.7v50Tvi4ariDNbW5wstlBw';
 
 const mapOptions = {
@@ -106,43 +104,46 @@ function showCountryRestrictionsInfo(e) {
 
     countryRestrictionsBlock.innerHTML = `<div class="country-restrictions-info">
     <section class="popup-title-close-button">
-      <span class="restrictions-status ${STATUS_ICONS[target.feature.properties.restrictions.master_travel_status]}"><span class="material-icons">${STATUS_ICONS[target.feature.properties.restrictions.entry_restrictions]}</span>${target.feature.properties.restrictions.entry_restrictions_translation} restrictions</span>
-      <span class="popup-close" id="popup-close">x</span>
+        <span class="restrictions-status ${STATUS_ICONS[target.feature.properties.restrictions.master_travel_status]}"><span class="material-icons">${STATUS_ICONS[target.feature.properties.restrictions.entry_restrictions]}</span>${target.feature.properties.restrictions.entry_restrictions_translation} restrictions</span>
+        <span class="popup-close" id="popup-close">x</span>
     </section>
     <section class="popup-country-name">
-      <span class="country-name">${target.feature.properties.ADMIN}</span>
+        <span class="country-name">${target.feature.properties.ADMIN}</span>
     </section>
     <section class="popup-additional-info">
-      <article class="quarantine">
-        <p class="material-icons">flight_takeoff</p>
-        <p class="arrival-info">
-          <span class="info-title">On arrival in ${target.feature.properties.ADMIN}</span>
-          <span class="info-description">${target.feature.properties.restrictions.destination_self_isolation_translation}</span>
-        </p>
-      </article>
-      <article class="quarantine">
-        <p class="material-icons">flight_land</p>
-        <p class="arrival-info">
-          <span class="info-title">On arrival to ${countriesSelect.selectedOptions[0].textContent}</span>
-          <span class="info-description">${target.feature.properties.restrictions.return_self_isolation_translation}</span>
-        </p>
-      </article>
-      <article class="popup-covid-info">
-        <p class="covid-info-title">New COVID-19 cases this week</p>
-        <p class="covid-info-cases">
-          <span class="cases-flex"><span class="material-icons">coronavirus</span>${target.feature.properties.restrictions.destination_safety_status.epiPrevalenceRecent.toFixed(1)}</span>
-          <span>out of 100,000 people</span>
-        </p>
-        <p class="covid-info-cases">
-          <span class="cases-flex">
-            <span class="material-icons">${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? ARROWS.up : ARROWS.down}</span>
-            ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `Up ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days}%` : `Down ${Math.abs(target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days)}%`}</span>
-          <span>${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `up from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week` : `down from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week`}</span>
-        </p>
-      </article>
-      <p class="additional-info">${converter.makeHtml(target.feature.properties.restrictions.destination_restrictions_commentary_translation)}</p>
+        <article class="quarantine">
+            <p class="material-icons">flight_takeoff</p>
+            <p class="arrival-info">
+                <span class="info-title">On arrival in ${target.feature.properties.ADMIN}</span>
+                <span class="info-description">${target.feature.properties.restrictions.destination_self_isolation_translation}</span>
+            </p>
+        </article>
+        <article class="quarantine">
+            <p class="material-icons">flight_land</p>
+            <p class="arrival-info">
+                <span class="info-title">On arrival to ${countriesSelect.selectedOptions[0].textContent}</span>
+                <span class="info-description">${target.feature.properties.restrictions.return_self_isolation_translation}</span>
+            </p>
+        </article>
+        <article class="popup-covid-info">
+            <p class="covid-info-title">New COVID-19 cases this week</p>
+            <p class="covid-info-cases">
+                <span class="cases-flex"><span class="material-icons">coronavirus</span>${target.feature.properties.restrictions.destination_safety_status.epiPrevalenceRecent.toFixed(1)}</span>
+                <span>out of 100,000 people</span>
+            </p>
+            <p class="covid-info-cases">
+                <span class="cases-flex">
+                    <span class="material-icons">${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? ARROWS.up : ARROWS.down}</span>
+                    ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `Up ${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days}%` : `Down ${Math.abs(target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days)}%`}
+                </span>
+                <span>${target.feature.properties.restrictions.destination_safety_status.casesDeltaPercent7Days >= 0 ? `up from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week` : `down from ${target.feature.properties.restrictions.destination_safety_status.epiPrevalencePrevious.toFixed(1)} last week`}</span>
+            </p>
+        </article>
+        <article class="additional-info">
+            ${md.render(target.feature.properties.restrictions.destination_restrictions_commentary_translation)}
+        </article>
     </section>
-  </div>`;
+</div>`;
 
     addCloseListener();
 }
