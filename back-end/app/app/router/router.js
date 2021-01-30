@@ -2,6 +2,7 @@ const verifySignUp = require('./verifySignUp');
 const authJwt = require('./verifyJwtToken');
 
 module.exports = function (app) {
+    // eslint-disable-next-line global-require
     const controller = require('../controller/controller.js');
 
     app.use((req, res, next) => {

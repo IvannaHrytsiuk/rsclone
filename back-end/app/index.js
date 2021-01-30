@@ -35,7 +35,7 @@ mysqlConnection.connect((error) => {
 });
 
 app.get('/users', (req, res) => {
-    mysqlConnection.query('SELECT u.* FROM users u left join user_roles ur on u.id = ur.userId where ur.roleId = 1;', (err, rows, filed)=>{
+    mysqlConnection.query('SELECT u.* FROM users u left join user_roles ur on u.id = ur.userId where ur.roleId = 1;', (err, rows) => {
         if (!err) {
             res.send(rows);
         } else {

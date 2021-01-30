@@ -1,12 +1,8 @@
 const Sequelize = require('sequelize');
-const env = require('./env.js');
 
 const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {
     dialect: 'mysql',
     protocol: 'mysql',
-    dialectOptions: {
-        ssl: true,
-    },
 });
 
 const db = {};
