@@ -32,13 +32,7 @@ const server = app.listen(8080, () => {
 //   });
 // }
 
-const mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123qaz',
-    database: 'rsclone',
-    multipleStatements: true,
-});
+const mysqlConnection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 
 mysqlConnection.connect((error) => {
     if (error) throw error;
