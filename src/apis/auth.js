@@ -4,10 +4,28 @@ const toastr = require('toastr');
 
 toastr.options.toastClass = 'toastr';
 
+export let usersArr;
+
 export const AuthClass = class {
+    users() {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            redirect: 'follow',
+        };
+        fetch('http://localhost:3000/users', requestOptions)
+            .then((response) => response.text())
+            .then((res) => {
+                usersArr = JSON.parse(res);
+            })
+            .catch((error) => console.log('error', error));
+    }
+
     register(user) {
         const raw = JSON.stringify(user);
-        const requestOptions = {
+        const request = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +33,7 @@ export const AuthClass = class {
             body: raw,
             redirect: 'follow',
         };
-        fetch('http://localhost:8080/api/auth/signup', requestOptions)
+        fetch('http://localhost:3000/users', request)
             .then((response) => {
                 response.text();
                 if (response.status === 200) {
@@ -35,38 +53,29 @@ export const AuthClass = class {
     }
 
     login(user) {
-        const raw = JSON.stringify(user);
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         const requestOptions = {
-            method: 'POST',
+            method: 'GET',
             headers: myHeaders,
-            body: raw,
             redirect: 'follow',
         };
 
-        fetch('http://localhost:8080/api/auth/signin', requestOptions)
+        fetch(`http://localhost:3000/users?email=${user.email}`, requestOptions)
             .then((response) => response.text())
             .then((result) => {
-                if (result) {
-                    const token = JSON.parse(result).accessToken;
-                    const request = {
-                        method: 'GET',
-                        headers: {
-                            'x-access-token': token,
-                        },
-                        redirect: 'follow',
-                    };
-
-                    fetch('http://localhost:8080/api/test/user', request)
-                        .then((response) => response.text())
-                        .then((res) => {
-                            localStorage.setItem('user', res);
-                            const header = new HeaderView();
-                            header.logIn();
-                            document.querySelector('.closeModal').click();
-                        })
-                        .catch((error) => console.log('error', error));
+                const res = JSON.parse(result);
+                console.log(res);
+                if (res === []) {
+                    toastr.error('You are not registered');
+                } else if (res[0].password === user.password) {
+                    localStorage.setItem('user', JSON.stringify(res));
+                    const header = new HeaderView();
+                    header.logIn();
+                    document.querySelector('.closeModal').click();
+                    toastr.success('Welcome :)');
+                } else {
+                    toastr.error('Incorect login or password');
                 }
             })
             .catch((error) => console.log('error', error));
