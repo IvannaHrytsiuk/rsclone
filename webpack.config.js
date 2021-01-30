@@ -83,4 +83,13 @@ module.exports = {
             minify: false,
         }),
     ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 3000,
+        compress: true,
+        open: true,
+        overlay: true,
+        stats: 'errors-only',
+        clientLogLevel: 'none',
+    },
 };
