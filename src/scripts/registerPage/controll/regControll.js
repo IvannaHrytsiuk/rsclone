@@ -1,8 +1,5 @@
-import { AuthClass, usersArr } from '../../../apis/auth';
+import { AuthClass } from '../../../apis/auth';
 
-const toastr = require('toastr');
-
-toastr.options.toastClass = 'toastr';
 document.getElementById('rgisterForm').addEventListener('submit', (event) => {
     document.getElementById('password2Inp').setAttribute('pattern', document.getElementById('passwordInp').value);
     if (!document.getElementById('rgisterForm').checkValidity()) {
