@@ -6,17 +6,18 @@ import { UserlocationClass } from './apis/userLocation';
 import { FlightSearchView } from './scripts/flightSearch/view/flightSearchView';
 import { HeaderView } from './scripts/header/view/headerView';
 import { CountryClass } from './apis/country';
-import { AuthClass } from './apis/auth';
 import { SearchCashView } from './scripts/searchCash/view/searchCash';
 import './js/covid-map/map';
 import { RecomendView } from './scripts/recomended/view/recomendView';
 
+const toastr = require('toastr');
+
+toastr.options.toastClass = 'toastr';
 const User = new UserlocationClass();
 const Country = new CountryClass();
 const Header = new HeaderView();
 const Cash = new SearchCashView();
 const recomend = new RecomendView();
-const auth = new AuthClass();
 
 window.addEventListener('load', () => {
     const flightSearchView = new FlightSearchView();
@@ -35,5 +36,4 @@ document.addEventListener('DOMContentLoaded', () => {
     Country.getCountries();
     document.getElementById('round').checked = true;
     document.querySelector('.searchFlightBtn').setAttribute('href', 'flight.html');
-    auth.users();
 });
