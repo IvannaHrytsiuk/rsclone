@@ -15,11 +15,7 @@ const Role = db.role;
 //   console.log('Drop and Resync with { force: true }');
 //   initial();
 // });
-const server = app.listen(8080, () => {
-    const host = server.address().address;
-    const { port } = server.address();
-    console.log('App listening at http://%s:%s', host, port);
-});
+const server = app.listen(process.env.PORT || 5000);
 
 // function initial(){
 //   Role.create({
@@ -36,7 +32,6 @@ const mysqlConnection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
 
 mysqlConnection.connect((error) => {
     if (error) throw error;
-    console.log('Connected');
 });
 
 app.get('/users', (req, res) => {
@@ -44,7 +39,7 @@ app.get('/users', (req, res) => {
         if (!err) {
             res.send(rows);
         } else {
-            console.log(err);
+            throw err;
         }
     });
 });
