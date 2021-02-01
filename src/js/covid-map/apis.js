@@ -5,7 +5,7 @@ const PATHS = {
 };
 
 const APIS_PATHS = {
-    geo: 'https://skyscanner-server.herokuapp.com/geojson/',
+    geo: 'https://skyscanner-server-geojson.herokuapp.com/',
     json: './assets/geojson/countries.json',
     locations: 'https://corona.lmao.ninja/v2/countries',
 };
