@@ -12,7 +12,6 @@ document.getElementById('rgisterForm').addEventListener('submit', (event) => {
             lname: document.getElementById('lastnameInp').value,
             email: document.getElementById('emailInp').value,
             password: document.getElementById('passwordInp').value,
-            roles: ['user'],
             birth: document.getElementById('birthInp').value,
         });
     }

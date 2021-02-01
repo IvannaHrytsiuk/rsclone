@@ -64,5 +64,32 @@ module.exports = {
             filename: './index.html',
             minify: false,
         }),
+        new HtmlWebPackPlugin({
+            inject: false,
+            template: './src/flight.html',
+            filename: './flight.html',
+            minify: false,
+        }),
+        new HtmlWebPackPlugin({
+            inject: false,
+            template: './src/booking.html',
+            filename: './booking.html',
+            minify: false,
+        }),
+        new HtmlWebPackPlugin({
+            inject: false,
+            template: './src/register.html',
+            filename: './register.html',
+            minify: false,
+        }),
     ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 3000,
+        compress: true,
+        open: true,
+        overlay: true,
+        stats: 'errors-only',
+        clientLogLevel: 'none',
+    },
 };

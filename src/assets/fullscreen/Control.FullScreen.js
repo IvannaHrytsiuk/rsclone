@@ -87,6 +87,8 @@ L.Control.FullScreen = L.Control.extend({
 			} else {
 				L.DomUtil.removeClass(this.options.fullscreenElement ? this.options.fullscreenElement : map._container, 'leaflet-pseudo-fullscreen');
 			}
+			map.options.minZoom = 1;
+			map.setZoom(map.getZoom() === 3 ? 2 : map.getZoom());
 			map.fire('exitFullscreen');
 			map._exitFired = true;
 			map._isFullscreen = false;
@@ -97,6 +99,8 @@ L.Control.FullScreen = L.Control.extend({
 			} else {
 				L.DomUtil.addClass(this.options.fullscreenElement ? this.options.fullscreenElement : map._container, 'leaflet-pseudo-fullscreen');
 			}
+			map.options.minZoom = 3;
+			map.setZoom(map.getZoom() < 3 ? 3 : map.getZoom());
 			map.fire('enterFullscreen');
 			map._isFullscreen = true;
 		}

@@ -3,7 +3,6 @@ const createMainWithMap = () => {
     mainElement.classList.add('covid-map-container');
 
     mainElement.innerHTML = `<section class="covid-info">
-    <span class="beta-info">BETA</span>
     <article class="info-for-country">
         <h1>COVID-19 travel info</h1>
         <label for="countries">from</label>
@@ -231,30 +230,30 @@ const createMainWithMap = () => {
     </article>
 </section>
 <section class="covid-map" id="covid-map"></section>
-<section class="info-summary">
-    <article class="summary-low">
+<section class="info-summary container">
+    <article class="summary-low col-md-3">
         <span id="low-restrictions-count">-</span>
         <p class="restrictions-type-title">Low restrictions</p>
         <p class="restrictions-type-description">You can travel here and likely won't need to quarantine when you arrive or return.</p>
     </article>
-    <article class="summary-moderate">
+    <article class="summary-moderate col-md-3">
         <span id="moderate-restrictions-count">-</span>
         <p class="restrictions-type-title">Moderate restrictions</p>
         <p class="restrictions-type-description">Travel here is possible if you meet certain entry regulations which can include taking a COVID-19 test. You may also be required to quarantine upon arrival and/or return.</p>
     </article>
-    <article class="summary-major">
+    <article class="summary-major col-md-3">
         <span id="major-restrictions-count">-</span>
         <p class="restrictions-type-title">Major restrictions</p>
         <p class="restrictions-type-description">Travel here may be suspended, the country may be closed or entry only possible if you are a citizen and/or meet strict requirements.</p>
     </article>
-    <article class="summary-unknown">
+    <article class="summary-unknown col-md-3">
         <span id="unknown-restrictions-count">-</span>
         <p class="restrictions-type-title">Restrictions unknown</p>
         <p class="restrictions-type-description">Unfortunately, we do not have information for this destination. Please check with government sources for the most up-to-date travel advice.</p>
     </article>
 </section>`;
 
-    document.querySelector('footer').prepend(mainElement);
+    document.querySelector('.searchCashingBlock').prepend(mainElement);
 };
 
 export { createMainWithMap as default };

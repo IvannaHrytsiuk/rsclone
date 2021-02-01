@@ -1,11 +1,11 @@
-import { FlightResultModel } from '../../flightResult/model/flightresultModel';
-
-const flightres = new FlightResultModel();
+// import { FlightResultModel } from '../../flightResult/model/flightresultModel';
+const json = require('../../airlines.json');
 
 export const BookingView = class {
     paintBookingResult(result) {
         document.querySelector('.routeDetails').innerHTML = '';
         if (localStorage.getItem('choosenTicket')) {
+            // const flightres = new FlightResultModel();
             const dateDepTo = new Date(result.route[0].local_departure);
             const dateDTo = dateDepTo.toDateString();
             const timeDepTo = dateDepTo.toTimeString();
@@ -22,7 +22,7 @@ export const BookingView = class {
                 <p class="ticketSummary">Trip summary</p>
                 <div class="row">
                     <div class=" col-sm-6 ticketTo ticketsBlocks">
-                        <p class="departTime"><span>DEPARTURE</span> Duration: ${flightres.secondsInHours(result.duration.departure)}</p>
+                        <p class="departTime"><span>DEPARTURE</span> Duration: ${this.secondsInHours(result.duration.departure)}</p>
                         <div class="col-sm-12 detailsBlock">
                             <div class="details">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
@@ -44,7 +44,7 @@ export const BookingView = class {
                         <div>
                             <div class="flightnumber">
                                 <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
-                                <span>Aerline: ${flightres.jsonSearch(result.route[0].airline)}</span>
+                                <span>Aerline: ${this.jsonSearch(result.route[0].airline)}</span>
                             </div>
                             <div class="flightnumber">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
@@ -53,7 +53,7 @@ export const BookingView = class {
                         </div>
                     </div>
                     <div class=" col-sm-6 ticketsBloks">
-                        <p class="departTime"><span>RETURN</span> Duration: ${flightres.secondsInHours(result.duration.return)}</p>
+                        <p class="departTime"><span>RETURN</span> Duration: ${this.secondsInHours(result.duration.return)}</p>
                         <div class="col-sm-12 detailsBlock">
                             <div class="details">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
@@ -75,7 +75,7 @@ export const BookingView = class {
                         <div>
                             <div class="flightnumber">
                                 <img src="https://images.kiwi.com/airlines/64/${result.route[1].airline}.png">
-                                <span>Aerline: ${flightres.jsonSearch(result.route[1].airline)}</span>
+                                <span>Aerline: ${this.jsonSearch(result.route[1].airline)}</span>
                             </div>
                             <div class="flightnumber">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
@@ -97,7 +97,7 @@ export const BookingView = class {
                 <p class="ticketSummary">Trip summary</p>
                 <div class="row">
                     <div class=" col-sm-6 ticketTo">
-                        <p class="departTime"><span>DEPARTURE</span> Duration: ${flightres.secondsInHours(result.duration.departure)}</p>
+                        <p class="departTime"><span>DEPARTURE</span> Duration: ${this.secondsInHours(result.duration.departure)}</p>
                         <div class="col-sm-12 detailsBlock">
                             <div class="details">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/calendar.png?alt=media&token=a6eb755d-4827-4444-a2d7-4c079af0275c">
@@ -119,7 +119,7 @@ export const BookingView = class {
                         <div>
                             <div class="flightnumber">
                                 <img src="https://images.kiwi.com/airlines/64/${result.route[0].airline}.png">
-                                <span>Aerline: ${flightres.jsonSearch(result.route[0].airline)}</span>
+                                <span>Aerline: ${this.jsonSearch(result.route[0].airline)}</span>
                             </div>
                             <div class="flightnumber">
                                 <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-info-48.png?alt=media&token=f4b644a0-117b-4c53-90d7-396d5fe74969">
@@ -134,14 +134,32 @@ export const BookingView = class {
         document.querySelector('.allPrice').innerHTML = `
             <div class="priceContainer">
                 <div>
-                    <span>${parseInt(document.getElementById('adultsCount').value) + parseInt(document.getElementById('childCount').value)} x passanger</span>
+                    <span>${localStorage.getItem('passengers')} x passanger</span>
                     <span>${result.price}${document.getElementById('selectCurrency').value}</span>
                 </div>
                 <hr>
                 <div>
                     <span>Total (${document.getElementById('selectCurrency').value})</span>
-                    <span style="font-weight:700;">${(parseInt(document.getElementById('adultsCount').value) + parseInt(document.getElementById('childCount').value)) * result.price} ${document.getElementById('selectCurrency').value}</span>
+                    <span style="font-weight:700;">${localStorage.getItem('passengers') * result.price} ${document.getElementById('selectCurrency').value}</span>
                 </div>
             </div>`;
+    }
+
+    secondsInHours(num) {
+        const hours = Math.floor(num / 3600);
+        // eslint-disable-next-line no-param-reassign
+        num %= 3600;
+        const minutes = Math.floor(num / 60);
+        return `${hours}h ${minutes}m`;
+    }
+
+    jsonSearch(value) {
+        let jsonname;
+        json.forEach((elem) => {
+            if (elem.iata === value) {
+                jsonname = elem.name;
+            }
+        });
+        return jsonname;
     }
 };

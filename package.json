@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch",
+    "dev": "webpack serve --mode development",
     "build": "npm run clear -s && webpack --mode production",
     "clear": "del-cli dist"
   },
@@ -33,10 +33,11 @@
     "sass-loader": "^10.1.0",
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.1"
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "showdown": "^1.9.1",
+    "remarkable": "^2.0.1",
     "toastr": "^2.1.4"
   }
 }

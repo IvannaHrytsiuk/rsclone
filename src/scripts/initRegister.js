@@ -26,7 +26,7 @@ document.body.innerHTML = `
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="firstnameInp" class="form-label">First Name <span>*</span></label>
-                            <input type="text" class="form-control" id="firstnameInp" required pattern="[A-Za-z]{2,8}">
+                            <input type="text" class="form-control" id="firstnameInp" required pattern="[A-Za-z]{2,22}">
                             <label for="emailInp" class="form-label">Email <span>*</span></label>
                             <input type="email" class="form-control" id="emailInp" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                             <label for="passwordInp" class="form-label">Password <span>*</span></label>
@@ -34,7 +34,7 @@ document.body.innerHTML = `
                         </div>
                         <div class="col-sm-6">
                             <label for="lastnameInp" class="form-label">Last Name <span>*</span></label>
-                            <input type="text" class="form-control" id="lastnameInp" required pattern="[A-Za-z]{2,8}">
+                            <input type="text" class="form-control" id="lastnameInp" required pattern="[A-Za-z]{2,22}">
                             <label for="birthInp" class="form-label">Date of birth <span>*</span></label>
                             <input type="date" class="form-control" id="birthInp" required max="2010-01-01" min="1921-01-01">
                             <label for="password2Inp" class="form-label">Confirm password <span>*</span></label>

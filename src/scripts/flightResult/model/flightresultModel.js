@@ -36,6 +36,7 @@ export const FlightResultModel = class {
             // eslint-disable-next-line no-loop-func
             div.addEventListener('click', () => {
                 localStorage.setItem('choosenTicket', JSON.stringify(flightResult.data[i]));
+                localStorage.setItem('passengers', flightResult.search_params.seats.passengers);
                 this.paintModalReturn(flightResult.data[i], index, dateDTo, dateDepArr, dateDepFrom, dateDepFromBack);
             });
             div.innerHTML += `
@@ -92,7 +93,7 @@ export const FlightResultModel = class {
                 </div>
             </div>
             <div class="priceBlock">
-                <div style="height:415px;">
+                <div>
                     <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/star.png?alt=media&token=55f97bd9-a67e-4342-af57-cfd41d1de5a4">
                     <p>${flightResult.data[i].price}${this.countryCurrency()}</p>
                 </div>

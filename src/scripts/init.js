@@ -54,12 +54,18 @@ document.body.innerHTML = `<div>
                         <label>From</label>
                         <input type="text" id="searchFrom" placeholder="Country, city or airport">
                         <ul class="airportSearchFrom"></ul>
-                        <button class="switch-button">&harr;</button>
+                        <button class="switch-button" type="button"><img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-repeat-48.png?alt=media&token=5766ed9c-e2a9-4b53-852e-630736881c6a"></button>
+                        <div class="loadingio-spinner-bars-mcasxxfwlf"><div class="ldio-a6c11yh00r">
+<div></div><div></div><div></div><div></div>
+</div></div>
                     </div>
                     <div class="from-to">
                         <label>To</label>
                         <input type="text" id="searchTo" placeholder="Country, city or airport">
                         <ul class="airportSearchTo"></ul>
+                        <div class="loadingio-spinner-bars-mcasxxfwlf2"><div class="ldio-a6c11yh00r2">
+<div></div><div></div><div></div><div></div>
+</div></div>
                     </div>
                     <div>
                         <label>Depart</label>
@@ -98,16 +104,16 @@ document.body.innerHTML = `<div>
                     </div>
                 </div>
                 <div class="up-checkboxes">
-                    <div>
+                    <div class="addAirport">
+                        <input type="checkbox">
+                        <label>Add nearby airports</label>
+                    </div>
+                    <div class="addAirport">
                         <input type="checkbox">
                         <label>Add nearby airports</label>
                     </div>
                     <div>
-                        <input type="checkbox">
-                        <label>Add nearby airports</label>
-                    </div>
-                    <div>
-                        <a href="flight.html" type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
+                        <a type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
                     </div>
                 </div>                        
             </div>
@@ -117,6 +123,39 @@ document.body.innerHTML = `<div>
         <div class="container">
             ${localStorage.getItem('search') ? '<h3>Continue your search</h3>' : ''}
             <div class="row rowBlockSearchCash"></div>
+        </div>
+    </div>
+    <div class="recomendedPanel">
+        <div class="container">
+            <h3>Recommendations for you</h3>
+            <div class="row recomends">
+                <div class="col-md-5"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-12"></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="confidencePanel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/img1.png?alt=media&token=ba580957-98bc-40ab-8dc5-3b0258689c7b" alt="">
+                    <h3>Go anywhere</h3>
+                    <p>It’s your world and we’ll help you explore it. Find the best prices across millions of flights, hotels and car hire options to create your perfect trip.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/img2.png?alt=media&token=35363593-696e-4af0-b3a5-f952b0259b25" alt="">
+                    <h3>Keep it simple</h3>
+                    <p>No hidden fees. No hidden charges. No funny business. With us, you’ll always know exactly where your money goes. So you can relax before your trip even begins.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/img3.png?alt=media&token=c14a552f-e345-4f11-b1ff-82a313e2bf62" alt="">
+                    <h3>Travel your way</h3>
+                    <p>Know where you want to go? See the best time to book. Feeling flexible? Get deals on everything from quick breaks to epic adventures.</p>
+                </div>
+            </div>
         </div>
     </div>
     <footer>

@@ -29,8 +29,12 @@ export const FlightSearchClass = class {
 
     async getAirports(id) {
         try {
-            this.res = await fetch(`https://skyscanner-server.herokuapp.com/airport/name/${id}`);
+            this.res = await fetch(`https://skyscanner-server-airport.herokuapp.com/${id}`);
             this.data = await this.res.json();
+            if (this.data) {
+                document.querySelector('.loadingio-spinner-bars-mcasxxfwlf').style.display = 'none';
+                document.querySelector('.loadingio-spinner-bars-mcasxxfwlf2').style.display = 'none';
+            }
             searchAirportList = this.data;
         } catch (error) {
             console.log(error);
@@ -49,7 +53,6 @@ export const FlightSearchClass = class {
             link = `https://tequila-api.kiwi.com/v2/search?fly_from=${from}&fly_to=${to}&date_from=${datefrom}&date_to=${datefrom}&flight_type=oneway&adults=${adults}&children=${children}&selected_cabins=M&only_working_days=false&only_weekends=false&partner_market=ua&curr=${currency}&vehicle_type=aircraft`;
             if (this.data) {
                 flightResult = this.data;
-                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('oneway');
             } else {
@@ -72,7 +75,6 @@ export const FlightSearchClass = class {
             this.data = await this.res.json();
             if (this.data) {
                 flightResult = this.data;
-                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 flightResultView.paintSearchDataBlocks('return');
             } else {
@@ -95,7 +97,6 @@ export const FlightSearchClass = class {
             this.data = await this.res.json();
             if (this.data) {
                 flightResult = this.data;
-                console.log(flightResult);
                 document.querySelector('.lds-ripple').style.display = 'none';
                 if (way === 'oneway') {
                     flightResultView.paintSearchDataOne();

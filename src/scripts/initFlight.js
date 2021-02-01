@@ -54,7 +54,7 @@ document.body.innerHTML = `
                         <label>From</label>
                         <input type="text" id="searchFrom" placeholder="Country, city or airport">
                         <ul class="airportSearchFrom"></ul>
-                        <button class="switch-button">&harr;</button>
+                        <button class="switch-button" type="button"><img src="https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/icons8-repeat-48.png?alt=media&token=5766ed9c-e2a9-4b53-852e-630736881c6a"></button>
                     </div>
                     <div class="from-to">
                         <label>To</label>
@@ -98,16 +98,16 @@ document.body.innerHTML = `
                     </div>
                 </div>
                 <div class="up-checkboxes">
-                    <div>
+                    <div class="addAirport">
+                        <input type="checkbox">
+                        <label>Add nearby airports</label>
+                    </div>
+                    <div class="addAirport">
                         <input type="checkbox">
                         <label>Add nearby airports</label>
                     </div>
                     <div>
-                        <input type="checkbox">
-                        <label>Add nearby airports</label>
-                    </div>
-                    <div>
-                        <a href="flight.html" type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
+                        <a type="button" class="btn searchFlightBtn">Search flights &#10144;</a>
                     </div>
                 </div>                        
             </div>

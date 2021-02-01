@@ -15,11 +15,7 @@ const Role = db.role;
 //   console.log('Drop and Resync with { force: true }');
 //   initial();
 // });
-const server = app.listen(8080, () => {
-    const host = server.address().address;
-    const { port } = server.address();
-    console.log('App listening at http://%s:%s', host, port);
-});
+const server = app.listen(process.env.PORT || 5000);
 
 // function initial(){
 //   Role.create({
@@ -32,25 +28,18 @@ const server = app.listen(8080, () => {
 //   });
 // }
 
-const mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123qaz',
-    database: 'rsclone',
-    multipleStatements: true,
-});
+const mysqlConnection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 
 mysqlConnection.connect((error) => {
     if (error) throw error;
-    console.log('Connected');
 });
 
 app.get('/users', (req, res) => {
-    mysqlConnection.query('SELECT u.* FROM users u left join user_roles ur on u.id = ur.userId where ur.roleId = 1;', (err, rows, filed)=>{
+    mysqlConnection.query('SELECT u.* FROM users u left join user_roles ur on u.id = ur.userId where ur.roleId = 1;', (err, rows) => {
         if (!err) {
             res.send(rows);
         } else {
-            console.log(err);
+            throw err;
         }
     });
 });

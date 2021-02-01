@@ -15,7 +15,7 @@ export const AuthClass = class {
             body: raw,
             redirect: 'follow',
         };
-        fetch('http://localhost:8080/api/auth/signup', requestOptions)
+        fetch('https://lit-citadel-91200.herokuapp.com/api/auth/signup', requestOptions)
             .then((response) => {
                 response.text();
                 if (response.status === 200) {
@@ -45,7 +45,7 @@ export const AuthClass = class {
             redirect: 'follow',
         };
 
-        fetch('http://localhost:8080/api/auth/signin', requestOptions)
+        fetch('https://lit-citadel-91200.herokuapp.com/api/auth/signin', requestOptions)
             .then((response) => response.text())
             .then((result) => {
                 if (result) {
@@ -58,7 +58,7 @@ export const AuthClass = class {
                         redirect: 'follow',
                     };
 
-                    fetch('http://localhost:8080/api/test/user', request)
+                    fetch('https://lit-citadel-91200.herokuapp.com/api/test/user', request)
                         .then((response) => response.text())
                         .then((res) => {
                             localStorage.setItem('user', res);
