@@ -240,11 +240,27 @@ function filterCountriesByIso() {
     });
 }
 
+function setCountry(select) {
+    const countrySelect = select;
+    const childNodes = [...countrySelect.children];
+    const country = localStorage.getItem('userCountry') || 'Belarus';
+    const mappedCountries = childNodes.map((option) => option.textContent);
+    mappedCountries.unshift();
+    const countryIndex = mappedCountries.indexOf(country);
+    if (countryIndex !== -1) {
+        countrySelect.value = childNodes[countryIndex].value;
+    } else {
+        countrySelect.value = 29475251;
+    }
+    countrySelect.dispatchEvent(new Event('change'));
+}
+
 async function getGeoJsonData() {
     geoJsonLayer = await getData(PATHS.json);
     countriesIso = await getData(PATHS.locations);
     createIsoList();
     filterCountriesByIso();
+    setCountry(countriesSelect);
 }
 
 function setSelectListener() {
@@ -258,23 +274,6 @@ function setSelectListener() {
     });
 }
 
-function setCountry(select) {
-    const countrySelect = select;
-    const childNodes = [...countrySelect.children];
-    const country = localStorage.getItem('userCountry') || 'Belarus';
-    const mappedCountries = childNodes.map((option) => option.textContent);
-    mappedCountries.unshift();
-    const countryIndex = mappedCountries.indexOf(country);
-    setTimeout(() => {
-        if (countryIndex !== -1) {
-            countrySelect.value = childNodes[countryIndex].value;
-        } else {
-            countrySelect.value = 29475251;
-        }
-        countrySelect.dispatchEvent(new Event('change'));
-    }, 2000);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     createMainWithMap();
     initMap();
@@ -283,5 +282,4 @@ document.addEventListener('DOMContentLoaded', () => {
     getGeoJsonData();
     countriesSelect = document.querySelector('#countries');
     setSelectListener();
-    setCountry(countriesSelect);
 });
