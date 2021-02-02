@@ -6,7 +6,7 @@ const createMainWithMap = () => {
     <article class="info-for-country">
         <h1>COVID-19 travel info</h1>
         <label for="countries">from</label>
-        <select id="countries" name="countries" placeholder="Choose country or region">
+        <select id="countries" name="countries" placeholder="Choose country or region" disabled="true">
             <option value="title" hidden="">
                 Choose country or region
             </option>
