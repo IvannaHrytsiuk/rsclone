@@ -1,6 +1,7 @@
 # Changelog
 | Author | Change date | Commit message | Commit link |
-|--------|-------------|----------------|-------------|
+|--------|-------------|----------------|:-----------:|
+|Roman|2021-02-02|develop/fix: change commits links in changelog md|[0b72887](https://github.com/IvannaHrytsiuk/skyscanner/commit/0b72887)|
 |Roman|2021-02-02|develop/feature: add links to commits in changelog md|[9880234](https://github.com/IvannaHrytsiuk/skyscanner/commit/9880234)|
 |Roman|2021-02-02|develop/feature: add md file with changelog|[ac27ece](https://github.com/IvannaHrytsiuk/skyscanner/commit/ac27ece)||Roman|2021-02-02|develop/refactor: update gitignore file|[118809d](https://github.com/IvannaHrytsiuk/skyscanner/commit/118809d)|    
 |Roman|2021-02-02|develop/feature: add block country select while data loaded|[1594bef](https://github.com/IvannaHrytsiuk/skyscanner/commit/1594bef)|
