@@ -135,11 +135,11 @@ export const BookingView = class {
             <div class="priceContainer">
                 <div>
                     <span>${localStorage.getItem('passengers')} x passanger</span>
-                    <span>${result.price}${document.getElementById('selectCurrency').value}</span>
+                    <span>${result.price} ${localStorage.getItem('userCurrency')}</span>
                 </div>
                 <hr>
                 <div>
-                    <span>Total (${document.getElementById('selectCurrency').value})</span>
+                    <span>Total (${localStorage.getItem('userCurrency')})</span>
                     <span style="font-weight:700;">${localStorage.getItem('passengers') * result.price} ${document.getElementById('selectCurrency').value}</span>
                 </div>
             </div>`;

@@ -28,14 +28,15 @@ export const FlightSearchClass = class {
     }
 
     async getAirports(id) {
+        searchAirportList = '';
         try {
             this.res = await fetch(`https://skyscanner-server-airport.herokuapp.com/${id}`);
             this.data = await this.res.json();
             if (this.data) {
+                searchAirportList = this.data;
                 document.querySelector('.loadingio-spinner-bars-mcasxxfwlf').style.display = 'none';
                 document.querySelector('.loadingio-spinner-bars-mcasxxfwlf2').style.display = 'none';
             }
-            searchAirportList = this.data;
         } catch (error) {
             console.log(error);
         }
