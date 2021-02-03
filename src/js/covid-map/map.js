@@ -253,6 +253,7 @@ function setCountry(select) {
         countrySelect.value = 29475251;
     }
     countrySelect.dispatchEvent(new Event('change'));
+    countrySelect.disabled = false;
 }
 
 async function getGeoJsonData() {
