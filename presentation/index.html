@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/reveal.css">
+		<link rel="stylesheet" href="./css/black.css" id="theme">
+		<link rel="stylesheet" href="./css/monokai.css" id="highlight-theme">
+		<title>Skyscanner Clone Presentation</title>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Project name: skyscanner clone</h3>
+					<h3>Participants: </h3>
+					<h3>Ivanna Hrytsiuk</h3>
+					<h3>Roman Gupalenko</h3>
+					<h3>Course: js/fe 2020 q3</h3>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+				<section>
+					<h3>RS Clone</h3>
+					<p>RS Clone — is a final project of JavaScript/Front-end course The Rolling Scopes School. This is a team task, during which we need to recreate some game or application. We chose Skyscanner but focused only on flight tickets.</p>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+				<section>
+					<h3>What is Skyscanner?</h3>
+					<p><a href="https://www.skyscanner.com.ua/" target="_blank">Skyscanner</a> is a flight search engine. To be more general, they are an online travel search engine, since they also let you book a hotel and rent a car. The website is entirely free to use. There are neither hidden fees or additional expenses: the prices you see are the ones you will pay. Skyscanner searches airlines and online travel agents’ websites by displaying the cheapest flight deals in under 30 seconds.</p>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h3>How does it work?</h3>
+						<h4>Step 1: Select the currency and language</h4>
+						<p>In the top-right corner, choose the currency you want prices to be displayed in among the most common ones ($, €, £) or others.</p>
+						<img src="./assets/images/1.png" alt="Step one">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Step 2: Choose the kind of ticket you want</h4>
+						<p>Select whether you’re searching for a one-way or return ticket.</p>
+						<img src="./assets/images/2.png" alt="Step two">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Step 3: Fill in your travel details</h4>
+						<p>Enter which city you want to fly from in the “From” section and your destination in “To”. Select your flight date from the calendar, the number of passengers.</p>
+						<img src="./assets/images/3.png" alt="Step three">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Step 4: Hit search and choose among the flight results</h4>
+						<p>By default, Skyscanner displays results from the cheapest trip to the most expensive airfare.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Our team consisted of two people.</h3>
+						<p>Ivanka — interest programming from autumn 2019. Higher education of Chemical Technology. Before starting study at RSSchool, she attended courses at Logos It Academy in Ukraine.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>Roman — began to show interest in programming from the 11th grade of school. He has a degree in software engineering. Before studying at RSSchool, he took many free courses from GeekBrains, HTMLAcademy, FreeCodeCamp, etc.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>Education can be divide into stages of different tasks for different subjects. The school publishes the task, divided into points, which significantly simplifies the work on it. There are educational lectures online, where you can ask questions lecturer or later watch the video in the recording. The school regularly conducts tests to identify gaps in knowledge.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h3>During the training, we did:</h3>
+					<ol>
+						<li>Calculator — without using the eval() function;</li>
+						<li>Momentum — with using localStorage and API requests;</li>
+						<li>Virtual keyboard — work with keyboard and mouse events;</li>
+						<li>Game puzzle — drag and drop effects and algorithm for automatically end the game;</li>
+						<li>English for kids — with using audio;</li>
+						<li>COVID-19 dashboard — the first team task;</li>
+						<li>RS Clone — final task.</li>
+					</ol>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h3>Before starting the project, we made a scheme of pages and blocks and how they will interact with each other:</h3>
+						<img src="./assets/images/4.png" alt="Pages scheme">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>Based on this scheme, we divided the work into parts and functionality.</p>
+						<img src="./assets/images/5.png" alt="Main page header">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>Using IP Address Lookup, we identify and display the user’s location. Depending on the country, we also set the currency. The user can change this data at any time.</p>
+						<p>There is also a log in button that invites the user to log in or register in the system.</p>
+						<p>On the registration page, the user fills out the form. When the form is filled correctly, the user can apply the data and get a notification about the registration status.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Registration Page</h4>
+						<img src="./assets/images/6.png" alt="Registration Page">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Search Form</h4>
+						<img src="./assets/images/7.png" alt="Search Form">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>For tickets search, we use the <a href="https://tequila.kiwi.com/" target="_blank">Tequila API</a>. To start the search, you need to choose a one-way ticket or return, enter the country, city, or airport IATA code, dates, and the number of passengers. When entering data in the fields FROM and TO, the user is offered input options depending on his location or the entered characters.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Tequila API</h4>
+						<img src="./assets/images/8.png" alt="Tequila API">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>By default, tickets are sorted by price from lowest to highest. Users also can apply filters to get better results and check the details of each ticket option and choose the best one.</p>
+						<p>The user must enter an email to confirm the reservation. After confirmation, we will send an email with the information that we cannot book a ticket because we can’t ensure the protection of user data.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>Also, we made a live map with the latest information about COVID-19 we think it’s importantly for people who plan to travel abroad. The user selects the country of departure, by choosing the country of interest on the map, he can read up-to-date restrictions on entry and return.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>COVID-19 Map with travel information</h4>
+						<img src="./assets/images/9.png" alt="COVID-19 Map">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>The program remembers each user search, and if he hasn’t confirmed the ticket reservation, we offer him to return to and continue it. And also, check out popular destinations.</p>
+						<p>If you want to check whether we show up-to-date tickets and prices, we recommend using <a href="https://www.kiwi.com/" target="_blank">kiwi.com</a>.</p>
+						<p>For work together, we used messages in Discord, several times we called to discuss tasks.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h3>RACI Matrix</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Task\Author</th>
+								<th>Ivanka</th>
+								<th>Roman</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Ticket search</td>
+								<td>RA</td>
+								<td>A</td>
+							</tr>
+							<tr>
+								<td>Authentication</td>
+								<td>RA</td>
+								<td>AC</td>
+							</tr>
+							<tr>
+								<td>Database</td>
+								<td>RA</td>
+								<td>A</td>
+							</tr>
+							<tr>
+								<td>General site view</td>
+								<td>RA</td>
+								<td>AC</td>
+							</tr>
+							<tr>
+								<td>CODIV-19 information</td>
+								<td>AI</td>
+								<td>RA</td>
+							</tr>
+							<tr>
+								<td>Heroku service</td>
+								<td>ACI</td>
+								<td>RA</td>
+							</tr>
+							<tr>
+								<td>CODIV-19 map</td>
+								<td>AI</td>
+								<td>RA</td>
+							</tr>
+							<tr>
+								<td>Webpack configuration</td>
+								<td>ACI</td>
+								<td>RA</td>
+							</tr>
+						</tbody>
+					</table>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h3>The difficulties we faced:</h3>
+						<ol>
+							<li>In the beginning, we planned to use Skyscanner API for flight ticket search through the site <a href="https://rapidapi.com/" target="_blank">rapidapi.com</a>, which provides a free API-Key. But we realized that they gave access only to cached results, not live. After a long search, we decided to use the Tequila API.</li>
+						</ol>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<ol start="2">
+							<li>We use the Mysql database to collect data on registered users. The difficulty was connecting the Mysql database to the Heroku server because, by default, Heroku provides a PostgreSQL. Problem solved by hours of trying and googling, and for work Mysql on Heroku we used the application ClearDB.</li>
+						</ol>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>In general, we used:</h3>
+						<h4>For styles:</h4>
+						<ul>
+							<li>bootstrap — for marking and responsive;</li>
+							<li>toastr — for notification.</li>
+						</ul>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>For map:</h4>
+						<ul>
+							<li>leaflet — for interactive map;</li>
+							<li>leaflet.fullscreen — for add <strong>fullscreen</strong> button to map;</li>
+							<li>geojson — for representing geographic data in JSON.</li>
+						</ul>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>For registration and log in:</h4>
+						<ul>
+							<li>bcryptjs — for password-hashing;</li>
+							<li>body-parser — for parsing the incoming request bodies in a middleware;</li>
+							<li>express — provides a robust set of features for applications;</li>
+							<li>jsonwebtoken — for encoding and decoding;</li>
+							<li>mysql — for accessing a MySQL database;</li>
+							<li>sequelize — for maps an object syntax onto our database schemas.</li>
+						</ul>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>APIs:</h4>
+						<ul>
+							<li><a href="https://corona.lmao.ninja/v2/countries" target="_blank">https://corona.lmao.ninja/v2/countries</a> — for pulling out iso3 and iso2 in countries and further comparison;</li>
+							<li><a href="https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated" target="_blank">https://www.skyscanner.co.th/g/can-i-go-map-api/map/feature-collection-translated</a> — used to get data on travel restrictions;</li>
+							<li><a href="https://restcountries.eu/" target="_blank">https://restcountries.eu/</a> — Get information about countries;</li>
+							<li><a href="https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/" target="_blank">https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/</a> — Retrieve the market countries that Skyscanner support;</li>
+							<li><a href="https://tequila-api.kiwi.com/v2/search" target="_blank">https://tequila-api.kiwi.com/v2/search</a> — for flights Search;</li>
+							<li><a href="https://extreme-ip-lookup.com/" target="_blank">https://extreme-ip-lookup.com/</a> used to find user location.</li>
+						</ul>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>Else:</h4>
+						<ul>
+							<li>remarkable — used to convert Markdown to HTML code;</li>
+							<li>nodemailer — for easy as cake email sending.</li>
+						</ul>
+						<p>To organize the code, we used the MVC architectural pattern( Model–View–Controller).</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Our project structure:</h3>
+						<h4>Start of structure:</h4>
+						<img src="./assets/images/10.1.png" alt="Project Structure Start">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<h4>End of structure:</h4>
+						<img src="./assets/images/10.2.png" alt="Project Structure End">
+						<p><a href="https://github.com/IvannaHrytsiuk/skyscanner/blob/develop/CHANGELOG.md" target="_blank">Here</a> you can find our changelog file.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Activity in project:</h3>
+						<img src="./assets/images/11.png" alt="Project Structure End">
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+					<section>
+						<p>In general, Ivanka — was responsible for ticket search, authentication, database, and general site view. Roman — was responsible for CODIV-19 information, map, Heroku service, and Webpack configuration.</p>
+						<p>Quality control was provided by checking each other’s tasks and testing.</p>
+						<p>During this project, we learned that careful planning is absolutely vital to a project’s success and also this project was a brilliant learning exercise.</p>
+						<aside class="notes">
+							<!-- Help notes for speaker -->
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h3>Sources for skyscanner clone:</h3>
+					<article data-markdown>
+						<textarea data-template>
+							- [Article](https://gupalenkoroman.medium.com/article-about-rs-clone-skyscanner-7c03f96fe47f)
+							- [Overview Video](https://youtu.be/IPTz1xbhqhc)
+							- [Deployment](https://rsclone-rs2020q3-skyscanner.netlify.app/)
+						</textarea>
+					</article>
+					<aside class="notes">
+						<!-- Help notes for speaker -->
+					</aside>
+				</section>
+			</div>
+		</div>
+		<script src="./js/reveal.js"></script>
+		<script src="./js/notes/notes.js"></script>
+		<script src="./js/markdown/markdown.js"></script>
+		<script src="./js/highlight/highlight.js"></script>
+		<script>
+			const parameters = {
+				hash: true,
+				slideNumber: "h/v",
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+			};
+			Reveal.initialize(parameters);
+		</script>
+	</body>
+</html>
