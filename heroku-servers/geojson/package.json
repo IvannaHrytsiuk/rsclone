@@ -4,14 +4,16 @@
   "description": "Server for getting skyscanner geojson data.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "request": "^2.88.2"
   },
   "engines": {
-    "node": "14.3.0",
-    "npm": "6.14.5"
+    "node": "12.18.3",
+    "npm": "6.14.6"
   }
 }
