@@ -1,0 +1,1129 @@
+[
+    {
+        "id": "istanbul_tr",
+        "active": true,
+        "image": "https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/istambul.jpg?alt=media&token=155b2506-e396-410c-a4b3-52991db12ec9",
+        "name": "Istanbul",
+        "slug": "istanbul-turkey",
+        "slug_en": "istanbul-turkey",
+        "code": "IST",
+        "alternative_names": [
+            "İstanbul"
+        ],
+        "rank": 14,
+        "global_rank_dst": 0,
+        "dst_popularity_score": 4406337.0,
+        "timezone": "Europe/Istanbul",
+        "population": 11174257,
+        "airports": 2,
+        "stations": 0,
+        "hotels": 0,
+        "bus_stations": 1,
+        "subdivision": null,
+        "autonomous_territory": null,
+        "country": {
+            "id": "TR",
+            "name": "Turkey",
+            "slug": "turkey",
+            "code": "TR"
+        },
+        "region": {
+            "id": "western-asia",
+            "name": "Western Asia",
+            "slug": "western-asia"
+        },
+        "continent": {
+            "id": "asia",
+            "name": "Asia",
+            "slug": "asia",
+            "code": "AS"
+        },
+        "location": {
+            "lat": 41.008238,
+            "lon": 28.978359
+        },
+        "tags": [
+            {
+                "tag": "activities",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "adventure",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "budget-friendly",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "sightseeing",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "unusual",
+                "month_to": -1,
+                "month_from": -1
+            }
+        ]
+    },
+    {
+        "id": "london_gb",
+        "active": true,
+        "image": "https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/london.jpg?alt=media&token=4e5a2826-c930-47f2-86f0-72bde506cc54",
+        "name": "London",
+        "slug": "london-united-kingdom",
+        "slug_en": "london-united-kingdom",
+        "code": "LON",
+        "alternative_names": [],
+        "rank": 12,
+        "global_rank_dst": 1,
+        "dst_popularity_score": 2816087.0,
+        "timezone": "Europe/London",
+        "population": 7556900,
+        "airports": 6,
+        "stations": 4,
+        "hotels": 8104,
+        "bus_stations": 22,
+        "subdivision": null,
+        "autonomous_territory": null,
+        "country": {
+        "id": "GB",
+            "name": "United Kingdom",
+            "slug": "united-kingdom",
+            "code": "GB"
+        },
+        "region": {
+            "id": "northern-europe",
+            "name": "Northern Europe",
+            "slug": "northern-europe"
+        },
+        "continent": {
+        "id": "europe",
+            "name": "Europe",
+            "slug": "europe",
+            "code": "EU"
+        },
+        "location": {
+            "lat": 51.507351,
+            "lon": -0.127758
+        },
+        "tags": [
+            {
+                "tag": "activities",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "city break",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "events",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "famous cities",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "sightseeing",
+                "month_to": -1,
+                "month_from": -1
+            }
+        ]
+    },
+    {
+        "id": "dubai_ae",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/dubai.jpg?alt=media&token=f8030f3a-1dbb-4545-99cc-c8c87be30401",
+            "name": "Dubai",
+            "slug": "dubai-united-arab-emirates",
+            "slug_en": "dubai-united-arab-emirates",
+            "code": "DXB",
+            "alternative_names": [
+                "دبي"
+            ],
+            "rank": 21,
+            "global_rank_dst": 0,
+            "dst_popularity_score": 5729303.0,
+            "timezone": "Asia/Dubai",
+            "population": 1137347,
+            "airports": 3,
+            "stations": 0,
+            "hotels": 0,
+            "bus_stations": 0,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "AE",
+                "name": "United Arab Emirates",
+                "slug": "united-arab-emirates",
+                "code": "AE"
+            },
+            "region": {
+                "id": "western-asia",
+                "name": "Western Asia",
+                "slug": "western-asia"
+            },
+            "continent": {
+                "id": "asia",
+                "name": "Asia",
+                "slug": "asia",
+                "code": "AS"
+            },
+            "location": {
+                "lat": 25.204849,
+                "lon": 55.270783
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "beach",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "food&drink",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "new-york-city_ny_us",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/newyork.jpg?alt=media&token=b000a04b-7787-4117-9779-5b926ca815de",
+            "name": "New York",
+            "slug": "new-york-city-new-york-united-states",
+            "slug_en": "new-york-city-new-york-united-states",
+            "code": "NYC",
+            "alternative_names": [],
+            "rank": 0,
+            "global_rank_dst": 2,
+            "dst_popularity_score": 2119496.0,
+            "timezone": "America/New_York",
+            "population": 8175133,
+            "airports": 4,
+            "stations": 3,
+            "hotels": 1322,
+            "bus_stations": 6,
+            "subdivision": {
+                "id": "NY_US",
+                "name": "New York",
+                "slug": "new-york-united-states",
+                "code": "NY"
+            },
+            "autonomous_territory": null,
+            "country": {
+                "id": "US",
+                "name": "United States",
+                "slug": "united-states",
+                "code": "US"
+            },
+            "region": {
+                "id": "northern-america",
+                "name": "Northern America",
+                "slug": "northern-america"
+            },
+            "continent": {
+                "id": "north-america",
+                "name": "North America",
+                "slug": "north-america",
+                "code": "NA"
+            },
+            "location": {
+                "lat": 40.712784,
+                "lon": -74.005941
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "events",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "male_mv",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/male.jpg?alt=media&token=1d8c7d00-75e5-4fae-853c-5bcbdcf6f3fa",
+            "name": "Malé",
+            "slug": "male-maldives",
+            "slug_en": "male-maldives",
+            "code": "MLE",
+            "alternative_names": [],
+            "rank": 82,
+            "global_rank_dst": 4,
+            "dst_popularity_score": 2598772.0,
+            "timezone": "Indian/Maldives",
+            "population": 103693,
+            "airports": 1,
+            "stations": 0,
+            "hotels": 0,
+            "bus_stations": 0,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "MV",
+                "name": "Maldives",
+                "slug": "maldives",
+                "code": "MV"
+            },
+            "region": {
+                "id": "southern-asia",
+                "name": "Southern Asia",
+                "slug": "southern-asia"
+            },
+            "continent": {
+                "id": "asia",
+                "name": "Asia",
+                "slug": "asia",
+                "code": "AS"
+            },
+            "location": {
+                "lat": 4.175496,
+                "lon": 73.509347
+            },
+            "tags": [
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "paris_fr",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/paris.jpg?alt=media&token=4c108f74-365a-4218-b967-d83dd32e0ce4",
+            "name": "Paris",
+            "slug": "paris-france",
+            "slug_en": "paris-france",
+            "code": "PAR",
+            "alternative_names": [],
+            "rank": 28,
+            "global_rank_dst": 5,
+            "dst_popularity_score": 1758202.0,
+            "timezone": "Europe/Paris",
+            "population": 2138551,
+            "airports": 4,
+            "stations": 7,
+            "hotels": 3779,
+            "bus_stations": 9,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "FR",
+                "name": "France",
+                "slug": "france",
+                "code": "FR"
+            },
+            "region": {
+                "id": "western-europe",
+                "name": "Western Europe",
+                "slug": "western-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 48.856614,
+                "lon": 2.352222
+            },
+            "tags": [
+                {
+                    "tag": "city break",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "culture",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "romance",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "berlin_de",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/berlin.jpg?alt=media&token=ff547fd6-d084-4ae0-9ce6-884c8254a3a3",
+            "name": "Berlin",
+            "slug": "berlin-germany",
+            "slug_en": "berlin-germany",
+            "code": "BER",
+            "alternative_names": [],
+            "rank": 107,
+            "global_rank_dst": 7,
+            "dst_popularity_score": 747376.0,
+            "timezone": "Europe/Berlin",
+            "population": 3426354,
+            "airports": 3,
+            "stations": 11,
+            "hotels": 1273,
+            "bus_stations": 4,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "DE",
+                "name": "Germany",
+                "slug": "germany",
+                "code": "DE"
+            },
+            "region": {
+                "id": "central-europe",
+                "name": "Central Europe",
+                "slug": "central-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 52.520007,
+                "lon": 13.404954
+            },
+            "tags": [
+                {
+                    "tag": "city break",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "culture",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "kiev_ua",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/kyiv.jpg?alt=media&token=311d44b5-af1b-4520-8315-ec921a7c495f",
+            "name": "Kyiv",
+            "slug": "kiev-ukraine",
+            "slug_en": "kiev-ukraine",
+            "code": "IEV",
+            "alternative_names": [
+                "Київ"
+            ],
+            "rank": 63,
+            "global_rank_dst": 8,
+            "dst_popularity_score": 834260.0,
+            "timezone": "Europe/Kiev",
+            "population": 2797553,
+            "airports": 2,
+            "stations": 0,
+            "hotels": 0,
+            "bus_stations": 8,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "UA",
+                "name": "Ukraine",
+                "slug": "ukraine",
+                "code": "UA"
+            },
+            "region": {
+                "id": "eastern-europe",
+                "name": "Eastern Europe",
+                "slug": "eastern-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 50.4501,
+                "lon": 30.5234
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "budget-friendly",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "unusual",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "cairo_eg",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/egypt.jpg?alt=media&token=e67845e6-b2b7-4ea2-a425-6861fd6adf96",
+            "name": "Cairo",
+            "slug": "cairo-egypt",
+            "slug_en": "cairo-egypt",
+            "code": "CAI",
+            "alternative_names": [
+                "القاهرة"
+            ],
+            "rank": 46,
+            "global_rank_dst": 10,
+            "dst_popularity_score": 1209066.0,
+            "timezone": "Africa/Cairo",
+            "population": 7734614,
+            "airports": 1,
+            "stations": 0,
+            "hotels": 704,
+            "bus_stations": 0,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "EG",
+                "name": "Egypt",
+                "slug": "egypt",
+                "code": "EG"
+            },
+            "region": {
+                "id": "northern-africa",
+                "name": "Northern Africa",
+                "slug": "northern-africa"
+            },
+            "continent": {
+                "id": "africa",
+                "name": "Africa",
+                "slug": "africa",
+                "code": "AF"
+            },
+            "location": {
+                "lat": 30.04442,
+                "lon": 31.235712
+            },
+            "tags": [
+                {
+                    "tag": "hidden gems",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "helsinki_fi",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/inland.jpg?alt=media&token=8d7a8237-3e6c-4edd-bc17-0d16b8354230",
+            "name": "Helsinki",
+            "slug": "helsinki-finland",
+            "slug_en": "helsinki-finland",
+            "code": "HEL",
+            "alternative_names": [],
+            "rank": 180,
+            "global_rank_dst": 35,
+            "dst_popularity_score": 535472.0,
+            "timezone": "Europe/Helsinki",
+            "population": 558457,
+            "airports": 1,
+            "stations": 3,
+            "hotels": 0,
+            "bus_stations": 0,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "FI",
+                "name": "Finland",
+                "slug": "finland",
+                "code": "FI"
+            },
+            "region": {
+                "id": "northern-europe",
+                "name": "Northern Europe",
+                "slug": "northern-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 60.169856,
+                "lon": 24.938379
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "culture",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "bangkok_th",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/thai.jpg?alt=media&token=bb0ee072-98f2-4dfb-862b-987fe4c2b74f",
+            "name": "Bangkok",
+            "slug": "bangkok-thailand",
+            "slug_en": "bangkok-thailand",
+            "code": "BKK",
+            "alternative_names": [
+                "กรุงเทพมหานคร"
+            ],
+            "rank": 93,
+            "global_rank_dst": 2,
+            "dst_popularity_score": 2029367.0,
+            "timezone": "Asia/Bangkok",
+            "population": 5104476,
+            "airports": 2,
+            "stations": 1,
+            "hotels": 2699,
+            "bus_stations": 5,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "TH",
+                "name": "Thailand",
+                "slug": "thailand",
+                "code": "TH"
+            },
+            "region": {
+                "id": "south-eastern-asia",
+                "name": "South-Eastern Asia",
+                "slug": "south-eastern-asia"
+            },
+            "continent": {
+                "id": "asia",
+                "name": "Asia",
+                "slug": "asia",
+                "code": "AS"
+            },
+            "location": {
+                "lat": 13.756331,
+                "lon": 100.501765
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "adventure",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "nightlife",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "unusual",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "tokyo_jp",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/tokio.jpg?alt=media&token=43eb90f9-975e-4ead-b825-008e3ae4ec0b",
+            "name": "Tokyo",
+            "slug": "tokyo-japan",
+            "slug_en": "tokyo-japan",
+            "code": "TYO",
+            "alternative_names": [
+                "東京"
+            ],
+            "rank": 73,
+            "global_rank_dst": 11,
+            "dst_popularity_score": 1485022.0,
+            "timezone": "Asia/Tokyo",
+            "population": 8336599,
+            "airports": 2,
+            "stations": 0,
+            "hotels": 0,
+            "bus_stations": 0,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "JP",
+                "name": "Japan",
+                "slug": "japan",
+                "code": "JP"
+            },
+            "region": {
+                "id": "eastern-asia",
+                "name": "Eastern Asia",
+                "slug": "eastern-asia"
+            },
+            "continent": {
+                "id": "asia",
+                "name": "Asia",
+                "slug": "asia",
+                "code": "AS"
+            },
+            "location": {
+                "lat": 35.689487,
+                "lon": 139.691706
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "rome_it",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/rome.jpg?alt=media&token=aecf6d38-81d5-43b4-b61e-85102ae979a4",
+            "name": "Rome",
+            "slug": "rome-italy",
+            "slug_en": "rome-italy",
+            "code": "ROM",
+            "alternative_names": [
+                "Roma"
+            ],
+            "rank": 79,
+            "global_rank_dst": 26,
+            "dst_popularity_score": 653045.0,
+            "timezone": "Europe/Rome",
+            "population": 2318895,
+            "airports": 2,
+            "stations": 4,
+            "hotels": 11179,
+            "bus_stations": 1,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "IT",
+                "name": "Italy",
+                "slug": "italy",
+                "code": "IT"
+            },
+            "region": {
+                "id": "southern-europe",
+                "name": "Southern Europe",
+                "slug": "southern-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 41.902783,
+                "lon": 12.496365
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "city break",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "famous cities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "romance",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "barcelona_es",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/barcelona.jpg?alt=media&token=64d6e1ca-7c3f-499e-a6a0-48a231d4afd7",
+            "name": "Barcelona",
+            "slug": "barcelona-spain",
+            "slug_en": "barcelona-spain",
+            "code": "BCN",
+            "alternative_names": [],
+            "rank": 72,
+            "global_rank_dst": 2,
+            "dst_popularity_score": 1754451.0,
+            "timezone": "Europe/Madrid",
+            "population": 1621537,
+            "airports": 1,
+            "stations": 3,
+            "hotels": 3013,
+            "bus_stations": 5,
+            "subdivision": null,
+            "autonomous_territory": null,
+            "country": {
+                "id": "ES",
+                "name": "Spain",
+                "slug": "spain",
+                "code": "ES"
+            },
+            "region": {
+                "id": "southern-europe",
+                "name": "Southern Europe",
+                "slug": "southern-europe"
+            },
+            "continent": {
+                "id": "europe",
+                "name": "Europe",
+                "slug": "europe",
+                "code": "EU"
+            },
+            "location": {
+                "lat": 41.385064,
+                "lon": 2.173404
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "beach",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "food&drink",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "nightlife",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "los-angeles_ca_us",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/los.jpg?alt=media&token=eecce582-a8ec-4995-8a26-351c971d59c8",
+            "name": "Los Angeles",
+            "slug": "los-angeles-california-united-states",
+            "slug_en": "los-angeles-california-united-states",
+            "code": "LAX",
+            "alternative_names": [],
+            "rank": 4,
+            "global_rank_dst": 3,
+            "dst_popularity_score": 1813582.0,
+            "timezone": "America/Los_Angeles",
+            "population": 3792621,
+            "airports": 1,
+            "stations": 1,
+            "hotels": 2094,
+            "bus_stations": 8,
+            "subdivision": {
+                "id": "CA_US",
+                "name": "California",
+                "slug": "california-united-states",
+                "code": "CA"
+            },
+            "autonomous_territory": null,
+            "country": {
+                "id": "US",
+                "name": "United States",
+                "slug": "united-states",
+                "code": "US"
+            },
+            "region": {
+                "id": "northern-america",
+                "name": "Northern America",
+                "slug": "northern-america"
+            },
+            "continent": {
+                "id": "north-america",
+                "name": "North America",
+                "slug": "north-america",
+                "code": "NA"
+            },
+            "location": {
+                "lat": 34.052234,
+                "lon": -118.243685
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "beach",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "family fun",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "food&drink",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "nightlife",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "sao-paulo_sp_br",
+            "active": true,
+            "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/brazil.jpg?alt=media&token=4eec110e-238e-4de8-9358-1b0323bc9c2e",
+            "name": "São Paulo",
+            "slug": "sao-paulo-state-of-sao-paulo-brazil",
+            "slug_en": "sao-paulo-state-of-sao-paulo-brazil",
+            "code": "SAO",
+            "alternative_names": [],
+            "rank": 44,
+            "global_rank_dst": 11,
+            "dst_popularity_score": 1170849.0,
+            "timezone": "America/Sao_Paulo",
+            "population": 10021295,
+            "airports": 3,
+            "stations": 0,
+            "hotels": 0,
+            "bus_stations": 0,
+            "subdivision": {
+                "id": "SP_BR",
+                "name": "State of São Paulo",
+                "slug": "state-of-sao-paulo-brazil",
+                "code": "SP"
+            },
+            "autonomous_territory": null,
+            "country": {
+                "id": "BR",
+                "name": "Brazil",
+                "slug": "brazil",
+                "code": "BR"
+            },
+            "region": {
+                "id": "southern-america",
+                "name": "Southern America",
+                "slug": "southern-america"
+            },
+            "continent": {
+                "id": "south-america",
+                "name": "South America",
+                "slug": "south-america",
+                "code": "SA"
+            },
+            "location": {
+                "lat": -23.55052,
+                "lon": -46.633309
+            },
+            "tags": [
+                {
+                    "tag": "activities",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "festivals",
+                    "month_to": -1,
+                    "month_from": -1
+                },
+                {
+                    "tag": "sightseeing",
+                    "month_to": -1,
+                    "month_from": -1
+                }
+            ]
+    },
+    {
+        "id": "kathmandu_np",
+        "active": true,
+        "image":"https://firebasestorage.googleapis.com/v0/b/skyscanner-556f7.appspot.com/o/nepal.jpg?alt=media&token=bca05d4a-599b-4ed3-9662-f7cc0efdb90c",
+        "name": "Kathmandu",
+        "slug": "kathmandu-nepal",
+        "slug_en": "kathmandu-nepal",
+        "code": "KTM",
+        "alternative_names": [],
+        "rank": 105,
+        "global_rank_dst": 66,
+        "dst_popularity_score": 363484.0,
+        "timezone": "Asia/Kathmandu",
+        "population": 1442271,
+        "airports": 1,
+        "stations": 0,
+        "hotels": 0,
+        "bus_stations": 2,
+        "subdivision": null,
+        "autonomous_territory": null,
+        "country": {
+            "id": "NP",
+            "name": "Nepal",
+            "slug": "nepal",
+            "code": "NP"
+        },
+        "region": {
+            "id": "southern-asia",
+            "name": "Southern Asia",
+            "slug": "southern-asia"
+        },
+        "continent": {
+            "id": "asia",
+            "name": "Asia",
+            "slug": "asia",
+            "code": "AS"
+        },
+        "location": {
+            "lat": 27.717245,
+            "lon": 85.32396
+        },
+        "tags": [
+            {
+                "tag": "adventure",
+                "month_to": -1,
+                "month_from": -1
+            },
+            {
+                "tag": "sightseeing",
+                "month_to": -1,
+                "month_from": -1
+            }
+        ]
+    }
+]
